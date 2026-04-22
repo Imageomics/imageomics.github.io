@@ -217,6 +217,10 @@
     flex: 0.9;
 }
 
+.footer-section.social {
+    flex: 0.95;
+}
+
 .footer-section h3 {
     color: #ffffff;
     margin-bottom: 15px;
@@ -242,6 +246,47 @@
 
 .footer-section ul li a:hover {
     color: white;
+    text-decoration: underline;
+}
+
+.footer-social-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-social-list li {
+    margin: 0;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.5;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-social-link img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.95;
+}
+
+.footer-social-link span {
+    font-size: 0.98rem;
+    font-weight: 600;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus {
+    color: #ffffff;
     text-decoration: underline;
 }
 
@@ -446,6 +491,11 @@
         display: flex;
         justify-content: center;
         width: 100%;
+    }
+
+    .footer-social-list {
+        grid-template-columns: 1fr;
+        justify-items: center;
     }
 
     .nsf-logo-container {

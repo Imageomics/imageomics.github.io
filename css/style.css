@@ -40,6 +40,27 @@ a {
     text-decoration: none;
 }
 
+#header-placeholder,
+#footer-placeholder {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s ease;
+}
+
+#header-placeholder {
+    min-height: 92px;
+}
+
+#footer-placeholder {
+    min-height: 240px;
+}
+
+#header-placeholder.is-ready,
+#footer-placeholder.is-ready {
+    opacity: 1;
+    visibility: visible;
+}
+
 .page-shell {
     min-height: calc(100vh - 220px);
 }
