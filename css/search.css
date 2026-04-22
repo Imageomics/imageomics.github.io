@@ -1,0 +1,124 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    flex: 0 1 220px;
+    max-width: 240px;
+    min-width: 160px;
+    background: color-mix(in srgb, var(--site-primary) 8%, white);
+    border-radius: 20px;
+    border: 1px solid var(--site-border);
+    position: relative;
+    padding: 0 10px;
+    margin-left: auto;
+    margin-right: 8px;
+    overflow: visible;
+}
+
+.search-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+}
+
+.search-icon-btn img {
+    height: 20px;
+    width: 20px;
+}
+
+.search-bar {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 10px 8px;
+    font-size: 14px;
+    outline: none;
+    position: relative;
+    z-index: 2;
+}
+
+.search-bar::placeholder {
+    color: var(--site-text-muted);
+}
+
+.search-results {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--site-surface);
+    border: 1px solid var(--site-border);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-height: 320px;
+    overflow-y: auto;
+    z-index: 1000;
+    min-width: 240px;
+}
+
+.search-results.is-visible {
+    display: block;
+}
+
+.search-results-list {
+    padding: 10px 0;
+}
+
+.search-result-item {
+    display: block;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--site-border);
+    color: var(--site-text);
+    transition: background 0.2s ease;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover,
+.search-result-item:focus-visible {
+    background: var(--site-link-soft);
+}
+
+.search-result-title {
+    font-weight: 650;
+    color: var(--site-link);
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.search-result-snippet {
+    font-size: 12px;
+    color: var(--site-text-muted);
+    line-height: 1.4;
+}
+
+.search-no-results {
+    padding: 16px;
+    text-align: center;
+    color: var(--site-text-muted);
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        order: 2;
+        max-width: none;
+        width: 100%;
+        margin: 10px 0 0;
+    }
+
+    .search-results {
+        min-width: 0;
+    }
+}
