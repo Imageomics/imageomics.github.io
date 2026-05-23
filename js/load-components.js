@@ -60,6 +60,9 @@
                     if (typeof window.initSearchUI === 'function') {
                         window.initSearchUI();
                     }
+                    if (typeof window.initActiveNav === 'function') {
+                        window.initActiveNav();
+                    }
                 }
 
                 window.requestAnimationFrame(() => {
