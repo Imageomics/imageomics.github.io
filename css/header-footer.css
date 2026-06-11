@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
 /* ─── Typography ─────────────────────────────────────────────────────────── */
 
 .header-banner .header-title,
 .footer-section h3 {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Figtree', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 .nav-links li a,
@@ -247,8 +249,8 @@
 }
 
 .dropdown-menu li a.is-current {
-    background-color: rgba(0, 143, 168, 0.14);
-    color: var(--header-action-color, #006f82);
+    background-color: transparent;
+    color: var(--header-action-color, #0097B2);
     font-weight: 700;
     box-shadow: none;
     border-bottom: none;
@@ -453,6 +455,22 @@
     margin-bottom: 14px;
     color: #ffffff;
     font-weight: 600;
+}
+
+.footer-address {
+    margin: 0 0 16px;
+    color: rgba(255, 255, 255, 0.84);
+    font-style: normal;
+    line-height: 1.55;
+}
+
+.footer-location-line {
+    max-width: 1180px;
+    margin: 0 auto 18px;
+    color: rgba(255, 255, 255, 0.82);
+    font-style: normal;
+    font-size: 0.9rem;
+    line-height: 1.45;
 }
 
 .footer-section p,
@@ -852,6 +870,10 @@
     .footer-disclaimer {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .footer-location-line {
+        text-align: center;
     }
 
     .footer-hosted {

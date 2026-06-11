@@ -32,7 +32,7 @@ body {
     margin: 0;
     background: var(--site-bg);
     color: var(--site-text);
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {
@@ -92,7 +92,9 @@ a {
 
 .stub-hero h1,
 .stub-page h1 {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Figtree', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     line-height: 1.05;
 }
 
@@ -127,7 +129,9 @@ a {
 .stub-card h2 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Figtree', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     font-size: 1.2rem;
 }
 
@@ -160,7 +164,9 @@ a {
 
 .policy-hero h1,
 .policy-content h2 {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Figtree', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     color: var(--site-text);
 }
 
@@ -462,7 +468,9 @@ a {
     display: grid;
     place-items: center;
     color: #6a7d89;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Figtree', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     font-size: 1.2rem;
     font-weight: 700;
 }
@@ -475,7 +483,9 @@ a {
 .person-details h3 {
     min-height: 2.4rem;
     margin: 0 0 0.35rem;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Figtree', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     font-size: 0.98rem;
     line-height: 1.2;
     display: flex;

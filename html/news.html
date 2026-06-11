@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>News | Imageomics Institute</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/news.css" />
     <script src="../js/script.js" defer></script>
     <script src="../js/load-components.js" defer></script>
     <script src="../js/news.js" defer></script>
@@ -13,12 +14,23 @@
     <div id="header-placeholder"></div>
     <main class="page-shell">
         <section class="stub-hero">
-            <span class="stub-kicker">News</span>
             <h1>News</h1>
             <p>Discover announcements and updates from across the NSF HDR Ecosystem.</p>
         </section>
-        <section class="stub-page" aria-label="News list">
-            <div class="stub-grid" id="news-list"></div>
+        <section class="stub-page news-list-section" aria-label="News list">
+            <form class="news-search" role="search">
+                <label for="news-search-input">Search news</label>
+                <input id="news-search-input" type="search" placeholder="Search news" autocomplete="off" />
+                <div class="news-year-dropdown" id="news-year-filter">
+                    <button class="news-year-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span>All years</span>
+                    </button>
+                    <div class="news-year-menu" role="listbox" aria-label="Filter news by year"></div>
+                </div>
+            </form>
+            <p class="news-results-count" id="news-results-count" aria-live="polite"></p>
+            <div class="news-grid" id="news-list"></div>
+            <nav class="news-pagination" id="news-pagination" aria-label="News pages"></nav>
         </section>
     </main>
     <div id="footer-placeholder"></div>
