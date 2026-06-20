@@ -1,11 +1,8 @@
-/**
- * Load Header and Footer Components
- * This script dynamically loads the header and footer from central HTML files.
- * It automatically adjusts relative paths based on the current page's location.
- */
 
 (function() {
     'use strict';
+
+    const COMPONENT_CACHE_VERSION = '1';
 
     function getPathPrefix() {
         const path = window.location.pathname;
@@ -35,8 +32,64 @@
         return html;
     }
 
+    function getCachedComponent(url) {
+        try {
+            const absoluteUrl = new URL(url, window.location.href).href;
+            return window.sessionStorage.getItem(
+                `imageomics-component:${COMPONENT_CACHE_VERSION}:${absoluteUrl}`
+            );
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function cacheComponent(url, html) {
+        try {
+            const absoluteUrl = new URL(url, window.location.href).href;
+            window.sessionStorage.setItem(
+                `imageomics-component:${COMPONENT_CACHE_VERSION}:${absoluteUrl}`,
+                html
+            );
+        } catch (error) {
+            // Storage may be unavailable in private browsing or restricted contexts.
+        }
+    }
+
+    function renderComponent(html, targetId) {
+        const target = document.getElementById(targetId);
+        if (!target) {
+            console.error(`Target element #${targetId} not found`);
+            return;
+        }
+
+        const prefix = getPathPrefix();
+        target.innerHTML = adjustPaths(html, prefix);
+
+        if (targetId === 'header-placeholder') {
+            if (typeof window.initHamburger === 'function') {
+                window.initHamburger();
+            }
+            if (typeof window.initSearchUI === 'function') {
+                window.initSearchUI();
+            }
+            if (typeof window.initActiveNav === 'function') {
+                window.initActiveNav();
+            }
+        }
+
+        window.requestAnimationFrame(() => {
+            target.classList.add('is-ready');
+        });
+    }
+
     function loadComponent(url, targetId) {
-        fetch(url, { cache: 'no-cache' })
+        const cachedHtml = getCachedComponent(url);
+        if (cachedHtml) {
+            renderComponent(cachedHtml, targetId);
+            return;
+        }
+
+        fetch(url, { cache: 'force-cache' })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Failed to load ${url}: ${response.status}`);
@@ -44,30 +97,8 @@
                 return response.text();
             })
             .then((html) => {
-                const target = document.getElementById(targetId);
-                if (!target) {
-                    console.error(`Target element #${targetId} not found`);
-                    return;
-                }
-
-                const prefix = getPathPrefix();
-                target.innerHTML = adjustPaths(html, prefix);
-
-                if (targetId === 'header-placeholder') {
-                    if (typeof window.initHamburger === 'function') {
-                        window.initHamburger();
-                    }
-                    if (typeof window.initSearchUI === 'function') {
-                        window.initSearchUI();
-                    }
-                    if (typeof window.initActiveNav === 'function') {
-                        window.initActiveNav();
-                    }
-                }
-
-                window.requestAnimationFrame(() => {
-                    target.classList.add('is-ready');
-                });
+                cacheComponent(url, html);
+                renderComponent(html, targetId);
             })
             .catch((error) => {
                 console.error(`Error loading component from ${url}:`, error);

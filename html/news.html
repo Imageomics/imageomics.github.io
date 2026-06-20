@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>News | Imageomics Institute</title>
+    <link rel="preload" href="../images/gradient-b-hero.jpg" as="image" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/news.css" />
     <script src="../js/script.js" defer></script>
     <script src="../js/load-components.js" defer></script>
     <script src="../js/news.js" defer></script>
 </head>
-<body>
+<body class="news-page">
     <div id="header-placeholder"></div>
     <main class="page-shell">
-        <section class="stub-hero">
-            <h1>News</h1>
-            <p>Discover announcements and updates from across the NSF HDR Ecosystem.</p>
-        </section>
+        <div class="news-gradient-stage">
+            <section class="stub-hero news-hero">
+                <h1>News</h1>
+                <p>Discover announcements and updates from across the NSF HDR Ecosystem.</p>
+            </section>
+            <div class="news-featured-slot" id="news-featured"></div>
+        </div>
         <section class="stub-page news-list-section" aria-label="News list">
             <form class="news-search" role="search">
                 <label for="news-search-input">Search news</label>
