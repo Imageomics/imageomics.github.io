@@ -14,4 +14,4 @@ Then open <http://[::]:8080/> in your browser of choice.
 
 ## Acknowledgments
 
-The header, footer, and search code for this website were initialized from the [HDR Ecosystem website](https://github.com/HDR-Ecosystem/hdr-website), which has been shared under an [MIT license](HDR-LICENSE.md).
+The header, footer, and search code for this website were initialized from the [HDR Ecosystem website](https://github.com/HDR-Ecosystem/hdr-website), which has been shared under an [MIT license](https://github.com/HDR-Ecosystem/hdr-website/blob/main/LICENSE).
