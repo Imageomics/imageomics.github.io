@@ -21,7 +21,7 @@
             </section>
             <div class="news-featured-slot" id="news-featured"></div>
         </div>
-        <section class="stub-page news-list-section" aria-label="News list">
+        <section class="news-controls-section" aria-label="News search and filters">
             <form class="news-search" role="search">
                 <label for="news-search-input">Search news</label>
                 <input id="news-search-input" type="search" placeholder="Search news" autocomplete="off" />
@@ -33,8 +33,11 @@
                 </div>
             </form>
             <p class="news-results-count" id="news-results-count" aria-live="polite"></p>
+        </section>
+        <section class="stub-page news-list-section" aria-label="News list">
             <div class="news-grid" id="news-list"></div>
-            <nav class="news-pagination" id="news-pagination" aria-label="News pages"></nav>
+            <nav class="news-pagination news-pagination-bottom" id="news-pagination" aria-label="News pages, blue style"></nav>
+            <nav class="news-pagination news-pagination-bottom-previous news-pagination-previous" id="news-pagination-bottom-previous" aria-label="News pages, white style bottom"></nav>
         </section>
     </main>
     <div id="footer-placeholder"></div>

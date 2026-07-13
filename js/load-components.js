@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-    const COMPONENT_CACHE_VERSION = '1';
+    const COMPONENT_CACHE_VERSION = '3';
 
     function getPathPrefix() {
         const path = window.location.pathname;

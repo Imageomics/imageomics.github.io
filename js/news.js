@@ -955,7 +955,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const newsList = document.querySelector('#news-list');
     const featuredNews = document.querySelector('#news-featured');
-    const pagination = document.querySelector('#news-pagination');
+    const paginationControls = document.querySelectorAll('.news-pagination');
     const newsSearch = document.querySelector('.news-search');
     const searchInput = document.querySelector('#news-search-input');
     const yearFilter = document.querySelector('#news-year-filter');
@@ -1169,21 +1169,26 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderPagination = (currentPage, totalPages) => {
-        if (!pagination) return;
-
         if (totalPages <= 1) {
-            pagination.innerHTML = '';
+            paginationControls.forEach((pagination) => {
+                pagination.innerHTML = '';
+            });
             return;
         }
 
-        pagination.innerHTML = renderPaginationButtons(currentPage, totalPages);
+        const paginationMarkup = renderPaginationButtons(currentPage, totalPages);
+        paginationControls.forEach((pagination) => {
+            pagination.innerHTML = paginationMarkup;
+        });
     };
 
     const renderPage = (page) => {
         if (!filteredNewsItems.length) {
             if (featuredNews) featuredNews.innerHTML = '';
             newsList.innerHTML = '<p class="news-empty-state">No news matched your search.</p>';
-            if (pagination) pagination.innerHTML = '';
+            paginationControls.forEach((pagination) => {
+                pagination.innerHTML = '';
+            });
             renderResultsCount();
             return;
         }
@@ -1221,11 +1226,13 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    pagination?.addEventListener('click', (event) => {
-        const pageButton = event.target.closest('button[data-page]');
-        if (!pageButton || pageButton.disabled) return;
+    paginationControls.forEach((pagination) => {
+        pagination.addEventListener('click', (event) => {
+            const pageButton = event.target.closest('button[data-page]');
+            if (!pageButton || pageButton.disabled) return;
 
-        goToPage(Number.parseInt(pageButton.dataset.page, 10));
+            goToPage(Number.parseInt(pageButton.dataset.page, 10));
+        });
     });
 
     const applyFilters = () => {
