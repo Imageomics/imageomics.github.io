@@ -22,9 +22,9 @@ identifiers:
   - description: "The GitHub release URL of tag v0.1.0."
     type: url
     value: "https://github.com/Imageomics/imageomics.github.io/releases/tag/v0.1.0"
-  - description: "The GitHub URL of the commit tagged with <tag-name>."
+  - description: "The GitHub URL of the commit tagged with v0.1.0."
     type: url
-    value: "https://github.com/Imageomics/imageomics.github.io/tree/<commit-hash>" # Update on release
+    value: "https://github.com/Imageomics/imageomics.github.io/tree/ee62c6475cbb389c81eeebaa3939e434c6bb8eba" # Update on release
 keywords:
   - imageomics
   - website
