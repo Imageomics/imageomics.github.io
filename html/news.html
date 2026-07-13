@@ -4,13 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>News | Imageomics Institute</title>
+    <link rel="preload" href="../images/gradient-b-hero.jpg" as="image" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/news.css" />
     <script src="../js/script.js" defer></script>
     <script src="../js/load-components.js" defer></script>
+    <script src="../js/news.js" defer></script>
 </head>
-<body>
+<body class="news-page">
     <div id="header-placeholder"></div>
-    <main></main>
+    <main class="page-shell">
+        <div class="news-gradient-stage">
+            <section class="stub-hero news-hero">
+                <h1>News</h1>
+                <p>Discover announcements and updates from across the NSF HDR Ecosystem.</p>
+            </section>
+            <div class="news-featured-slot" id="news-featured"></div>
+        </div>
+        <section class="news-controls-section" aria-label="News search and filters">
+            <form class="news-search" role="search">
+                <label for="news-search-input">Search news</label>
+                <input id="news-search-input" type="search" placeholder="Search news" autocomplete="off" />
+                <div class="news-year-dropdown" id="news-year-filter">
+                    <button class="news-year-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span>All years</span>
+                    </button>
+                    <div class="news-year-menu" role="listbox" aria-label="Filter news by year"></div>
+                </div>
+            </form>
+            <p class="news-results-count" id="news-results-count" aria-live="polite"></p>
+        </section>
+        <section class="stub-page news-list-section" aria-label="News list">
+            <div class="news-grid" id="news-list"></div>
+            <nav class="news-pagination news-pagination-bottom" id="news-pagination" aria-label="News pages, blue style"></nav>
+            <nav class="news-pagination news-pagination-bottom-previous news-pagination-previous" id="news-pagination-bottom-previous" aria-label="News pages, white style bottom"></nav>
+        </section>
+    </main>
     <div id="footer-placeholder"></div>
 </body>
 </html>
