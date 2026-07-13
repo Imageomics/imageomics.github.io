@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "validate:events": "node scripts/validate-events.mjs"
+  }
+}
