@@ -1,0 +1,37 @@
+abstract: "Repository to host the Imageomics Institute's website."
+authors:
+- family-names: "Amo-Mensah"
+  given-names: "Jason"
+  affiliation: "The Ohio State University"
+- family-names: Limputra
+  given-names: Chloe
+  affiliation: "The Ohio State University"
+- family-names: "Campolongo"
+  given-names: "Elizabeth G."
+  affiliation: "The Ohio State University"
+  orcid: "https://orcid.org/0000-0003-0846-2413"
+- family-names: Boghrat
+  given-names: Diane
+  affiliation: "The Ohio State University"
+- family-names: Fonner
+  given-names: Brittany
+  affiliation: "The Ohio State University"
+cff-version: 1.2.0
+date-released: "2026-07-13"
+identifiers:
+  - description: "The GitHub release URL of tag v0.1.0."
+    type: url
+    value: "https://github.com/Imageomics/imageomics.github.io/releases/tag/v0.1.0"
+  - description: "The GitHub URL of the commit tagged with <tag-name>."
+    type: url
+    value: "https://github.com/Imageomics/imageomics.github.io/tree/<commit-hash>" # Update on release
+keywords:
+  - imageomics
+  - website
+license: CC-BY-4.0
+message: "If you find this software helpful in your research, please cite both the software and our paper."
+repository-code: "https://github.com/Imageomics/imageomics.github.io"
+title: "Imageomics Website"
+version: 0.1.0
+#doi: <version-agnostic DOI from Zenodo>
+type: software
