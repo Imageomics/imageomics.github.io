@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-    const COMPONENT_CACHE_VERSION = '3';
+    const COMPONENT_CACHE_VERSION = '4';
 
     function getPathPrefix() {
         const path = window.location.pathname;
@@ -105,10 +105,21 @@
             });
     }
 
+    function ensureFavicon(prefix) {
+        if (document.querySelector('link[rel~="icon"]')) return;
+
+        const favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.type = 'image/png';
+        favicon.href = `${prefix}images/favicon.png`;
+        document.head.appendChild(favicon);
+    }
+
     function initComponents() {
         const prefix = getPathPrefix();
         const componentsPath = `${prefix}html/components/`;
 
+        ensureFavicon(prefix);
         loadComponent(`${componentsPath}header.html`, 'header-placeholder');
         loadComponent(`${componentsPath}footer.html`, 'footer-placeholder');
     }

@@ -10,6 +10,7 @@ html {
 }
 
 body {
+    --site-notice-height: 44px;
     --color-lm-primary: #5d8095;
     --color-lm-url: #007f96;
     --color-lm-url-10: #007f961a;
@@ -48,7 +49,7 @@ a {
 }
 
 #header-placeholder {
-    min-height: 92px;
+    min-height: calc(92px + var(--site-notice-height));
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -76,6 +77,18 @@ a {
 
 .stub-hero {
     padding: 5rem 0 3rem;
+}
+
+.home-progress {
+    min-height: calc(100vh - 370px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home-progress p {
+    max-width: 42rem;
+    color: var(--site-text-muted);
 }
 
 .stub-kicker {
