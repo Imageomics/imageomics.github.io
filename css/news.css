@@ -672,7 +672,7 @@ a.news-card:focus-visible {
 }
 
 .news-pagination-bottom-previous {
-    margin-top: 0.75rem;
+    margin-top: 2rem;
 }
 
 .news-pagination-previous {
@@ -882,12 +882,16 @@ a.news-featured-card:focus-visible {
     }
 
     .news-pagination {
-        width: 100%;
-        overflow-x: auto;
-        border-radius: 18px;
+        width: fit-content;
+        border-radius: 999px;
     }
 
     .news-pagination button {
         flex: 0 0 auto;
+    }
+
+    .news-pagination > button:not(.news-pagination-control):not([aria-current="page"]),
+    .news-pagination-ellipsis {
+        display: none;
     }
 }

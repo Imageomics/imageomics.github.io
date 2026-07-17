@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-    const COMPONENT_CACHE_VERSION = '3';
+    const COMPONENT_CACHE_VERSION = '5';
 
     function getPathPrefix() {
         const path = window.location.pathname;
@@ -66,6 +66,12 @@
         target.innerHTML = adjustPaths(html, prefix);
 
         if (targetId === 'header-placeholder') {
+            const notice = document.createElement('div');
+            notice.className = 'site-notice';
+            notice.setAttribute('role', 'status');
+            notice.innerHTML = '<strong>Work in progress</strong><span aria-hidden="true">&mdash;</span><span>this website is still being built.</span>';
+            target.prepend(notice);
+
             if (typeof window.initHamburger === 'function') {
                 window.initHamburger();
             }
@@ -105,10 +111,21 @@
             });
     }
 
+    function ensureFavicon(prefix) {
+        if (document.querySelector('link[rel~="icon"]')) return;
+
+        const favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.type = 'image/png';
+        favicon.href = `${prefix}images/Imageomics-logo.png`;
+        document.head.appendChild(favicon);
+    }
+
     function initComponents() {
         const prefix = getPathPrefix();
         const componentsPath = `${prefix}html/components/`;
 
+        ensureFavicon(prefix);
         loadComponent(`${componentsPath}header.html`, 'header-placeholder');
         loadComponent(`${componentsPath}footer.html`, 'footer-placeholder');
     }
