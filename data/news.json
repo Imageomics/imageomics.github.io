@@ -13,7 +13,7 @@
     "date": "May 26, 2026",
     "category": "Digital Digest Newsletter, Issue 9",
     "year": 2026,
-    "image": "../images/news-images/Imageomics-digital-digest-issue-9.png",
+    "image": "../news-images/Imageomics-digital-digest-issue-9.png",
     "imageAlt": "Imageomics Digital Digest Newsletter Issue 9 cover",
     "description": "The 9th edition highlights key moments from the Imageomics community, including the Imageomics Conference, recent awards, and community milestones.",
     "url": "news/imageomics-digital-digest-issue-9.html",
@@ -30,7 +30,7 @@
     "title": "Inside the First Imageomics Conference",
     "date": "May 14, 2026",
     "year": 2026,
-    "image": "../images/news-images/inside-first-imageomics.jpg",
+    "image": "../news-images/inside-first-imageomics.jpg",
     "imageAlt": "Group photo from the first Imageomics Conference",
     "description": "Researchers, technologists, conservationists, and students gathered for the first-ever Imageomics Conference to explore how images and machine learning can transform biodiversity science.",
     "url": "news/inside-first-imageomics-conference.html"
@@ -39,7 +39,7 @@
     "title": "Imageomics Publication Awarded the Robert May Prize",
     "date": "April 17, 2026",
     "year": 2026,
-    "image": "../images/news-images/robert-may-prize.webp",
+    "image": "../news-images/robert-may-prize.webp",
     "imageAlt": "Computer vision and drone analysis overlay on animals in a landscape",
     "description": "Imageomics researcher Jenna Kline has been recognized for her work on new methods to study animal behavior using drones, computer vision, and edge AI.",
     "url": "news/robert-may-prize.html"
@@ -48,7 +48,7 @@
     "title": "Jenna Kline Named 2025-2026 Presidential Fellow",
     "date": "January 21, 2026",
     "year": 2026,
-    "image": "../images/news-images/O-H-I-O-Kenya.jpg",
+    "image": "../news-images/O-H-I-O-Kenya.jpg",
     "imageAlt": "Ohio State students and faculty on the Kenya savannah making the O-H-I-O sign",
     "description": "Jenna Kline has been named a 2025-2026 Presidential Fellow, becoming the first Imageomics PhD candidate to receive this prestigious award.",
     "url": "news/jenna-kline-presidential-fellow.html"
@@ -57,7 +57,7 @@
     "title": "Imageomics Publication Shortlisted for the Robert May Prize",
     "date": "March 9, 2026",
     "year": 2026,
-    "image": "../images/news-images/zebra_drones.jpg",
+    "image": "../news-images/zebra_drones.jpg",
     "imageAlt": "Illustration of zebras, drone sensing, and behavior levels",
     "description": "Imageomics researchers have been shortlisted for a major international ecology award for their work on new methods to study animal behavior using advanced technology.",
     "url": "news/robert-may-prize-shortlist.html"
@@ -67,7 +67,7 @@
     "date": "March 9, 2026",
     "category": "Digital Digest Newsletter, Issue 8",
     "year": 2026,
-    "image": "../images/news-images/imageomics-digital-digest-issue-8.png",
+    "image": "../news-images/imageomics-digital-digest-issue-8.png",
     "imageAlt": "Imageomics Digital Digest Newsletter Issue 8 cover",
     "description": "Issue 8 highlights Imageomics milestones across NeurIPS, the First Imageomics Conference, AI-ready ecological data infrastructure, and new computer vision methods.",
     "url": "news/imageomics-digital-digest-issue-8.html",
@@ -77,7 +77,7 @@
     "title": "Imageomics Launches New Catalog Showcasing Open Science Resources for AI and Nature",
     "date": "December 10, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-launches-new-catalog-showcasing-open-science-resources-ai-and-nature.png",
+    "image": "../news-images/imageomics-launches-new-catalog-showcasing-open-science-resources-ai-and-nature.png",
     "description": "If last week’s Cyber Specials slipped past you, there’s good news - Imageomics...",
     "url": "news/imageomics-launches-new-catalog-showcasing-open-science-resources-ai-and-nature.html"
   },
@@ -85,7 +85,7 @@
     "title": "Berger-Wolf named AAAI Fellow",
     "date": "December 9, 2025",
     "year": 2025,
-    "image": "../images/news-images/berger-wolf-named-aaai-fellow-image-01.jpeg",
+    "image": "../news-images/berger-wolf-named-aaai-fellow-image-01.jpeg",
     "imageAlt": "head and shoulder photo of Berger-Wolfe speaking in front of black background with image of computer chip graphic",
     "description": "Tanya Berger-Wolf, director of Ohio State’s Translational Data Analytics...",
     "url": "news/berger-wolf-named-aaai-fellow.html"
@@ -94,7 +94,7 @@
     "title": "Kline wins first place at ACM/IEEE SEC 2025 student research contest",
     "date": "December 9, 2025",
     "year": 2025,
-    "image": "../images/news-images/kline-wins-first-place-acmieee-sec-2025-student-research-contest.jpeg",
+    "image": "../news-images/kline-wins-first-place-acmieee-sec-2025-student-research-contest.jpeg",
     "imageAlt": "Jenna Kline",
     "description": "Edge-AI drone work earns top honor at Washington, D.C. symposium",
     "url": "news/kline-wins-first-place-acmieee-sec-2025-student-research-contest.html"
@@ -103,7 +103,7 @@
     "title": "Berger-Wolf Featured on Now Ohio State Podcast",
     "date": "November 20, 2025",
     "year": 2025,
-    "image": "../images/news-images/berger-wolf-featured-now-ohio-state-podcast.jpg",
+    "image": "../news-images/berger-wolf-featured-now-ohio-state-podcast.jpg",
     "imageAlt": "Tanya Berger-Wolf",
     "description": "Saving and preserving animal species with AI Artificial intelligence is helping...",
     "url": "news/berger-wolf-featured-now-ohio-state-podcast.html"
@@ -119,7 +119,7 @@
     "title": "Smart Win for Smart Wilds",
     "date": "November 9, 2025",
     "year": 2025,
-    "image": "../images/news-images/smart-win-smart-wilds.jpg",
+    "image": "../news-images/smart-win-smart-wilds.jpg",
     "imageAlt": "Jenna Kline",
     "description": "OSU PhD candidate Jenna Kline earns competitive AGGRS award to advance edge AI...",
     "url": "news/smart-win-smart-wilds.html"
@@ -128,7 +128,7 @@
     "title": "NSF HDR launches Year Two ML Challenge to build AI that works in the real world",
     "date": "September 17, 2025",
     "year": 2025,
-    "image": "../images/news-images/nsf-hdr-launches-year-two-ml-challenge-build-ai-works-real-world-image-01.png",
+    "image": "../news-images/nsf-hdr-launches-year-two-ml-challenge-build-ai-works-real-world-image-01.png",
     "imageAlt": "Bannerr",
     "description": "The National Science Foundation’s Harnessing the Data Revolution (HDR) ecosystem...",
     "url": "news/nsf-hdr-launches-year-two-ml-challenge-build-ai-works-real-world.html"
@@ -137,7 +137,7 @@
     "title": "Imageomics Digital Digest, Issue 7",
     "date": "September 9, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-digital-digest-issue-7.png",
+    "image": "../news-images/imageomics-digital-digest-issue-7.png",
     "imageAlt": "Digital 7",
     "description": "Imageomics Institute's Digital Digest, Issue 7, is out and packed with updates...",
     "url": "news/imageomics-digital-digest-issue-7.html"
@@ -146,7 +146,7 @@
     "title": "Dr. Brittany Fonner Joins Imageomics as Research Programs and Communications Specialist",
     "date": "September 7, 2025",
     "year": 2025,
-    "image": "../images/news-images/dr-brittany-fonner-joins-imageomics-research-programs-and-communications-specialist.jpg",
+    "image": "../news-images/dr-brittany-fonner-joins-imageomics-research-programs-and-communications-specialist.jpg",
     "imageAlt": "Brittany Fonner",
     "description": "The Imageomics Institute is pleased to welcome Dr. Brittany Fonner to the team...",
     "url": "news/dr.-brittany-fonner-joins-imageomics-research-programs-and-communications-specialist.html"
@@ -162,7 +162,7 @@
     "title": "FuncaPalooza 2025 Launches New Era of Open, AI-Driven Biodiversity Research",
     "date": "September 7, 2025",
     "year": 2025,
-    "image": "../images/news-images/funcapalooza-2025-launches-new-era-open-ai-driven-biodiversity-research.png",
+    "image": "../news-images/funcapalooza-2025-launches-new-era-open-ai-driven-biodiversity-research.png",
     "imageAlt": "Group photo",
     "description": "The inaugural FuncaPalooza workshop wrapped up with a burst of creativity and...",
     "url": "news/funcapalooza-2025-launches-new-era-open-ai-driven-biodiversity-research.html"
@@ -171,7 +171,7 @@
     "title": "Imageomics Joins $600,000 NSF FAIROS Award for AI-ready Ecology Data Infrastructure",
     "date": "September 7, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-joins-600000-nsf-fairos-award-ai-ready-ecology-data-infrastructure.png",
+    "image": "../news-images/imageomics-joins-600000-nsf-fairos-award-ai-ready-ecology-data-infrastructure.png",
     "imageAlt": "AI and Nature image",
     "description": "This article was updated on March 12, 2026, to reflect a change in Hilmar Lapp’s...",
     "url": "news/imageomics-joins-600000-nsf-fairos-award-ai-ready-ecology-data-infrastructure.html"
@@ -180,7 +180,7 @@
     "title": "Berger-Wolf Champions FAIR, CARE and AI for Nature at ESA Meeting",
     "date": "August 11, 2025",
     "year": 2025,
-    "image": "../images/news-images/berger-wolf-champions-fair-care-and-ai-nature-esa-meeting.jpg",
+    "image": "../news-images/berger-wolf-champions-fair-care-and-ai-nature-esa-meeting.jpg",
     "imageAlt": "ESA 2025",
     "description": "Professor Tanya Berger-Wolf, Imageomics Institute director, made notable...",
     "url": "news/berger-wolf-champions-fair-care-and-ai-nature-esa-meeting.html"
@@ -189,7 +189,7 @@
     "title": "Full Professor, Full Picture: Arnab Nandi Advances Data Frontiers at Ohio State",
     "date": "August 11, 2025",
     "year": 2025,
-    "image": "../images/news-images/full-professor-full-picture-arnab-nandi-advances-data-frontiers-ohio-state.jpg",
+    "image": "../news-images/full-professor-full-picture-arnab-nandi-advances-data-frontiers-ohio-state.jpg",
     "imageAlt": "Anab Nandi",
     "description": "Dr. Arnab Nandi, an investigator with the Imageomics Institute and a faculty...",
     "url": "news/full-professor-full-picture-arnab-nandi-advances-data-frontiers-ohio-state.html"
@@ -198,7 +198,7 @@
     "title": "Imageomics Digital Digest: Issue 6",
     "date": "August 3, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-digital-digest-issue-6.png",
+    "image": "../news-images/imageomics-digital-digest-issue-6.png",
     "imageAlt": "over image",
     "description": "BioCLIP 2 is here, and it’s reshaping how we explore our world. The latest...",
     "url": "news/imageomics-digital-digest-issue-6.html"
@@ -207,7 +207,7 @@
     "title": "Chain Reaction Series: Jenna Kline’s Drone Research Takes Conservation to New Heights",
     "date": "July 30, 2025",
     "year": 2025,
-    "image": "../images/news-images/chain-reaction-series-jenna-klines-drone-research-takes-conservation-new-heights.jpg",
+    "image": "../news-images/chain-reaction-series-jenna-klines-drone-research-takes-conservation-new-heights.jpg",
     "imageAlt": "Kline research",
     "description": "From Ohio to Kenya, Kline’s work in adaptive AI-driven sensor systems is...",
     "url": "news/chain-reaction-series-jenna-klines-drone-research-takes-conservation-new-heights.html"
@@ -216,7 +216,7 @@
     "title": "Imageomics Institute Issues Call for Papers for NeurIPS 2025 Workshop",
     "date": "July 30, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-institute-issues-call-papers-neurips-2025-workshop.jpg",
+    "image": "../news-images/imageomics-institute-issues-call-papers-neurips-2025-workshop.jpg",
     "imageAlt": "NeurIPS and Imageomics",
     "description": "Workshop explores how machine learning can transform our understanding of...",
     "url": "news/imageomics-institute-issues-call-papers-neurips-2025-workshop.html"
@@ -225,7 +225,7 @@
     "title": "A Grand Time with AI for Nature",
     "date": "July 28, 2025",
     "year": 2025,
-    "image": "../images/news-images/grand-time-ai-nature-image-01.jpg",
+    "image": "../news-images/grand-time-ai-nature-image-01.jpg",
     "imageAlt": "Grandparents Day 2025",
     "description": "Ohio State’s Grandparents Day spotlights Imageomics Institute’s research into AI...",
     "url": "news/grand-time-ai-nature.html"
@@ -234,7 +234,7 @@
     "title": "Branching Out: BioCLIP 2 Pushes the Boundaries of AI for Nature",
     "date": "July 27, 2025",
     "year": 2025,
-    "image": "../images/news-images/branching-out-bioclip-2-pushes-boundaries-ai-nature.jpg",
+    "image": "../news-images/branching-out-bioclip-2-pushes-boundaries-ai-nature.jpg",
     "imageAlt": "Images of organisms in their natural habitats can provide scientists with vital information about the natural world.",
     "description": "Artificial intelligence is becoming a powerful tool for studying life on Earth...",
     "url": "news/branching-out-bioclip-2-pushes-boundaries-ai-nature.html"
@@ -243,7 +243,7 @@
     "title": "AI for Nature: Tomorrow’s science starts with today’s students.",
     "date": "July 25, 2025",
     "year": 2025,
-    "image": "../images/news-images/ai-nature-tomorrows-science-starts-todays-students-image-01.jpg",
+    "image": "../news-images/ai-nature-tomorrows-science-starts-todays-students-image-01.jpg",
     "imageAlt": "1",
     "description": "At the Imageomics Institute, we’re not just advancing artificial intelligence—we...",
     "url": "news/ai-nature-tomorrows-science-starts-todays-students..html"
@@ -252,7 +252,7 @@
     "title": "Sensor and Sensibility: Imageomics Takes Tech to The Wilds",
     "date": "July 21, 2025",
     "year": 2025,
-    "image": "../images/news-images/sensor-and-sensibility-imageomics-takes-tech-wilds.jpeg",
+    "image": "../news-images/sensor-and-sensibility-imageomics-takes-tech-wilds.jpeg",
     "imageAlt": "The Wilds deployment",
     "description": "In a pioneering field deployment, Jenna Kline and the Imageomics team integrate...",
     "url": "news/sensor-and-sensibility-imageomics-takes-tech-wilds.html"
@@ -261,7 +261,7 @@
     "title": "Imageomics Institute is hiring OSU Students",
     "date": "July 18, 2025",
     "year": 2025,
-    "image": "../images/news-images/buzz-image-01.jpg",
+    "image": "../news-images/buzz-image-01.jpg",
     "description": "We’re looking for motivated Ohio State undergrads with a passion for using AI...",
     "url": "news/buzz.html"
   },
@@ -269,7 +269,7 @@
     "title": "Imageomics Digital Digest, Issue 5",
     "date": "June 19, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-digital-digest-issue-5.png",
+    "image": "../news-images/imageomics-digital-digest-issue-5.png",
     "imageAlt": "Issue 5",
     "description": "Click the image to explore Issue 5 of the Imageomics Institute's Digital Digest...",
     "url": "news/imageomics-digital-digest-issue-5.html"
@@ -278,7 +278,7 @@
     "title": "Bring the Data Funk: FuncaPalooza 2025 Workshop Announced",
     "date": "June 13, 2025",
     "year": 2025,
-    "image": "../images/news-images/bring-data-funk-funcapalooza-2025-workshop-announced.jpg",
+    "image": "../news-images/bring-data-funk-funcapalooza-2025-workshop-announced.jpg",
     "imageAlt": "Funcapalooza 2025",
     "description": "We’re turning up the volume on science and innovation with FuncaPalooza 2025, a...",
     "url": "news/bring-data-funk-funcapalooza-2025-workshop-announced.html"
@@ -287,7 +287,7 @@
     "title": "Imageomics Breakthroughs in AI for Biodiversity at CVPR 2025",
     "date": "June 11, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-breakthroughs-ai-biodiversity-cvpr-2025-image-01.jpg",
+    "image": "../news-images/imageomics-breakthroughs-ai-biodiversity-cvpr-2025-image-01.jpg",
     "imageAlt": "imageomics at CVPR 2025",
     "description": "The Imageomics Institute is making a strong showing at the 2025 Conference on...",
     "url": "news/imageomics-breakthroughs-ai-biodiversity-cvpr-2025.html"
@@ -296,7 +296,7 @@
     "title": "Carstens Earns Ohio State’s 2025 Distinguished Scholar Award",
     "date": "June 10, 2025",
     "year": 2025,
-    "image": "../images/news-images/carstens-earns-ohio-states-2025-distinguished-scholar-award-image.jpg",
+    "image": "../news-images/carstens-earns-ohio-states-2025-distinguished-scholar-award-image.jpg",
     "imageAlt": "Carstens",
     "description": "Award highlights Carstens’ leadership in species delimitation, evolutionary...",
     "url": "news/carstens-earns-ohio-states-2025-distinguished-scholar-award.html"
@@ -305,7 +305,7 @@
     "title": "Yu Su Promoted to Associate Professor at Ohio State",
     "date": "June 2, 2025",
     "year": 2025,
-    "image": "../images/news-images/yu-su-promoted-associate-professor-ohio-state-image-01.jpeg",
+    "image": "../news-images/yu-su-promoted-associate-professor-ohio-state-image-01.jpeg",
     "imageAlt": "YuiYu Su",
     "description": "The Ohio State University Board of Trustees promoted Imageomics Institute's Dr...",
     "url": "news/yu-su-promoted-associate-professor-ohio-state.html"
@@ -314,7 +314,7 @@
     "title": "Imageomics Chain Reaction Series: Otto Brookes Swings into the Heart of Imageomics",
     "date": "June 1, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-chain-reaction-series-otto-brookes-swings-heart-imageomics-image-01.jpeg",
+    "image": "../news-images/imageomics-chain-reaction-series-otto-brookes-swings-heart-imageomics-image-01.jpeg",
     "imageAlt": "Otto Brookes",
     "description": "Leveraging AI and vast video datasets, Brookes deciphers great ape behaviors to...",
     "url": "news/imageomics-chain-reaction-series-otto-brookes-swings-heart-imageomics.html"
@@ -323,7 +323,7 @@
     "title": "Decker to Defend PhD with a Focus on Bats and Big Data",
     "date": "May 30, 2025",
     "year": 2025,
-    "image": "../images/news-images/decker-defend-phd-focus-bats-and-big-data.jpg",
+    "image": "../news-images/decker-defend-phd-focus-bats-and-big-data.jpg",
     "imageAlt": "Sydney Decker",
     "description": "Ohio State graduate researcher blends biology and data science to illuminate bat...",
     "url": "news/decker-defend-phd-focus-bats-and-big-data.html"
@@ -332,7 +332,7 @@
     "title": "Imageomics Newsletter, Issue 4",
     "date": "May 1, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-newsletter-issue-4-image-01.png",
+    "image": "../news-images/imageomics-newsletter-issue-4-image-01.png",
     "imageAlt": "Imageomics Newsletter, Issue 4",
     "description": "Click the image to read the new Imageomics Newsletter, Issue 4: 2025 All-hands...",
     "url": "news/imageomics-newsletter-issue-4.html"
@@ -341,7 +341,7 @@
     "title": "PyBioClip: A New Toolset for Machine Learning on Biological Images",
     "date": "April 28, 2025",
     "year": 2025,
-    "image": "../images/news-images/pybioclip-new-toolset-machine-learning-biological-images.png",
+    "image": "../news-images/pybioclip-new-toolset-machine-learning-biological-images.png",
     "imageAlt": "PyBioClip Image",
     "description": "New software unlocks structured biological image data for AI models, advancing...",
     "url": "news/pybioclip-new-toolset-machine-learning-biological-images.html"
@@ -350,7 +350,7 @@
     "title": "Imageomics Chain Reaction Series: Dominik Winecki",
     "date": "April 24, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-chain-reaction-series-dominik-winecki-image-01.jpeg",
+    "image": "../news-images/imageomics-chain-reaction-series-dominik-winecki-image-01.jpeg",
     "imageAlt": "Dominik Winecki, PhD candidate at OSU Computer Science &amp; Engineering.",
     "description": "Imageomics Chain Reaction: A new spotlight series where one rising researcher...",
     "url": "news/imageomics-chain-reaction-series-dominik-winecki.html"
@@ -359,7 +359,7 @@
     "title": "​Imageomics Institute Hosts 2025 All-Hands Meeting to Advance AI-Driven Biodiversity Research",
     "date": "April 14, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-institute-hosts-2025-all-hands-meeting-advance-ai-driven-biodiversity-research.png",
+    "image": "../news-images/imageomics-institute-hosts-2025-all-hands-meeting-advance-ai-driven-biodiversity-research.png",
     "imageAlt": "2025 All Hands meeting",
     "description": "The Imageomics Institute at The Ohio State University is convening its 2025 All...",
     "url": "news/imageomics-institute-hosts-2025-all-hands-meeting-advance-ai-driven-biodiversity-research.html"
@@ -368,7 +368,7 @@
     "title": "How a new drone system may transform next-gen ecology research",
     "date": "April 14, 2025",
     "year": 2025,
-    "image": "../images/news-images/how-new-drone-system-may-transform-next-gen-ecology-research.jpg",
+    "image": "../news-images/how-new-drone-system-may-transform-next-gen-ecology-research.jpg",
     "imageAlt": "Drone research taking ecology to the next level.",
     "description": "The Ohio State News story on Imageomics' grad student Jenna Kline and her drone...",
     "url": "news/how-new-drone-system-may-transform-next-gen-ecology-research.html"
@@ -377,7 +377,7 @@
     "title": "Jenna Kline, Recipient of 2025 CSE Graduate Student Research Award",
     "date": "April 7, 2025",
     "year": 2025,
-    "image": "../images/news-images/jenna-kline-recipient-2025-cse-graduate-student-research-award-image-01.jpg",
+    "image": "../news-images/jenna-kline-recipient-2025-cse-graduate-student-research-award-image-01.jpg",
     "imageAlt": "Jenna Kline",
     "description": "The Imageomics Institute is proud to announce Jenna Kline, a doctoral candidate...",
     "url": "news/jenna-kline-recipient-2025-cse-graduate-student-research-award.html"
@@ -393,7 +393,7 @@
     "title": "Harry Chao Receives 2025 Early Career Distinguished Scholar Award",
     "date": "April 2, 2025",
     "year": 2025,
-    "image": "../images/news-images/harry-chao-receives-2025-early-career-distinguished-scholar-award.jpg",
+    "image": "../news-images/harry-chao-receives-2025-early-career-distinguished-scholar-award.jpg",
     "imageAlt": "Chao earns EC Award",
     "description": "Wei-Lun (Harry) Chao, PhD, an assistant professor in the Department of Computer...",
     "url": "news/harry-chao-receives-2025-early-career-distinguished-scholar-award.html"
@@ -402,7 +402,7 @@
     "title": "Imageomics Institute Newsletter, Issue 3, 2025",
     "date": "March 31, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-institute-newsletter-issue-3-2025-image-02.png",
+    "image": "../news-images/imageomics-institute-newsletter-issue-3-2025-image-02.png",
     "imageAlt": "Issue three newsletter",
     "description": "Click Image to Read in Browser",
     "url": "news/imageomics-institute-newsletter-issue-3-2025.html"
@@ -411,7 +411,7 @@
     "title": "Wildwing Research Advances AI-driven Aerial Imaging for Conservation",
     "date": "March 18, 2025",
     "year": 2025,
-    "image": "../images/news-images/wildwing-research-advances-ai-driven-aerial-imaging-conservation.jpg",
+    "image": "../news-images/wildwing-research-advances-ai-driven-aerial-imaging-conservation.jpg",
     "imageAlt": "WildWing research image",
     "description": "Newly published research led by Jenna Kline and a team from the Imageomics...",
     "url": "news/wildwing-research-advances-ai-driven-aerial-imaging-conservation.html"
@@ -427,7 +427,7 @@
     "title": "Through the Looking Net: New AI Vision Models Advance Animal Trait Detection",
     "date": "March 5, 2025",
     "year": 2025,
-    "image": "../images/news-images/through-looking-net-new-ai-vision-models-advance-animal-trait-detection.jpg",
+    "image": "../news-images/through-looking-net-new-ai-vision-models-advance-animal-trait-detection.jpg",
     "imageAlt": "SAE Research Released",
     "description": "A new approach to understanding vision models sheds light on how AI sees the...",
     "url": "news/through-looking-net-new-ai-vision-models-advance-animal-trait-detection.html"
@@ -436,7 +436,7 @@
     "title": "Imageomics Institute Newsletter, Issue 2, 2025",
     "date": "March 3, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-institute-newsletter-issue-2-2025-image-01.jpg",
+    "image": "../news-images/imageomics-institute-newsletter-issue-2-2025-image-01.jpg",
     "imageAlt": "Imageomics Newsletter, March",
     "description": "Open the image or click the image to read in your browser.",
     "url": "news/imageomics-institute-newsletter-issue-2-2025.html"
@@ -445,7 +445,7 @@
     "title": "Imageomics Research Heads to Top Computer Vision Conference, CVPR 2025",
     "date": "February 27, 2025",
     "year": 2025,
-    "image": "../images/news-images/imageomics-research-heads-top-computer-vision-conference-cvpr-2025.jpeg",
+    "image": "../news-images/imageomics-research-heads-top-computer-vision-conference-cvpr-2025.jpeg",
     "imageAlt": "CVPR 2025 and Imageomics Research",
     "description": "Several Imageomics researchers will present their work at the prestigious IEEE...",
     "url": "news/imageomics-research-heads-top-computer-vision-conference-cvpr-2025.html"
@@ -454,7 +454,7 @@
     "title": "AI to the Rescue: How Artificial Intelligence is Helping Scientists Understand Biodiversity",
     "date": "February 20, 2025",
     "year": 2025,
-    "image": "../images/news-images/ai-rescue-how-artificial-intelligence-helping-scientists-understand-biodiversity-image-01.webp",
+    "image": "../news-images/ai-rescue-how-artificial-intelligence-helping-scientists-understand-biodiversity-image-01.webp",
     "description": "Research collaboration with The Ohio State University published in Nature shows...",
     "url": "news/ai-rescue-how-artificial-intelligence-helping-scientists-understand-biodiversity.html"
   },
@@ -462,7 +462,7 @@
     "title": "Evolutionary Advancements: Imageomics Research to Shine at ICLR 2025",
     "date": "January 22, 2025",
     "year": 2025,
-    "image": "../images/news-images/evolutionary-advancements-imageomics-research-shine-iclr-2025.jpeg",
+    "image": "../news-images/evolutionary-advancements-imageomics-research-shine-iclr-2025.jpeg",
     "imageAlt": "ICLR 2025",
     "description": "Team’s cutting-edge AI method for discovering evolutionary traits earns a spot...",
     "url": "news/evolutionary-advancements-imageomics-research-shine-iclr-2025.html"
@@ -471,7 +471,7 @@
     "title": "Tweet Success: AI Tunes Into Hawaiian Birdsong for Conservation",
     "date": "January 22, 2025",
     "year": 2025,
-    "image": "../images/news-images/tweet-success-ai-tunes-hawaiian-birdsong-conservation.jpeg",
+    "image": "../news-images/tweet-success-ai-tunes-hawaiian-birdsong-conservation.jpeg",
     "imageAlt": "Amakihi birds",
     "description": "Researchers use bioacoustics and AI to analyze ‘Amakihi bird dialects and...",
     "url": "news/tweet-success-ai-tunes-hawaiian-birdsong-conservation.html"
@@ -480,7 +480,7 @@
     "title": "Beetles, Birds, and Biodiversity: Researchers Travel to Dive into Hawaiian Ecosystems",
     "date": "January 7, 2025",
     "year": 2025,
-    "image": "../images/news-images/beetles-birds-and-biodiversity-researchers-travel-dive-hawaiian-ecosystems.jpg",
+    "image": "../news-images/beetles-birds-and-biodiversity-researchers-travel-dive-hawaiian-ecosystems.jpg",
     "imageAlt": "Hawaii Field Research",
     "description": "Scientists aim to blend AI and ecology to reveal new discoveries in Hawaii.",
     "url": "news/beetles-birds-and-biodiversity-researchers-travel-dive-hawaiian-ecosystems.html"
@@ -489,7 +489,7 @@
     "title": "Tanya Berger-Wolf Honored with AI for Good Award for Biodiversity Conservation at H2O World New York",
     "date": "January 3, 2025",
     "year": 2025,
-    "image": "../images/news-images/tanya-berger-wolf-honored-ai-good-award-biodiversity-conservation-h2o-world-new-york-image-01.png",
+    "image": "../news-images/tanya-berger-wolf-honored-ai-good-award-biodiversity-conservation-h2o-world-new-york-image-01.png",
     "imageAlt": "Award winners",
     "description": "Ohio State professor highlights how artificial intelligence is reshaping...",
     "url": "news/tanya-berger-wolf-honored-ai-good-award-biodiversity-conservation-h2o-world-new-york.html"
@@ -498,7 +498,7 @@
     "title": "Imageomics Director Talks AI Conservation Efforts on Scientific American Podcast",
     "date": "December 16, 2024",
     "year": 2024,
-    "image": "../images/news-images/imageomics-director-talks-ai-conservation-efforts-scientific-american-podcast-image-01.webp",
+    "image": "../news-images/imageomics-director-talks-ai-conservation-efforts-scientific-american-podcast-image-01.webp",
     "imageAlt": "podcast episode",
     "description": "Tanya Berger-Wolf featured discussing AI's role in ecology.",
     "url": "news/imageomics-director-talks-ai-conservation-efforts-scientific-american-podcast.html"
@@ -507,7 +507,7 @@
     "title": "Call for Papers AAAI 2025 Workshop (Deadline Extended!)",
     "date": "December 16, 2024",
     "year": 2024,
-    "image": "../images/news-images/call-papers-aaai-2025-workshop-deadline-extended.jpg",
+    "image": "../news-images/call-papers-aaai-2025-workshop-deadline-extended.jpg",
     "imageAlt": "Submission",
     "description": "Calling all researchers! Submit to the Anomaly Detection in Scientific Domains...",
     "url": "news/call-papers-aaai-2025-workshop-deadline-extended.html"
@@ -516,7 +516,7 @@
     "title": "Jenna Kline Achieves Milestone as First Imageomics Institute PhD Candidate",
     "date": "November 26, 2024",
     "year": 2024,
-    "image": "../images/news-images/jenna-kline-achieves-milestone-first-imageomics-institute-phd-candidate-image-01.jpg",
+    "image": "../news-images/jenna-kline-achieves-milestone-first-imageomics-institute-phd-candidate-image-01.jpg",
     "imageAlt": "Jenna Kline",
     "description": "NextGen Jenna Kline officially passed her PhD candidacy exam, becoming the first...",
     "url": "news/jenna-kline-achieves-milestone-first-imageomics-institute-phd-candidate.html"
@@ -525,7 +525,7 @@
     "title": "AI Meets Biodiversity: Imageomics Research Goes Big at NeurIPS 2024",
     "date": "November 18, 2024",
     "year": 2024,
-    "image": "../images/news-images/ai-meets-biodiversity-imageomics-research-goes-big-neurips-2024-image-01.jpg",
+    "image": "../news-images/ai-meets-biodiversity-imageomics-research-goes-big-neurips-2024-image-01.jpg",
     "imageAlt": "NeurIPS and Imageomics",
     "description": "Papers highlight new approaches to using AI for biological image analysis",
     "url": "news/ai-meets-biodiversity-imageomics-research-goes-big-neurips-2024.html"
@@ -534,7 +534,7 @@
     "title": "Seeing Is Believing: Imageomics Workshop to Showcase AI-Biology Innovations at AAAI 2025",
     "date": "November 13, 2024",
     "year": 2024,
-    "image": "../images/news-images/seeing-believing-imageomics-workshop-showcase-ai-biology-innovations-aaai-2025.jpg",
+    "image": "../news-images/seeing-believing-imageomics-workshop-showcase-ai-biology-innovations-aaai-2025.jpg",
     "imageAlt": "AAAi25",
     "description": "Ohio State-led event invites AI and biology researchers to submit papers by Nov...",
     "url": "news/seeing-believing-imageomics-workshop-showcase-ai-biology-innovations-aaai-2025.html"
@@ -543,7 +543,7 @@
     "title": "Byte-ing into Biodiversity: AI Powers Conservation Conversations at COP16",
     "date": "November 1, 2024",
     "year": 2024,
-    "image": "../images/news-images/byte-ing-biodiversity-ai-powers-conservation-conversations-cop16-image-01.jpg",
+    "image": "../news-images/byte-ing-biodiversity-ai-powers-conservation-conversations-cop16-image-01.jpg",
     "imageAlt": "Ohio State Professor Tanya Berger-Wolfe, seated third from left, speaks at a COP16 panel.",
     "description": "Tanya Berger-Wolf and team showcase cutting-edge tech to tackle global...",
     "url": "news/byte-ing-biodiversity-ai-powers-conservation-conversations-cop16.html"
@@ -566,7 +566,7 @@
     "title": "Big Data, Big Impact: NSF HDR Conference Wrap Up",
     "date": "September 16, 2024",
     "year": 2024,
-    "image": "../images/news-images/big-data-big-impact-nsf-hdr-conference-wrap.jpg",
+    "image": "../news-images/big-data-big-impact-nsf-hdr-conference-wrap.jpg",
     "imageAlt": "HDR Ecosystem Annual Meeting",
     "description": "Experts discuss AI, data science, and biodiversity breakthroughs at national...",
     "url": "news/big-data-big-impact-nsf-hdr-conference-wrap.html"
@@ -575,7 +575,7 @@
     "title": "Wildlife's Digital Passport: A New Way to Track Animal Histories",
     "date": "September 16, 2024",
     "year": 2024,
-    "image": "../images/news-images/wildlifes-digital-passport-new-way-track-animal-histories-image-01.jpg",
+    "image": "../news-images/wildlifes-digital-passport-new-way-track-animal-histories-image-01.jpg",
     "imageAlt": "Anuj Karpatne",
     "description": "Global initiative to create unique animal IDs and a life history museum for...",
     "url": "news/wildlifes-digital-passport-new-way-track-animal-histories.html"
@@ -584,7 +584,7 @@
     "title": "A 'Swarm' of Solutions: Drone Research Takes Wildlife Conservation to New Heights",
     "date": "September 6, 2024",
     "year": 2024,
-    "image": "../images/news-images/swarm-solutions-drone-research-takes-wildlife-conservation-new-heights.jpg",
+    "image": "../news-images/swarm-solutions-drone-research-takes-wildlife-conservation-new-heights.jpg",
     "imageAlt": "Jenna Kline, drone research",
     "description": "Imageomics and WildDrone students are collaborating on designing the best way to...",
     "url": "news/swarm-solutions-drone-research-takes-wildlife-conservation-new-heights.html"
@@ -593,7 +593,7 @@
     "title": "BeetlePalooza 2024: Revolutionizing Biodiversity Research with AI and Machine Learning",
     "date": "September 6, 2024",
     "year": 2024,
-    "image": "../images/news-images/beetlepalooza-2024-revolutionizing-biodiversity-research-ai-and-machine-learning-image-01.jpg",
+    "image": "../news-images/beetlepalooza-2024-revolutionizing-biodiversity-research-ai-and-machine-learning-image-01.jpg",
     "imageAlt": "BeetlePalooza 2024 Recap",
     "description": "BeetlePalooza 2024, hosted by the Imageomics Institute from August 12-15...",
     "url": "news/beetlepalooza-2024-revolutionizing-biodiversity-research-ai-and-machine-learning.html"
@@ -602,7 +602,7 @@
     "title": "Branching Out: Uyeda's Research Puts the 'Tree' in Phylogeny",
     "date": "August 8, 2024",
     "year": 2024,
-    "image": "../images/news-images/branching-out-uyedas-research-puts-tree-phylogeny-image-01.jpg",
+    "image": "../news-images/branching-out-uyedas-research-puts-tree-phylogeny-image-01.jpg",
     "imageAlt": "Josef Uyeda",
     "description": "Dr. Josef Uyeda of Virginia Tech is pioneering methods that map the history of...",
     "url": "news/branching-out-uyedas-research-puts-tree-phylogeny.html"
@@ -611,7 +611,7 @@
     "title": "Imageomics Highlights Key Role in Upcoming KGML Workshop",
     "date": "August 5, 2024",
     "year": 2024,
-    "image": "../images/news-images/imageomics-highlights-key-role-upcoming-kgml-workshop-image-01.jpeg",
+    "image": "../news-images/imageomics-highlights-key-role-upcoming-kgml-workshop-image-01.jpeg",
     "imageAlt": "KGML 2024",
     "description": "Imageomics showcases its contributions to the KGML2024 workshop, with key...",
     "url": "news/imageomics-highlights-key-role-upcoming-kgml-workshop.html"
@@ -620,7 +620,7 @@
     "title": "Grand Ideas: Graduate Student Michelle Ramirez Bridging Generations with AI Vision",
     "date": "August 1, 2024",
     "year": 2024,
-    "image": "../images/news-images/grand-ideas-graduate-student-michelle-ramirez-bridging-generations-ai-vision.jpeg",
+    "image": "../news-images/grand-ideas-graduate-student-michelle-ramirez-bridging-generations-ai-vision.jpeg",
     "imageAlt": "Michelle Ramirez teaching a class to middle school students this summer.",
     "description": "Graduate student Michelle Ramirez blends machine learning and ecology, helping...",
     "url": "news/grand-ideas-graduate-student-michelle-ramirez-bridging-generations-ai-vision.html"
@@ -629,7 +629,7 @@
     "title": "Ph.D. Student Jenna Kline's Drone Research Accepted at Top Autonomous Systems Conference",
     "date": "July 21, 2024",
     "year": 2024,
-    "image": "../images/news-images/phd-student-jenna-klines-drone-research-accepted-top-autonomous-systems-conference.jpeg",
+    "image": "../news-images/phd-student-jenna-klines-drone-research-accepted-top-autonomous-systems-conference.jpeg",
     "imageAlt": "Jenna Kline",
     "description": "Research Advancing Multi-Drone Coordination for Wildlife Studies Accepted at...",
     "url": "news/ph.d.-student-jenna-klines-drone-research-accepted-top-autonomous-systems-conference.html"
@@ -645,7 +645,7 @@
     "title": "BioCLIP Team Earns Best Student Paper Award at CVPR 2024",
     "date": "June 21, 2024",
     "year": 2024,
-    "image": "../images/news-images/bioclip-team-earns-best-student-paper-award-cvpr-2024.jpg",
+    "image": "../news-images/bioclip-team-earns-best-student-paper-award-cvpr-2024.jpg",
     "imageAlt": "CVPR 2024 Best Student Paper team.",
     "description": "Imageomics Institute's BioCLIP won Best Student Paper at the CVPR 2024...",
     "url": "news/bioclip-team-earns-best-student-paper-award-cvpr-2024.html"
@@ -654,7 +654,7 @@
     "title": "New Science Behind Imageomics Highlighted in NSF Lecture by Tanya Berger-Wolf",
     "date": "June 17, 2024",
     "year": 2024,
-    "image": "../images/news-images/new-science-behind-imageomics-highlighted-nsf-lecture-tanya-berger-wolf.jpg",
+    "image": "../news-images/new-science-behind-imageomics-highlighted-nsf-lecture-tanya-berger-wolf.jpg",
     "imageAlt": "NSF Lecture",
     "description": "The National Science Foundation (NSF) recently hosted a distinguished lecture by...",
     "url": "news/new-science-behind-imageomics-highlighted-nsf-lecture-tanya-berger-wolf.html"
@@ -670,7 +670,7 @@
     "title": "BeetlePalooza 2024 Announced",
     "date": "May 31, 2024",
     "year": 2024,
-    "image": "../images/news-images/beetlepalooza-2024-announced.jpg",
+    "image": "../news-images/beetlepalooza-2024-announced.jpg",
     "imageAlt": "BeetlePalooza Event Notice",
     "description": "Apply to Attend Before June 10.",
     "url": "news/beetlepalooza-2024-announced.html"
@@ -679,7 +679,7 @@
     "title": "Karpatne's LakeGPT Research Earns NAIRR Pilot Award",
     "date": "May 29, 2024",
     "year": 2024,
-    "image": "../images/news-images/karpatnes-lakegpt-research-earns-nairr-pilot-award-image-01.jpg",
+    "image": "../news-images/karpatnes-lakegpt-research-earns-nairr-pilot-award-image-01.jpg",
     "imageAlt": "Lake Michigan sunset",
     "description": "Advancing Lake Water Quality Monitoring Through KGML.",
     "url": "news/karpatnes-lakegpt-research-earns-nairr-pilot-award.html"
@@ -688,7 +688,7 @@
     "title": "Imageomics Hosts Dynamic Week of Events at Annual All-Hands Meeting 2024",
     "date": "May 21, 2024",
     "year": 2024,
-    "image": "../images/news-images/imageomics-hosts-dynamic-week-events-annual-all-hands-meeting-2024-image-01.jpg",
+    "image": "../news-images/imageomics-hosts-dynamic-week-events-annual-all-hands-meeting-2024-image-01.jpg",
     "imageAlt": "A group of men and women talking on an open tour bus.",
     "description": "Conference Hosted at The Ohio State University Drew Global Researchers to...",
     "url": "news/imageomics-hosts-dynamic-week-events-annual-all-hands-meeting-2024.html"
@@ -697,7 +697,7 @@
     "title": "A New Era in Biology Unfolds with Imageomics Workflow Research",
     "date": "May 2, 2024",
     "year": 2024,
-    "image": "../images/news-images/new-era-biology-unfolds-imageomics-workflow-research-image-01.jpg",
+    "image": "../news-images/new-era-biology-unfolds-imageomics-workflow-research-image-01.jpg",
     "imageAlt": "Workflow",
     "description": "New study introduces a FAIR and modular workflow, advancing the extraction of...",
     "url": "news/new-era-biology-unfolds-imageomics-workflow-research.html"
@@ -706,7 +706,7 @@
     "title": "Prof. Wei-Lun Chao discussed the role of machine learning and computer vision in imageomics",
     "date": "March 8, 2024",
     "year": 2024,
-    "image": "../images/news-images/prof-wei-lun-chao-discussed-role-machine-learning-and-computer-vision-imageomics-image-01.png",
+    "image": "../news-images/prof-wei-lun-chao-discussed-role-machine-learning-and-computer-vision-imageomics-image-01.png",
     "imageAlt": "Harry Chao",
     "description": "By Tatyana Woodall, Ohio State News A new field promises to usher in a new era...",
     "url": "news/prof.-wei-lun-chao-discussed-role-machine-learning-and-computer-vision-imageomics.html"
@@ -715,7 +715,7 @@
     "title": "Imageomics poised to enable new understanding of life",
     "date": "February 17, 2024",
     "year": 2024,
-    "image": "../images/news-images/imageomics-poised-enable-new-understanding-life.jpg",
+    "image": "../news-images/imageomics-poised-enable-new-understanding-life.jpg",
     "imageAlt": "A researcher takes a photo of elephants and other wild life at a watering hold",
     "description": "Research on mimicry in butterflies provides one example By Jeff Grabmeier...",
     "url": "news/imageomics-poised-enable-new-understanding-life.html"
@@ -724,7 +724,7 @@
     "title": "Imageomics team releases BioCLIP",
     "date": "February 15, 2024",
     "year": 2024,
-    "image": "../images/news-images/branching-out-bioclip-2-pushes-boundaries-ai-nature.jpg",
+    "image": "../news-images/branching-out-bioclip-2-pushes-boundaries-ai-nature.jpg",
     "imageAlt": "Images of organisms in their natural habitats can provide scientists with vital information about the natural world.",
     "description": "By Tatyana Woodall Researchers have developed the largest-ever dataset of...",
     "url": "news/imageomics-team-releases-bioclip.html"
@@ -768,7 +768,7 @@
     "title": "Berger-Wolf Leads new AI for Biodiversity Change Global Center",
     "date": "September 18, 2023",
     "year": 2023,
-    "image": "../images/news-images/berger-wolf-leads-new-ai-biodiversity-change-global-center.jpg",
+    "image": "../news-images/berger-wolf-leads-new-ai-biodiversity-change-global-center.jpg",
     "imageAlt": "A gray wolf in a snowy field",
     "description": "Imageomics Institute Director, Prof. Tanya Berger-Wolf will led the AI and...",
     "url": "news/berger-wolf-leads-new-ai-biodiversity-change-global-center.html"
@@ -791,7 +791,7 @@
     "title": "The National Academies on Science, Engineering, and Medicine Appoints Dr. Tanya Berger-Wolf.",
     "date": "July 17, 2023",
     "year": 2023,
-    "image": "../images/news-images/national-academies-science-engineering-and-medicine-appoints-dr-tanya-berger-wolf-image-01.jpeg",
+    "image": "../news-images/national-academies-science-engineering-and-medicine-appoints-dr-tanya-berger-wolf-image-01.jpeg",
     "imageAlt": "Front of a government building with a US flag",
     "description": "Dr. Tanya Berger-Wolf to serve on the National Academies Board on Life Science...",
     "url": "news/national-academies-science-engineering-and-medicine-appoints-dr.-tanya-berger-wolf..html"
@@ -800,7 +800,7 @@
     "title": "Dr. Berger-Wolf and Dr. Mabee Serve as Panelists for The National Academies.",
     "date": "July 10, 2023",
     "year": 2023,
-    "image": "../images/news-images/dr-berger-wolf-and-dr-mabee-serve-panelists-national-academies.jpg",
+    "image": "../news-images/dr-berger-wolf-and-dr-mabee-serve-panelists-national-academies.jpg",
     "imageAlt": "Earth from space.",
     "description": "Dr. Berger-Wolf and Dr. Mabee discuss applications of data integration and AI...",
     "url": "news/dr.-berger-wolf-and-dr.-mabee-serve-panelists-national-academies..html"
@@ -809,7 +809,7 @@
     "title": "Wildlife Conservation Leverages AI: Dr. Berger-Wolf Discusses Imageomics During OSU Engineering Podcast",
     "date": "June 14, 2023",
     "year": 2023,
-    "image": "../images/news-images/wildlife-conservation-leverages-ai-dr-berger-wolf-discusses-imageomics-during-osu-image-01.png",
+    "image": "../news-images/wildlife-conservation-leverages-ai-dr-berger-wolf-discusses-imageomics-during-osu-image-01.png",
     "imageAlt": "Two women sitting across the table from one another speaking into microphones",
     "description": "Dr. Tanya Berger-Wolf appears on The Ohio State University's Enginuity Podcast...",
     "url": "news/wildlife-conservation-leverages-ai-dr.-berger-wolf-discusses-imageomics-during-osu.html"
@@ -825,7 +825,7 @@
     "title": "Imageomics NextGen Mohannad Elhamod Named Graduate Student of the Year by Virginia Tech",
     "date": "May 15, 2023",
     "year": 2023,
-    "image": "../images/news-images/imageomics-nextgen-mohannad-elhamod-named-graduate-student-year-virginia-tech-image-01.jpg",
+    "image": "../news-images/imageomics-nextgen-mohannad-elhamod-named-graduate-student-year-virginia-tech-image-01.jpg",
     "imageAlt": "smiling man with salt and pepper beard and brown eyes. He is wearing a black hat, red button up shirt covered by a jean jacket He is standing in front a pink cherry tree.",
     "description": "Mohannad Elhamod, Ph.D. candidate in the Department of Computer Science at...",
     "url": "news/imageomics-nextgen-mohannad-elhamod-named-graduate-student-year-virginia-tech.html"
@@ -834,7 +834,7 @@
     "title": "Blog Post Published by Imageomics Social Science Team",
     "date": "March 27, 2023",
     "year": 2023,
-    "image": "../images/news-images/blog-post-published-imageomics-social-science-team-image-01.jpg",
+    "image": "../news-images/blog-post-published-imageomics-social-science-team-image-01.jpg",
     "imageAlt": "mosaic of headshots of three authors with Jiang at top, Boghrat on bottom left, and Grabmeier on bottom right",
     "description": "Imageomics team scientist, Gemma Jiang (top image), program manager, Diane...",
     "url": "news/blog-post-published-imageomics-social-science-team.html"
@@ -843,7 +843,7 @@
     "title": "Wei-Lun Chao and Yu Su awarded 2023 College of Engineering Faculty Award",
     "date": "March 27, 2023",
     "year": 2023,
-    "image": "../images/news-images/wei-lun-chao-and-yu-su-awarded-2023-college-engineering-faculty-award.png",
+    "image": "../news-images/wei-lun-chao-and-yu-su-awarded-2023-college-engineering-faculty-award.png",
     "imageAlt": "Two men with dark hair brown eyes and black rimmed glasses smile for the photo in two headshot style photographs",
     "description": "Imageomics researchers Yu Su (left) and Wei-Lun (Harry) Chao (right) were...",
     "url": "news/wei-lun-chao-and-yu-su-awarded-2023-college-engineering-faculty-award.html"
@@ -873,7 +873,7 @@
     "title": "Buckeyes participate in inaugural U.S.-Africa science, engineering and medicine symposium",
     "date": "November 1, 2022",
     "year": 2022,
-    "image": "../images/news-images/buckeyes-participate-inaugural-us-africa-science-engineering-and-medicine-symposium.jpg",
+    "image": "../news-images/buckeyes-participate-inaugural-us-africa-science-engineering-and-medicine-symposium.jpg",
     "imageAlt": "Group photo of participants from U.S.-Africa Frontiers of Science Symposium",
     "description": "Materials Science and Engineering Assistant Professor Aeriel Leonard was invited...",
     "url": "news/buckeyes-participate-inaugural-u.s.-africa-science-engineering-and-medicine-symposium.html"
@@ -882,7 +882,7 @@
     "title": "A new field of science for global biodiversity",
     "date": "August 26, 2022",
     "year": 2022,
-    "image": "../images/news-images/new-field-science-global-biodiversity.jpg",
+    "image": "../news-images/new-field-science-global-biodiversity.jpg",
     "imageAlt": "smiling woman in black suit with red button up shirt stands in front of monitor displaying different images of butterflies",
     "description": "Tanya Berger-Wolf is weaving biology and machine learning into a new field of...",
     "url": "news/new-field-science-global-biodiversity.html"
@@ -905,7 +905,7 @@
     "title": "Work of Imageomics Researchers Featured at 2022 CVPR Conference",
     "date": "June 27, 2022",
     "year": 2022,
-    "image": "../images/news-images/work-imageomics-researchers-featured-2022-cvpr-conference.png",
+    "image": "../news-images/work-imageomics-researchers-featured-2022-cvpr-conference.png",
     "imageAlt": "CVPR 2022 Logo with backdrop of new orleans",
     "description": "The work of researchers from the Imageomics Institute were featured during the...",
     "url": "news/work-imageomics-researchers-featured-2022-cvpr-conference.html"
