@@ -943,7 +943,7 @@ a.news-card:focus-visible {
 }
 
 .news-pagination-bottom-previous {
-    margin-top: 0.75rem;
+    margin-top: 2rem;
 }
 
 .news-pagination-previous {
@@ -1408,4 +1408,5 @@ a.news-featured-card:focus-visible {
     .news-pagination-control {
         padding-inline: 0.4rem;
     }
+
 }

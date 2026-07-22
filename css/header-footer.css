@@ -19,6 +19,27 @@
 
 /* ─── Header ─────────────────────────────────────────────────────────────── */
 
+.site-notice {
+    height: var(--site-notice-height, 44px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.45rem 1rem;
+    overflow: hidden;
+    background: #ffd84d;
+    border-bottom: 1px solid #d6ac16;
+    color: #332900;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: clamp(0.82rem, 2.5vw, 0.98rem);
+    line-height: 1.15;
+    text-align: center;
+}
+
+.site-notice strong {
+    font-weight: 700;
+}
+
 .header {
     --header-glass-background:
         linear-gradient(90deg, rgba(255, 255, 255, 0.82), rgba(235, 249, 252, 0.72)),
@@ -137,7 +158,7 @@
 .dropdown-menu {
     display: block;
     position: fixed;
-    top: 82px;
+    top: calc(var(--site-notice-height, 44px) + 82px);
     left: 0;
     right: 0;
     z-index: 999;
@@ -678,7 +699,7 @@
     .nav {
         display: none;
         position: fixed;
-        top: 52px;
+        top: calc(var(--site-notice-height, 44px) + 52px);
         left: 0;
         right: 0;
         background: rgba(255, 255, 255, 0.92);
@@ -768,7 +789,7 @@
     .nav {
         display: none;
         position: fixed;
-        top: 52px;
+        top: calc(var(--site-notice-height, 44px) + 52px);
         left: 0;
         right: 0;
         background: rgba(255, 255, 255, 0.95);
