@@ -80,17 +80,88 @@ document.addEventListener('DOMContentLoaded', async () => {
         }));
     };
 
+    const COURSE_MODULE_URL_MARKER = 'ai-and-ecology-course-module-';
+    const COURSE_SERIES_URL = 'tools-resources/experiential-introduction-ai-ecology-course-2026-2027.html';
+    const FEATURED_UPCOMING_WINDOW_DAYS = 14;
+    const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
+
+    const collapseCourseSeries = (items) => {
+        const seriesItems = items
+            .filter((item) => item.url?.includes(COURSE_MODULE_URL_MARKER))
+            .sort((a, b) => a.startDate.localeCompare(b.startDate));
+
+        if (seriesItems.length < 2) return items;
+
+        const firstSession = seriesItems[0];
+        const lastSession = seriesItems[seriesItems.length - 1];
+        const lastDateWithoutWeekday = lastSession.date.replace(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),\s+/, '');
+        const seriesItem = {
+            title: 'Experiential Introduction to AI and Ecology',
+            url: COURSE_SERIES_URL,
+            date: `${firstSession.date} - ${lastDateWithoutWeekday} (${seriesItems.length} sessions)`,
+            description: 'Weekly virtual course sessions from August through November 2026.',
+            image: firstSession.image,
+            imageAlt: firstSession.imageAlt,
+            startDate: firstSession.startDate,
+            endDate: lastSession.startDate,
+            allDatesText: seriesItems.map((item) => item.allDatesText || item.date).join(', '),
+            searchText: seriesItems.map((item) => `${item.title} ${item.description || ''}`).join(' '),
+            seriesItems
+        };
+
+        return items
+            .filter((item) => !item.url?.includes(COURSE_MODULE_URL_MARKER))
+            .concat(seriesItem);
+    };
+
     const parseEventDate = (startDate) => {
         const parsedDate = new Date(`${startDate}T00:00:00`);
         return Number.isNaN(parsedDate.getTime()) ? new Date(0) : parsedDate;
     };
 
-    const uniqueEventItems = getUniqueEventItems(eventItems)
+    const getToday = () => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return today;
+    };
+
+    const getFeaturedEventSelection = (items) => {
+        const today = getToday();
+        const featureCandidates = items.flatMap((item) => item.seriesItems?.length ? item.seriesItems : [item]);
+        const timedCandidates = featureCandidates.map((item) => {
+            const startDate = parseEventDate(item.startDate);
+            const endDate = parseEventDate(item.endDate || item.startDate);
+            return { item, startDate, endDate };
+        });
+
+        const happeningNow = timedCandidates
+            .filter(({ startDate, endDate }) => startDate <= today && endDate >= today)
+            .sort((a, b) => b.startDate - a.startDate)[0];
+
+        if (happeningNow) {
+            return { item: happeningNow.item, status: 'Happening Now' };
+        }
+
+        const nextUpcoming = timedCandidates
+            .filter(({ startDate }) => startDate > today)
+            .sort((a, b) => a.startDate - b.startDate)[0];
+
+        if (!nextUpcoming) return null;
+
+        const daysUntilStart = Math.round((nextUpcoming.startDate - today) / MILLISECONDS_PER_DAY);
+        const status = daysUntilStart <= FEATURED_UPCOMING_WINDOW_DAYS
+            ? 'Happening Soon'
+            : 'Upcoming Event';
+
+        return { item: nextUpcoming.item, status };
+    };
+
+    const uniqueEventItems = collapseCourseSeries(getUniqueEventItems(eventItems))
         .sort((a, b) => parseEventDate(b.startDate) - parseEventDate(a.startDate));
-    const newestEvent = uniqueEventItems[0] || null;
     let filteredEventItems = [...uniqueEventItems];
     let selectedYear = '';
     let featuredEvent = null;
+    let featuredEventStatus = '';
     let regularEventItems = [];
 
     const gradientStage = main.querySelector('.news-gradient-stage');
@@ -168,6 +239,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const matchesQuery = !query ||
                 item.title.toLowerCase().includes(query) ||
                 String(item.description || '').toLowerCase().includes(query) ||
+                String(item.searchText || '').toLowerCase().includes(query) ||
                 searchableDateText.toLowerCase().includes(query);
 
             return matchesYear && matchesQuery;
@@ -179,7 +251,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const updateFeaturedAndRegularEvents = () => {
-        featuredEvent = newestEvent && filteredEventItems.includes(newestEvent) ? newestEvent : null;
+        const featuredSelection = getFeaturedEventSelection(filteredEventItems);
+        featuredEvent = featuredSelection?.item || null;
+        featuredEventStatus = featuredSelection?.status || '';
         regularEventItems = featuredEvent
             ? filteredEventItems.filter((item) => item !== featuredEvent)
             : filteredEventItems;
@@ -289,7 +363,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const label = document.createElement('p');
         label.className = 'event-featured-label';
-        label.textContent = 'Newest Event';
+        label.textContent = featuredEventStatus;
         content.appendChild(label);
 
         const title = document.createElement('h2');
@@ -336,6 +410,73 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const renderEventCard = (item) => {
+        if (item.seriesItems?.length) {
+            const card = document.createElement('article');
+            card.className = 'news-card event-series-card';
+
+            if (item.image) {
+                const imageLink = document.createElement('a');
+                imageLink.className = 'news-card-image event-series-image';
+                imageLink.href = item.url;
+                imageLink.setAttribute('aria-label', `Learn more about ${item.title}`);
+
+                const image = document.createElement('img');
+                image.src = item.image;
+                image.alt = item.imageAlt || item.title;
+                image.loading = 'lazy';
+
+                setImagePresentation(image, imageLink, 'news-card-image');
+                imageLink.appendChild(image);
+                card.appendChild(imageLink);
+            }
+
+            const content = document.createElement('div');
+            content.className = 'news-card-content';
+
+            const date = document.createElement('p');
+            date.className = 'news-card-date';
+            date.textContent = item.date;
+            content.appendChild(date);
+
+            const title = document.createElement('h2');
+            const titleLink = document.createElement('a');
+            titleLink.href = item.url;
+            titleLink.textContent = item.title;
+            title.appendChild(titleLink);
+            content.appendChild(title);
+
+            const description = document.createElement('p');
+            description.textContent = item.description;
+            content.appendChild(description);
+
+            const sessionDetails = document.createElement('details');
+            sessionDetails.className = 'event-series-sessions';
+
+            const summary = document.createElement('summary');
+            summary.textContent = `View ${item.seriesItems.length} sessions`;
+            sessionDetails.appendChild(summary);
+
+            const sessionList = document.createElement('ol');
+            item.seriesItems.forEach((session) => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = session.url;
+                link.textContent = session.title;
+
+                const sessionDate = document.createElement('span');
+                sessionDate.textContent = session.date;
+
+                listItem.appendChild(link);
+                listItem.appendChild(sessionDate);
+                sessionList.appendChild(listItem);
+            });
+
+            sessionDetails.appendChild(sessionList);
+            content.appendChild(sessionDetails);
+            card.appendChild(content);
+            return card;
+        }
+
         const card = document.createElement('a');
         card.className = 'news-card';
         card.href = item.url;

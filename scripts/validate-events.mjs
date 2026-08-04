@@ -98,6 +98,14 @@ for (const [index, event] of events.entries()) {
         }
     }
 
+    if ('endDate' in event) {
+        if (typeof event.endDate !== 'string' || !isValidIsoDate(event.endDate)) {
+            addError(index, `"endDate" is not a valid YYYY-MM-DD date: ${event.endDate}`);
+        } else if (isValidIsoDate(event.startDate) && event.endDate < event.startDate) {
+            addError(index, `"endDate" ${event.endDate} is before "startDate" ${event.startDate}.`);
+        }
+    }
+
     if (typeof event.url === 'string' && event.url) {
         if (seenUrls.has(event.url)) {
             addError(index, `duplicates the URL from event ${seenUrls.get(event.url) + 1}: ${event.url}`);
