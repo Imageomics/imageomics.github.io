@@ -541,6 +541,10 @@ a.news-card:focus-visible {
     margin: 0.15rem 0 1rem 1.5rem;
 }
 
+.news-article-figure-source-small {
+    width: min(42%, 357px);
+}
+
 .news-article-image-inline {
     float: right;
     width: min(48%, 420px);
@@ -849,6 +853,10 @@ a.news-featured-card:focus-visible {
         margin: 0 0 1rem;
     }
 
+    .news-article-figure-source-small {
+        width: min(100%, 357px);
+    }
+
 }
 
 @media (max-width: 620px) {
@@ -906,5 +914,4 @@ a.news-featured-card:focus-visible {
     .news-pagination-control {
         padding-inline: 0.4rem;
     }
-
 }
