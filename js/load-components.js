@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-    const COMPONENT_CACHE_VERSION = '5';
+    const COMPONENT_CACHE_VERSION = '6';
 
     function getPathPrefix() {
         const path = window.location.pathname;
@@ -89,13 +89,14 @@
     }
 
     function loadComponent(url, targetId) {
-        const cachedHtml = getCachedComponent(url);
+        const versionedUrl = `${url}?v=${COMPONENT_CACHE_VERSION}`;
+        const cachedHtml = getCachedComponent(versionedUrl);
         if (cachedHtml) {
             renderComponent(cachedHtml, targetId);
             return;
         }
 
-        fetch(url, { cache: 'force-cache' })
+        fetch(versionedUrl, { cache: 'no-cache' })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Failed to load ${url}: ${response.status}`);
@@ -103,7 +104,7 @@
                 return response.text();
             })
             .then((html) => {
-                cacheComponent(url, html);
+                cacheComponent(versionedUrl, html);
                 renderComponent(html, targetId);
             })
             .catch((error) => {
