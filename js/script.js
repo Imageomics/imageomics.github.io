@@ -271,3 +271,75 @@ document.addEventListener('DOMContentLoaded', () => {
     window.initSearchUI();
     window.initActiveNav();
 });
+
+(function initExternalLinkBehavior() {
+    'use strict';
+
+    function updateLink(link) {
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        let url;
+        try {
+            url = new URL(href, window.location.href);
+        } catch (error) {
+            return;
+        }
+
+        const isWebLink = url.protocol === 'http:' || url.protocol === 'https:';
+        const isExternal = isWebLink && url.origin !== window.location.origin;
+
+        if (!isExternal) return;
+
+        link.setAttribute('target', '_blank');
+
+        const relValues = new Set(
+            (link.getAttribute('rel') || '').split(/\s+/).filter(Boolean)
+        );
+        relValues.add('noopener');
+        relValues.add('noreferrer');
+        link.setAttribute('rel', Array.from(relValues).join(' '));
+    }
+
+    window.initExternalLinks = function initExternalLinks(root = document) {
+        if (root.nodeType === Node.ELEMENT_NODE && root.matches('a[href]')) {
+            updateLink(root);
+        }
+
+        if (typeof root.querySelectorAll === 'function') {
+            root.querySelectorAll('a[href]').forEach(updateLink);
+        }
+    };
+
+    function startWatchingLinks() {
+        window.initExternalLinks(document);
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes') {
+                    updateLink(mutation.target);
+                    return;
+                }
+
+                mutation.addedNodes.forEach((node) => {
+                    if (node.nodeType === Node.ELEMENT_NODE) {
+                        window.initExternalLinks(node);
+                    }
+                });
+            });
+        });
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['href'],
+            childList: true,
+            subtree: true
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startWatchingLinks);
+    } else {
+        startWatchingLinks();
+    }
+})();

@@ -451,6 +451,24 @@ body.event-detail-page #header-placeholder {
     text-underline-offset: 0.12em;
 }
 
+.event-detail-page section[aria-label="Course information"] a {
+    color: var(--site-link);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+}
+
+.event-detail-page section[aria-label="Course information"] a:hover {
+    color: #005f70;
+    text-decoration-thickness: 2px;
+}
+
+.event-detail-page section[aria-label="Course information"] a:focus-visible {
+    outline: 2px solid var(--site-link);
+    outline-offset: 2px;
+}
+
 .event-detail-page section[aria-label="Event details"] ul,
 .event-detail-page section[aria-label="Event details"] ol {
     margin: 0 0 1.1rem;
