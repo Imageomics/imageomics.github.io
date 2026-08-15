@@ -127,6 +127,15 @@
     "startDate": "2026-08-25"
   },
   {
+    "title": "Version Control with Git",
+    "url": "events/2026-08-version-control-git.html",
+    "date": "Fri, Aug 21 2026",
+    "description": "Learn how to track changes, collaborate efficiently, and manage your projects using Git and GitHub.",
+    "image": "../images/events-images/version-control-with-git-event.png",
+    "imageAlt": "Version Control with Git",
+    "startDate": "2026-08-21"
+  },
+  {
     "title": "FloraPalooza 2026",
     "url": "events/2026-08-florapalooza-2026.html",
     "date": "Mon, Aug 17 - Thu, Aug 20 2026",
