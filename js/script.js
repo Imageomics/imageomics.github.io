@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: 'Digital Products Release and Licensing Policy', url: 'html/tools-resources/digital-products-release-licensing-policy.html' },
         { title: 'Fieldwork Safety Plan', url: 'html/tools-resources/fieldwork-safety-plan.html' },
         { title: 'Educational Tools & Resources', url: 'html/tools-resources/educational-tools-resources.html' },
+        { title: 'Experiential Introduction to AI and Ecology Course 2026-2027', url: 'html/tools-resources/experiential-introduction-ai-ecology-course-2026-2027.html' },
         { title: 'Software Tools & Resources', url: 'html/tools-resources/software-tools-resources.html' },
         { title: 'Tool Tutorials', url: 'html/tools-resources/tool-tutorials.html' },
         { title: 'Team Science Tools & Resources', url: 'html/tools-resources/team-science-tools-resources.html' },
