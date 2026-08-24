@@ -41,6 +41,17 @@ body.event-detail-page #header-placeholder {
     color: var(--site-text);
 }
 
+.course-events-back-link {
+    margin: -1.4rem 0 2.25rem;
+    font-size: 0.95rem;
+}
+
+.course-events-back-link a {
+    color: var(--site-link);
+    font-weight: 700;
+    text-decoration: none;
+}
+
 .course-overview-header {
     display: block;
     max-width: 760px;
@@ -73,39 +84,6 @@ body.event-detail-page #header-placeholder {
     font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.6;
-}
-
-.course-overview-facts {
-    max-width: 620px;
-    margin: 0;
-    border-top: 1px solid var(--site-border);
-}
-
-.course-overview-facts div {
-    display: grid;
-    grid-template-columns: 9rem minmax(0, 1fr);
-    gap: 1rem;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--site-border);
-}
-
-.course-overview-facts div + div {
-    padding-left: 0;
-    border-left: 0;
-}
-
-.course-overview-facts dt {
-    margin: 0;
-    color: var(--site-text-muted);
-    font-size: 0.9rem;
-    font-weight: 800;
-}
-
-.course-overview-facts dd {
-    margin: 0;
-    color: var(--site-text);
-    font-size: 1rem;
-    line-height: 1.45;
 }
 
 .course-overview-page article > section {
@@ -174,18 +152,6 @@ body.event-detail-page #header-placeholder {
     margin-top: 0.45rem;
 }
 
-.course-enrollment-link {
-    display: inline-block;
-    margin-top: 0.35rem;
-}
-
-.course-resource-links {
-    display: grid;
-    gap: 0.35rem;
-    list-style: none;
-    padding-left: 0 !important;
-}
-
 .course-instructor-list {
     max-width: 620px;
     padding: 0 !important;
@@ -232,7 +198,6 @@ body.event-detail-page #header-placeholder {
 .course-session-list {
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--site-border);
     list-style: none;
 }
 
@@ -242,7 +207,6 @@ body.event-detail-page #header-placeholder {
     gap: 1rem;
     align-items: baseline;
     padding: 0.9rem 0;
-    border-bottom: 1px solid var(--site-border);
 }
 
 .course-session-list time {
@@ -274,11 +238,6 @@ body.event-detail-page #header-placeholder {
 
     .course-overview-header img {
         width: min(280px, 82%);
-    }
-
-    .course-overview-facts div {
-        grid-template-columns: 1fr;
-        gap: 0.2rem;
     }
 
     .course-part-details div {
@@ -1002,6 +961,18 @@ a.news-featured-card:focus-visible .news-featured-read-more-icon {
 
 .event-series-card {
     align-self: start;
+    padding: 0;
+    border: 1px solid var(--site-border);
+}
+
+.event-series-card .event-series-image {
+    display: block;
+    margin: 0 0 1rem;
+    border-bottom: 0;
+}
+
+.event-series-card .news-card-content {
+    padding: 0 1.3rem 1.3rem;
 }
 
 .event-series-card h2 a {
