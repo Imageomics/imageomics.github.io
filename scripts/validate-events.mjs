@@ -85,6 +85,10 @@ for (const [index, event] of events.entries()) {
         }
     }
 
+    if ('time' in event && (typeof event.time !== 'string' || !event.time.trim())) {
+        addError(index, '"time" must be a non-empty string when provided.');
+    }
+
     if (typeof event.startDate === 'string') {
         if (!isValidIsoDate(event.startDate)) {
             addError(index, `"startDate" is not a valid YYYY-MM-DD date: ${event.startDate}`);
