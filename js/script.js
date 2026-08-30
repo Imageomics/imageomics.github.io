@@ -1,3 +1,22 @@
+window.ImageomicsStates = {
+    create(type, message, options = {}) {
+        const state = document.createElement(options.tagName || 'div');
+        state.className = `content-state content-state--${type}${options.className ? ` ${options.className}` : ''}`;
+        state.textContent = message;
+        state.setAttribute('role', type === 'error' ? 'alert' : 'status');
+        state.setAttribute('aria-live', type === 'error' ? 'assertive' : 'polite');
+        return state;
+    },
+
+    render(container, type, message, options = {}) {
+        if (!container) return null;
+        const state = this.create(type, message, options);
+        container.replaceChildren(state);
+        container.setAttribute('aria-busy', String(type === 'loading'));
+        return state;
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const pagesToIndex = [
         { title: 'About', url: 'html/about.html' },

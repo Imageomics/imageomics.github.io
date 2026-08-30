@@ -16,7 +16,8 @@
     "description": "Session Instructor - Laura Pollock, McGill University Summary - Module 5: Advanced Ecology This module explores lon...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-11-17"
+    "startDate": "2026-11-17",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course: Module 5 Week 1 (Advanced Ecology: Long-term Ecosystem Dynamics)",
@@ -25,7 +26,8 @@
     "description": "Session Instructor - Sydne Record, University of Maine Summary - Module 5: Advanced Ecology This module explores lo...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-11-10"
+    "startDate": "2026-11-10",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course:  Module 4 Week 2 (Advanced Methods and Best Practices in FAIR AI & ML: Best Practices for FAIR AI and ML)",
@@ -34,7 +36,8 @@
     "description": "Session Instructor - Hilmar Lapp, Neuromatch Module 4: Advanced Methods and Best Practices in FAIR AI & ML: Best Pr...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-11-03"
+    "startDate": "2026-11-03",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course:  Module 4 Week 1 (Advanced Methods and Best Practices in FAIR AI & ML: Advanced Methods in AI and ML)",
@@ -43,7 +46,8 @@
     "description": "Session Instructor - Wei-Lun Chao, Boston University Module 4: Advanced Methods and Best Practices in FAIR AI & ML:...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-10-27"
+    "startDate": "2026-10-27",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course:  Module 3 Week 3 (AI Literacy: Key Modalities and Modeling Paradigms: Introduction to Field Technologies)",
@@ -52,7 +56,8 @@
     "description": "Session Instructor - Justin Kitzes Module 3 - AI Literacy: Key Modalities and Modeling Paradigms: Introduction to F...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-10-20"
+    "startDate": "2026-10-20",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course: Module 3 Week 2 (AI Literacy: Key Modalities and Modeling Paradigms: Computer Vision/Remote Sensing)",
@@ -61,7 +66,8 @@
     "description": "Course Description Experiential Introduction to AI and Ecology is a year-long graduate-level interdisciplinary, pro...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-10-13"
+    "startDate": "2026-10-13",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course: Module 3 Week 1 (AI Literacy: Key Modalities and Modeling Paradigms: Introduction to Edge Computing)",
@@ -70,7 +76,8 @@
     "description": "Course Description Experiential Introduction to AI and Ecology is a year-long graduate-level interdisciplinary, pro...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-10-06"
+    "startDate": "2026-10-06",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course: Module 2 Week 2 (Intro to Evolutionary Biology: Niches and the Dynamics That Shape Them)",
@@ -79,7 +86,8 @@
     "description": "Course Description Experiential Introduction to AI and Ecology is a year-long graduate-level interdisciplinary, pro...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-09-29"
+    "startDate": "2026-09-29",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course: Module 2 Week 1 (Intro to Evolutionary Biology: Foundations in Evolutionary Biology)",
@@ -88,7 +96,8 @@
     "description": "Course Description Experiential Introduction to AI and Ecology is a year-long graduate-level interdisciplinary, pro...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-09-22"
+    "startDate": "2026-09-22",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course: Module 1 Week 3 (Course Foundations: Exploring the Field Sites: Ecology and Research Themes)",
@@ -97,7 +106,8 @@
     "description": "Course Description Experiential Introduction to AI and Ecology is a year-long graduate-level interdisciplinary, pro...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-09-15"
+    "startDate": "2026-09-15",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course: Module 1 Week 2 (Course Foundations: AI for Ecology: Practical Applications)",
@@ -106,7 +116,8 @@
     "description": "Course Description Experiential Introduction to AI and Ecology is a year-long graduate-level interdisciplinary, pro...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-09-08"
+    "startDate": "2026-09-08",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course: Module 1 Week 1 (Course Foundations: Introduction to AI for Ecology)",
@@ -115,7 +126,8 @@
     "description": "Course Description Experiential Introduction to AI and Ecology is a year-long graduate-level interdisciplinary, pro...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-09-01"
+    "startDate": "2026-09-01",
+    "time": "2–3pm"
   },
   {
     "title": "AI and Ecology Course: Module 0 Week 1 (Orientation: Administration and Introduction to Course Tools)",
@@ -124,7 +136,8 @@
     "description": "Course Description Experiential Introduction to AI and Ecology is a year-long graduate-level interdisciplinary, pro...",
     "image": "../images/events-images/ai-ecology-course-icon.jpg",
     "imageAlt": "Experiential Introduction to AI and Ecology course icon",
-    "startDate": "2026-08-25"
+    "startDate": "2026-08-25",
+    "time": "2–3pm"
   },
   {
     "title": "Version Control with Git",
@@ -133,7 +146,8 @@
     "description": "Learn how to track changes, collaborate efficiently, and manage your projects using Git and GitHub.",
     "image": "../images/events-images/version-control-with-git-event.png",
     "imageAlt": "Version Control with Git",
-    "startDate": "2026-08-21"
+    "startDate": "2026-08-21",
+    "time": "11am–4pm"
   },
   {
     "title": "FloraPalooza 2026",

@@ -6,7 +6,7 @@ body.news-page #header-placeholder {
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-bottom: 1.85rem;
+    padding-bottom: 1rem;
     background-color: #0d5565;
     background-image: url('../images/gradient-b-hero.jpg');
     background-position: center;
@@ -33,7 +33,7 @@ body.news-page #header-placeholder {
 .news-hero {
     width: min(1100px, calc(100% - 160px));
     margin: 0 auto;
-    padding: 1.85rem 0 1.15rem;
+    padding: 1.05rem 0 0.75rem;
     color: #ffffff;
 }
 
@@ -44,10 +44,10 @@ body.news-page #header-placeholder {
 
 .news-hero p {
     max-width: 38rem;
-    margin-top: 0.75rem;
+    margin-top: 0.45rem;
     color: rgba(255, 255, 255, 0.88);
-    font-size: 1.16rem;
-    line-height: 1.48;
+    font-size: 1.04rem;
+    line-height: 1.42;
 }
 
 .news-featured-slot {
@@ -319,15 +319,6 @@ a.news-featured-card:focus-visible .news-featured-read-more-icon {
     font-size: 0.95rem;
     font-weight: 700;
     text-align: right;
-}
-
-.news-empty-state {
-    grid-column: 1 / -1;
-    margin: 0;
-    padding: 1.3rem;
-    border: 1px solid var(--site-border);
-    border-radius: 8px;
-    color: var(--site-text-muted);
 }
 
 .news-grid {
@@ -761,22 +752,90 @@ a.news-card:focus-visible {
     color: var(--site-text-muted);
 }
 
+@media (max-width: 760px) {
+    .news-hero,
+    .news-featured-slot,
+    .news-controls-section,
+    .news-list-section,
+    .news-article {
+        width: min(calc(100% - var(--site-page-inset)), 1100px);
+    }
+
+    .news-article-page {
+        padding: 2.75rem 0 3.5rem;
+    }
+
+    .news-article-header {
+        margin-bottom: 1rem;
+    }
+
+    .news-article-header h1 {
+        margin-bottom: 0.4rem;
+    }
+
+    .news-article-content {
+        margin-top: 1.25rem;
+    }
+
+    .news-article-image-link img,
+    .news-article-figure img,
+    .news-article-content img {
+        width: auto;
+        max-width: 100%;
+        max-height: min(62vh, 28rem);
+        margin-inline: auto;
+        object-fit: contain;
+    }
+
+    .news-pagination {
+        justify-content: center;
+        gap: 0.3rem !important;
+        width: 100%;
+        padding: 0.35rem;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    .news-pagination-page {
+        min-width: 2.75rem !important;
+        min-height: 2.75rem !important;
+        padding-inline: 0.55rem !important;
+        font-size: 1rem !important;
+    }
+
+    .news-pagination-control {
+        flex: 1 1 0;
+        min-width: 0 !important;
+        min-height: 2.75rem !important;
+        padding-inline: 0.5rem !important;
+        font-size: 0.875rem !important;
+    }
+
+    .news-pagination-ellipsis {
+        display: grid;
+        width: 1rem;
+        min-width: 1rem;
+        height: 2.75rem;
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 900px) {
     .news-grid {
         grid-template-columns: 1fr;
     }
 
     .news-gradient-stage {
-        padding-bottom: 1.35rem;
+        padding-bottom: 1rem;
         background-position: 58% center;
     }
 
     .news-hero {
-        padding: 1.45rem 0 1rem;
+        padding: 1.05rem 0 0.75rem;
     }
 
     .news-hero h1 {
-        margin-bottom: 0.65rem;
+        margin-bottom: 0.45rem;
     }
 
     .news-hero p {
@@ -790,6 +849,7 @@ a.news-card:focus-visible {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0;
+        height: auto;
         min-height: 0;
         background: rgba(16, 38, 58, 0.82);
         padding: 0;
@@ -807,6 +867,7 @@ a.news-featured-card:focus-visible {
         position: relative;
         grid-column: 1;
         grid-row: 1;
+        height: auto;
         min-height: 210px;
         border-bottom: 0;
     }
@@ -819,6 +880,7 @@ a.news-featured-card:focus-visible {
     .news-featured-slot .news-featured-content {
         grid-column: 1;
         grid-row: 2;
+        height: auto;
         min-height: 0;
         padding: 1.35rem;
         border-right: 0;
@@ -872,46 +934,67 @@ a.news-featured-card:focus-visible {
 }
 
 @media (max-width: 520px) {
-    .news-hero,
-.news-featured-slot,
-.news-controls-section,
-.news-list-section,
-.news-article {
-        width: min(100% - 1.25rem, 1100px);
+    .news-featured-slot .news-featured-card {
+        border-radius: 10px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
     }
 
-    .news-featured-slot .news-featured-image-link,
-.news-featured-slot .news-featured-image-link img {
-        min-height: 185px;
+    .news-featured-slot .news-featured-image-link {
+        height: clamp(155px, 42vw, 185px);
+        min-height: 0;
+    }
+
+    .news-featured-slot .news-featured-image-link img {
+        height: 100%;
+        min-height: 0;
+        object-fit: cover;
     }
 
     .news-featured-slot .news-featured-content {
-        padding: 1.15rem;
+        padding: 1rem;
+    }
+
+    .news-featured-slot .news-card.news-featured-card h2 {
+        max-width: none;
+        margin: 0 0 0.55rem;
+        font-size: clamp(1.35rem, 6vw, 1.65rem);
+        line-height: 1.12;
+    }
+
+    .news-featured-slot .news-featured-meta {
+        margin-top: 0.1rem;
+        font-size: 0.82rem;
+    }
+
+    .news-featured-slot .news-card.news-featured-card p:not(.news-featured-meta) {
+        display: -webkit-box;
+        margin-top: 0.65rem;
+        overflow: hidden;
+        font-size: 0.9rem;
+        line-height: 1.42;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .news-featured-read-more {
+        gap: 0.55rem;
+        margin-top: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .news-featured-read-more-icon {
+        width: 2.1rem;
+        height: 2.1rem;
+        font-size: 1.25rem;
     }
 
     .news-pagination {
-        width: fit-content;
-        gap: 0.15rem;
-        padding: 0.22rem;
-        border-radius: 999px;
-    }
-
-    .news-pagination button {
-        flex: 0 0 auto;
-        min-width: 1.55rem;
-        min-height: 1.75rem;
-        padding: 0.25rem 0.3rem;
-        font-size: 0.72rem;
-    }
-
-    .news-pagination-ellipsis {
-        width: 1.15rem;
-        min-width: 1.15rem;
-        height: 1.75rem;
-        font-size: 0.72rem;
+        gap: 0.4rem;
     }
 
     .news-pagination-control {
-        padding-inline: 0.4rem;
+        min-height: 2.75rem;
+        padding-inline: 0.8rem !important;
+        font-size: 0.875rem;
     }
 }

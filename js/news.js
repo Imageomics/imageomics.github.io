@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const FIRST_PAGE_REGULAR_CARD_COUNT = 9;
-    const FOLLOWING_PAGE_CARD_COUNT = 12;
+    const FOLLOWING_PAGE_CARD_COUNT = 9;
 
     const main = document.querySelector("main");
     if (!main) return;
+
+    const newsList = document.querySelector('#news-list');
+    const featuredNews = document.querySelector('#news-featured');
+    if (!newsList) return;
+
+    newsList.setAttribute('aria-busy', 'true');
 
     let unsortedNewsItems;
     try {
@@ -14,12 +20,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!Array.isArray(unsortedNewsItems)) throw new TypeError("News data must be an array.");
     } catch (error) {
         console.error("Unable to load news data.", error);
-        const featuredNews = document.querySelector("#news-featured");
-        const newsList = document.querySelector("#news-list");
         if (featuredNews) featuredNews.innerHTML = "";
-        if (newsList) {
-            newsList.innerHTML = "<p class=\"news-empty-state\">News is temporarily unavailable. Please try again later.</p>";
-        }
+        window.ImageomicsStates?.render(newsList, 'error', 'News is temporarily unavailable. Please try again later.', { tagName: 'p' });
         return;
     }
 
@@ -32,8 +34,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const newsItems = [...unsortedNewsItems].sort((a, b) => parseNewsDate(b.date) - parseNewsDate(a.date));
     const latestNewsItem = newsItems[0];
 
-    const newsList = document.querySelector('#news-list');
-    const featuredNews = document.querySelector('#news-featured');
     const paginationControls = document.querySelectorAll('.news-pagination');
     const newsSearch = document.querySelector('.news-search');
     const searchInput = document.querySelector('#news-search-input');
@@ -42,8 +42,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const yearToggleLabel = yearToggle?.querySelector('span');
     const yearMenu = yearFilter?.querySelector('.news-year-menu');
     const resultsCount = document.querySelector('#news-results-count');
-    if (!newsList) return;
-
     let filteredNewsItems = [...newsItems];
     let selectedYear = '';
 
@@ -204,13 +202,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const renderPaginationButtons = (currentPage, totalPages) => {
-        const visiblePages = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+        const isMobile = window.matchMedia('(max-width: 760px)').matches;
+        const visiblePages = isMobile
+            ? new Set([1, totalPages, currentPage])
+            : new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
 
-        if (currentPage <= 3) {
+        if (isMobile && currentPage === 1) {
+            visiblePages.add(2);
+        } else if (isMobile && currentPage === totalPages) {
+            visiblePages.add(totalPages - 1);
+        } else if (!isMobile && currentPage <= 3) {
             [2, 3, 4].forEach((page) => visiblePages.add(page));
         }
 
-        if (currentPage >= totalPages - 2) {
+        if (!isMobile && currentPage >= totalPages - 2) {
             [totalPages - 3, totalPages - 2, totalPages - 1].forEach((page) => visiblePages.add(page));
         }
 
@@ -237,13 +242,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             const currentPageAttribute = item === currentPage ? ' aria-current="page"' : '';
-            return `<button type="button" data-page="${item}" aria-label="Go to page ${item}"${currentPageAttribute}>${item}</button>`;
+            return `<button class="news-pagination-page" type="button" data-page="${item}" aria-label="Go to page ${item}"${currentPageAttribute}>${item}</button>`;
         }).join('');
 
         return `
-            <button class="news-pagination-control" type="button" data-page="${Math.max(currentPage - 1, 1)}" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+            <button class="news-pagination-control" type="button" data-page="${Math.max(currentPage - 1, 1)}" aria-label="Previous news page" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
             ${pageButtonMarkup}
-            <button class="news-pagination-control" type="button" data-page="${Math.min(currentPage + 1, totalPages)}" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+            <button class="news-pagination-control" type="button" data-page="${Math.min(currentPage + 1, totalPages)}" aria-label="Next news page" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
         `;
     };
 
@@ -264,7 +269,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const renderPage = (page) => {
         if (!filteredNewsItems.length) {
             if (featuredNews) featuredNews.innerHTML = '';
-            newsList.innerHTML = '<p class="news-empty-state">No news matched your search.</p>';
+            const hasActiveFilter = Boolean(searchInput?.value.trim() || selectedYear);
+            window.ImageomicsStates?.render(
+                newsList,
+                'empty',
+                hasActiveFilter ? 'No news matched your search.' : 'No news is available right now.',
+                { tagName: 'p' }
+            );
             paginationControls.forEach((pagination) => {
                 pagination.innerHTML = '';
             });
@@ -281,6 +292,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             featuredNews.innerHTML = featuredItem ? renderNewsItem(featuredItem, true) : '';
         }
         newsList.innerHTML = newsMarkup;
+        newsList.setAttribute('aria-busy', 'false');
         renderPagination(currentPage, totalPages);
         renderResultsCount();
 
@@ -312,6 +324,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             goToPage(Number.parseInt(pageButton.dataset.page, 10));
         });
+
     });
 
     const applyFilters = () => {

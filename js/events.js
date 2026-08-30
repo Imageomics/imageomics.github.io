@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const FIRST_PAGE_REGULAR_CARD_COUNT = 9;
-    const FOLLOWING_PAGE_CARD_COUNT = 12;
+    const FOLLOWING_PAGE_CARD_COUNT = 9;
 
     const main = document.querySelector('main');
     if (!main) return;
+
+    const loadState = document.querySelector('#events-load-state');
+    main.setAttribute('aria-busy', 'true');
 
     let eventItems;
     try {
@@ -14,10 +17,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!Array.isArray(eventItems)) throw new TypeError("Event data must be an array.");
     } catch (error) {
         console.error("Unable to load event data.", error);
-        const errorMessage = document.createElement("p");
-        errorMessage.className = "news-empty-state";
-        errorMessage.textContent = "Events are temporarily unavailable. Please try again later.";
-        main.appendChild(errorMessage);
+        const errorState = window.ImageomicsStates?.create(
+            'error',
+            'Events are temporarily unavailable. Please try again later.',
+            { tagName: 'p', className: 'events-load-state' }
+        );
+        if (loadState && errorState) loadState.replaceWith(errorState);
+        main.setAttribute('aria-busy', 'false');
         return;
     }
 
@@ -39,6 +45,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (uniqueDates.length === 2) return uniqueDates.join(', ');
 
         return `${uniqueDates[0]} - ${uniqueDates[uniqueDates.length - 1]} (${uniqueDates.length} dates)`;
+    };
+
+    const formatEventSchedule = (item) => {
+        const scheduleParts = [item.date, item.time].filter(Boolean);
+        return scheduleParts.join(' • ');
     };
 
     const getUniqueEventItems = (items) => {
@@ -72,6 +83,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 existingItem.image = item.image;
                 existingItem.imageAlt = item.imageAlt;
             }
+
+            if (!existingItem.time && item.time) {
+                existingItem.time = item.time;
+            }
         });
 
         return [...uniqueItems.values()].map((item) => ({
@@ -94,6 +109,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const firstSession = seriesItems[0];
         const lastSession = seriesItems[seriesItems.length - 1];
+        const seriesTimes = getUniqueValues(seriesItems.map((item) => item.time));
         const lastDateWithoutWeekday = lastSession.date.replace(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),\s+/, '');
         const seriesItem = {
             title: 'Experiential Introduction to AI and Ecology',
@@ -104,7 +120,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             imageAlt: firstSession.imageAlt,
             startDate: firstSession.startDate,
             endDate: lastSession.startDate,
-            allDatesText: seriesItems.map((item) => item.allDatesText || item.date).join(', '),
+            time: seriesTimes.length === 1 ? seriesTimes[0] : '',
+            allDatesText: seriesItems.map((item) => formatEventSchedule({
+                ...item,
+                date: item.allDatesText || item.date
+            })).join(', '),
             searchText: seriesItems.map((item) => `${item.title} ${item.description || ''}`).join(' '),
             seriesItems
         };
@@ -163,6 +183,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     let featuredEvent = null;
     let featuredEventStatus = '';
     let regularEventItems = [];
+
+    loadState?.remove();
+    main.setAttribute('aria-busy', 'false');
 
     const gradientStage = main.querySelector('.news-gradient-stage');
     const featuredSlot = document.createElement('div');
@@ -240,6 +263,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 item.title.toLowerCase().includes(query) ||
                 String(item.description || '').toLowerCase().includes(query) ||
                 String(item.searchText || '').toLowerCase().includes(query) ||
+                String(item.time || '').toLowerCase().includes(query) ||
                 searchableDateText.toLowerCase().includes(query);
 
             return matchesYear && matchesQuery;
@@ -370,10 +394,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         title.textContent = item.title;
         content.appendChild(title);
 
-        if (item.date) {
+        if (item.date || item.time) {
             const meta = document.createElement('p');
             meta.className = 'event-featured-meta';
-            meta.textContent = item.date;
+            meta.textContent = formatEventSchedule(item);
             content.appendChild(meta);
         }
 
@@ -435,7 +459,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const date = document.createElement('p');
             date.className = 'news-card-date';
-            date.textContent = item.date;
+            date.textContent = formatEventSchedule(item);
             content.appendChild(date);
 
             const title = document.createElement('h2');
@@ -464,7 +488,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 link.textContent = session.title;
 
                 const sessionDate = document.createElement('span');
-                sessionDate.textContent = session.date;
+                sessionDate.textContent = formatEventSchedule(session);
 
                 listItem.appendChild(link);
                 listItem.appendChild(sessionDate);
@@ -498,10 +522,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const content = document.createElement('div');
         content.className = 'news-card-content';
 
-        if (item.date) {
+        if (item.date || item.time) {
             const date = document.createElement('p');
             date.className = 'news-card-date';
-            date.textContent = item.date;
+            date.textContent = formatEventSchedule(item);
             content.appendChild(date);
         }
 
@@ -520,13 +544,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const renderPaginationButtons = (currentPage, totalPages) => {
-        const visiblePages = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+        const isMobile = window.matchMedia('(max-width: 760px)').matches;
+        const visiblePages = isMobile
+            ? new Set([1, totalPages, currentPage])
+            : new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
 
-        if (currentPage <= 3) {
+        if (isMobile && currentPage === 1) {
+            visiblePages.add(2);
+        } else if (isMobile && currentPage === totalPages) {
+            visiblePages.add(totalPages - 1);
+        } else if (!isMobile && currentPage <= 3) {
             [2, 3, 4].forEach((page) => visiblePages.add(page));
         }
 
-        if (currentPage >= totalPages - 2) {
+        if (!isMobile && currentPage >= totalPages - 2) {
             [totalPages - 3, totalPages - 2, totalPages - 1].forEach((page) => visiblePages.add(page));
         }
 
@@ -553,13 +584,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             const currentPageAttribute = item === currentPage ? ' aria-current="page"' : '';
-            return `<button type="button" data-page="${item}" aria-label="Go to page ${item}"${currentPageAttribute}>${item}</button>`;
+            return `<button class="news-pagination-page" type="button" data-page="${item}" aria-label="Go to page ${item}"${currentPageAttribute}>${item}</button>`;
         }).join('');
 
         return `
-            <button class="news-pagination-control" type="button" data-page="${Math.max(currentPage - 1, 1)}" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+            <button class="news-pagination-control" type="button" data-page="${Math.max(currentPage - 1, 1)}" aria-label="Previous events page" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
             ${pageButtonMarkup}
-            <button class="news-pagination-control" type="button" data-page="${Math.min(currentPage + 1, totalPages)}" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+            <button class="news-pagination-control" type="button" data-page="${Math.min(currentPage + 1, totalPages)}" aria-label="Next events page" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
         `;
     };
 
@@ -580,7 +611,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const renderPage = (page) => {
         if (!filteredEventItems.length) {
             renderFeaturedEvent(null);
-            eventsList.innerHTML = '<p class="news-empty-state">No events matched your search.</p>';
+            const hasActiveFilter = Boolean(searchInput?.value.trim() || selectedYear);
+            window.ImageomicsStates?.render(
+                eventsList,
+                'empty',
+                hasActiveFilter ? 'No events matched your search.' : 'No events are available right now.',
+                { tagName: 'p' }
+            );
             paginationControls.forEach((pagination) => {
                 pagination.innerHTML = '';
             });
@@ -594,6 +631,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         renderFeaturedEvent(currentPage === 1 ? featuredEvent : null);
         eventsList.innerHTML = '';
+        eventsList.setAttribute('aria-busy', 'false');
         pageEvents.forEach((item) => {
             eventsList.appendChild(renderEventCard(item));
         });
@@ -637,6 +675,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             goToPage(Number.parseInt(pageButton.dataset.page, 10));
         });
+
     });
 
     const applyFilters = () => {
