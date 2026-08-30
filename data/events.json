@@ -182,12 +182,12 @@
     "startDate": "2026-04-16"
   },
   {
-    "title": "Event: First Imageomics Conference",
-    "url": "events/2026-04-event-first-imageomics-conference.html",
-    "date": "Tue, Apr 14 2026, Wed, Apr 15 2026, Thu, Apr 16 2026, Fri, Apr 17 2026",
-    "description": "Imageomics is hosting the First Imageomics Conference April 14-16, 2026 at The...",
+    "title": "First Imageomics Conference",
+    "url": "events/imageomics-conference/index.html",
+    "date": "Tue, Apr 14 2026 - Fri, Apr 17 2026",
+    "description": "Four days of big ideas, community building, research talks, and hands-on Imageomics workshops in Columbus, Ohio.",
     "image": "../images/events-images/imageomics-conference-flyer.png",
-    "imageAlt": "Event: First Imageomics Conference",
+    "imageAlt": "First Imageomics Conference event flyer",
     "startDate": "2026-04-14"
   },
   {
