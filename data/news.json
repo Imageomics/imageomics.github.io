@@ -1,5 +1,14 @@
 [
   {
+    "title": "FloraPalooza 2026",
+    "date": "August 29, 2026",
+    "year": 2026,
+    "image": "../images/news-images/florapalooza-2026-workshop.jpeg",
+    "imageAlt": "FloraPalooza 2026 workshop participants collaborating around tables",
+    "description": "Researchers from biology, ecology, artificial intelligence, machine learning, data science, and software development came together in Columbus for a collaborative workshop exploring how plant imagery can answer biological and ecological questions at scale.",
+    "url": "news/florapalooza-2026.html"
+  },
+  {
     "title": "Designing for Discovery Workshop at the Evolution Conference 2026",
     "date": "July 1, 2026",
     "year": 2026,
