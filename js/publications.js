@@ -4,16 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchForm = document.querySelector('.publications-toolbar');
     const searchInput = document.querySelector('#publications-search');
     const resultsCount = document.querySelector('.publications-results-count');
+    const yearsContainer = document.querySelector('.publications-years');
     if (!yearNav || !yearSections.length || !searchInput) return;
 
+    const MOBILE_PAGE_SIZE = 6;
+    const mobilePublications = window.matchMedia('(max-width: 760px)');
     const availableYears = new Set(yearSections.map((section) => section.dataset.year));
     const emptyState = document.createElement('p');
+    const pagination = document.createElement('nav');
     let activeYear = '';
+    let activePage = 1;
 
-    emptyState.className = 'publications-empty-state';
+    emptyState.className = 'publications-empty-state content-state content-state--empty';
     emptyState.textContent = 'No publications match this search.';
+    emptyState.setAttribute('role', 'status');
+    emptyState.setAttribute('aria-live', 'polite');
     emptyState.hidden = true;
-    document.querySelector('.publications-years')?.appendChild(emptyState);
+    pagination.className = 'publications-pagination';
+    pagination.setAttribute('aria-label', 'Publication pages');
+    yearsContainer?.append(emptyState, pagination);
 
     yearSections.forEach((section) => {
         const year = section.dataset.year;
@@ -44,25 +53,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const query = searchInput.value.trim().toLowerCase();
         const publications = [...activeSection.querySelectorAll('.publications-list > p')];
-        let visibleCount = 0;
+        const matchingPublications = publications.filter((publication) => (
+            !query || publication.textContent.toLowerCase().includes(query)
+        ));
+        const totalPages = mobilePublications.matches
+            ? Math.max(Math.ceil(matchingPublications.length / MOBILE_PAGE_SIZE), 1)
+            : 1;
+        activePage = Math.min(activePage, totalPages);
+        const firstVisibleIndex = (activePage - 1) * MOBILE_PAGE_SIZE;
+        const visiblePublications = mobilePublications.matches
+            ? matchingPublications.slice(firstVisibleIndex, firstVisibleIndex + MOBILE_PAGE_SIZE)
+            : matchingPublications;
+        const visibleSet = new Set(visiblePublications);
 
         publications.forEach((publication) => {
-            const matches = !query || publication.textContent.toLowerCase().includes(query);
-            publication.hidden = !matches;
-            if (matches) visibleCount += 1;
+            publication.hidden = !visibleSet.has(publication);
         });
 
         if (resultsCount) {
             resultsCount.textContent = query
-                ? `${visibleCount} of ${publications.length} publications`
+                ? `${matchingPublications.length} of ${publications.length} publications`
                 : `${publications.length} publications`;
         }
 
-        emptyState.hidden = visibleCount !== 0;
+        emptyState.hidden = matchingPublications.length !== 0;
+
+        if (!mobilePublications.matches || totalPages <= 1 || !matchingPublications.length) {
+            pagination.innerHTML = '';
+            return;
+        }
+
+        const pageOptions = Array.from({ length: totalPages }, (_, index) => index + 1)
+            .map((page) => `<option value="${page}"${page === activePage ? ' selected' : ''}>${page}</option>`)
+            .join('');
+
+        pagination.innerHTML = `
+            <button type="button" data-publications-page="${Math.max(activePage - 1, 1)}" aria-label="Previous publications page" ${activePage === 1 ? 'disabled' : ''}>Previous</button>
+            <label>
+                <span>Page</span>
+                <select aria-label="Choose publications page">${pageOptions}</select>
+                <span>of ${totalPages}</span>
+            </label>
+            <button type="button" data-publications-page="${Math.min(activePage + 1, totalPages)}" aria-label="Next publications page" ${activePage === totalPages ? 'disabled' : ''}>Next</button>
+        `;
+    };
+
+    const showPublicationPage = (page) => {
+        activePage = page;
+        applySearch();
+
+        const heading = yearSections.find((section) => section.dataset.year === activeYear)?.querySelector('h2');
+        if (heading) {
+            heading.tabIndex = -1;
+            heading.focus({ preventScroll: true });
+            heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     };
 
     const showYear = (year) => {
         activeYear = year;
+        activePage = 1;
 
         yearSections.forEach((section) => {
             section.hidden = section.dataset.year !== year;
@@ -93,7 +143,29 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
     });
 
-    searchInput.addEventListener('input', applySearch);
+    searchInput.addEventListener('input', () => {
+        activePage = 1;
+        applySearch();
+    });
+
+    pagination.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-publications-page]');
+        if (!button || button.disabled) return;
+
+        showPublicationPage(Number.parseInt(button.dataset.publicationsPage, 10));
+    });
+
+    pagination.addEventListener('change', (event) => {
+        const select = event.target.closest('select');
+        if (!select) return;
+
+        showPublicationPage(Number.parseInt(select.value, 10));
+    });
+
+    mobilePublications.addEventListener('change', () => {
+        activePage = 1;
+        applySearch();
+    });
 
     const requestedYear = new URLSearchParams(window.location.search).get('year');
     showYear(availableYears.has(requestedYear) ? requestedYear : yearSections[0].dataset.year);

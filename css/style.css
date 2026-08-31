@@ -1165,15 +1165,86 @@ a {
     color: var(--site-text-muted);
 }
 
+.publications-pagination {
+    display: none;
+}
+
 @media (max-width: 760px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-x: clip;
+    }
+
+    body {
+        --site-page-inset: 3rem;
+    }
+
+    main :where(h1, h2, h3, p, li, a) {
+        overflow-wrap: anywhere;
+    }
+
+    main :where(img, video, canvas, iframe) {
+        max-width: 100%;
+    }
+
+    main :where(pre, table) {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .stub-hero {
+        padding: 3rem 0 1.5rem;
+    }
+
+    .stub-hero h1 {
+        margin: 0 0 0.55rem;
+    }
+
+    .stub-page {
+        padding-top: 2.5rem;
+    }
+
+    .policy-hero {
+        padding: 2.75rem 0 1rem;
+    }
+
+    .policy-hero h1 {
+        margin-bottom: 0.7rem;
+    }
+
+    .policy-content h2 {
+        margin-top: 1.55rem;
+    }
+
     .publications-page .policy-hero,
     .publications-page .policy-content {
-        width: min(100% - 1.25rem, 1100px);
+        width: min(calc(100% - var(--site-page-inset)), 1100px);
+    }
+
+    .publications-page .policy-content {
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .publications-toolbar {
         display: grid;
+        align-items: stretch;
+        justify-content: stretch;
         gap: 0.4rem;
+    }
+
+    .publications-toolbar label {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .publications-toolbar input,
+    .publications-browser,
+    .publication-year,
+    .publications-list {
+        min-width: 0;
+        max-width: 100%;
     }
 
     .publications-results-count {
@@ -1192,11 +1263,15 @@ a {
         overflow-x: auto;
         border-top: 0;
         border-bottom: 1px solid var(--site-border);
+        overscroll-behavior-inline: contain;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
     }
 
     .publications-year-button {
         flex: 0 0 auto;
         width: auto;
+        min-height: 44px;
         border-bottom: 3px solid transparent;
         border-left: 0;
     }
@@ -1208,6 +1283,68 @@ a {
     .publications-list p,
     .publications-list p + p {
         padding-left: 2.5rem;
+        overflow-wrap: anywhere;
+    }
+
+    .publications-list a {
+        overflow-wrap: anywhere;
+    }
+
+    .publications-pagination:not(:empty) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.65rem;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--site-border);
+    }
+
+    .publications-pagination button,
+    .publications-pagination select {
+        min-height: 44px;
+        border: 1px solid var(--site-border);
+        border-radius: 6px;
+        background: #ffffff;
+        color: var(--site-text);
+        font: inherit;
+        font-size: 0.875rem;
+        font-weight: 700;
+    }
+
+    .publications-pagination button {
+        padding: 0.55rem 0.8rem;
+        cursor: pointer;
+    }
+
+    .publications-pagination button:disabled {
+        cursor: not-allowed;
+        background: #f5f7f8;
+        color: var(--site-text-muted);
+        opacity: 0.58;
+    }
+
+    .publications-pagination label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--site-text);
+        font-size: 0.9rem;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .publications-pagination select {
+        min-width: 3.5rem;
+        padding: 0.45rem 1.55rem 0.45rem 0.6rem;
+    }
+
+    .publications-pagination button:focus-visible,
+    .publications-pagination select:focus-visible {
+        outline: 3px solid var(--site-link);
+        outline-offset: 2px;
     }
 }
 
