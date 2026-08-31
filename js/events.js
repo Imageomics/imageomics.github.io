@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const FIRST_PAGE_REGULAR_CARD_COUNT = 9;
-    const FOLLOWING_PAGE_CARD_COUNT = 12;
+    const FOLLOWING_PAGE_CARD_COUNT = 9;
 
     const main = document.querySelector('main');
     if (!main) return;
+
+    const loadState = document.querySelector('#events-load-state');
+    main.setAttribute('aria-busy', 'true');
 
     let eventItems;
     try {
@@ -14,10 +17,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!Array.isArray(eventItems)) throw new TypeError("Event data must be an array.");
     } catch (error) {
         console.error("Unable to load event data.", error);
-        const errorMessage = document.createElement("p");
-        errorMessage.className = "news-empty-state";
-        errorMessage.textContent = "Events are temporarily unavailable. Please try again later.";
-        main.appendChild(errorMessage);
+        const errorState = window.ImageomicsStates?.create(
+            'error',
+            'Events are temporarily unavailable. Please try again later.',
+            { tagName: 'p', className: 'events-load-state' }
+        );
+        if (loadState && errorState) loadState.replaceWith(errorState);
+        main.setAttribute('aria-busy', 'false');
         return;
     }
 
@@ -39,6 +45,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (uniqueDates.length === 2) return uniqueDates.join(', ');
 
         return `${uniqueDates[0]} - ${uniqueDates[uniqueDates.length - 1]} (${uniqueDates.length} dates)`;
+    };
+
+    const formatEventSchedule = (item) => {
+        const scheduleParts = [item.date, item.time].filter(Boolean);
+        return scheduleParts.join(' • ');
     };
 
     const getUniqueEventItems = (items) => {
@@ -72,6 +83,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 existingItem.image = item.image;
                 existingItem.imageAlt = item.imageAlt;
             }
+
+            if (!existingItem.time && item.time) {
+                existingItem.time = item.time;
+            }
         });
 
         return [...uniqueItems.values()].map((item) => ({
@@ -80,18 +95,97 @@ document.addEventListener('DOMContentLoaded', async () => {
         }));
     };
 
+    const COURSE_MODULE_URL_MARKER = 'ai-and-ecology-course-module-';
+    const COURSE_SERIES_URL = 'tools-resources/experiential-introduction-ai-ecology-course-2026-2027.html';
+    const FEATURED_UPCOMING_WINDOW_DAYS = 14;
+    const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
+
+    const collapseCourseSeries = (items) => {
+        const seriesItems = items
+            .filter((item) => item.url?.includes(COURSE_MODULE_URL_MARKER))
+            .sort((a, b) => a.startDate.localeCompare(b.startDate));
+
+        if (seriesItems.length < 2) return items;
+
+        const firstSession = seriesItems[0];
+        const lastSession = seriesItems[seriesItems.length - 1];
+        const seriesTimes = getUniqueValues(seriesItems.map((item) => item.time));
+        const lastDateWithoutWeekday = lastSession.date.replace(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),\s+/, '');
+        const seriesItem = {
+            title: 'Experiential Introduction to AI and Ecology',
+            url: COURSE_SERIES_URL,
+            date: `${firstSession.date} - ${lastDateWithoutWeekday} (${seriesItems.length} sessions)`,
+            description: 'Weekly virtual course sessions from August through November 2026.',
+            image: firstSession.image,
+            imageAlt: firstSession.imageAlt,
+            startDate: firstSession.startDate,
+            endDate: lastSession.startDate,
+            time: seriesTimes.length === 1 ? seriesTimes[0] : '',
+            allDatesText: seriesItems.map((item) => formatEventSchedule({
+                ...item,
+                date: item.allDatesText || item.date
+            })).join(', '),
+            searchText: seriesItems.map((item) => `${item.title} ${item.description || ''}`).join(' '),
+            seriesItems
+        };
+
+        return items
+            .filter((item) => !item.url?.includes(COURSE_MODULE_URL_MARKER))
+            .concat(seriesItem);
+    };
+
     const parseEventDate = (startDate) => {
         const parsedDate = new Date(`${startDate}T00:00:00`);
         return Number.isNaN(parsedDate.getTime()) ? new Date(0) : parsedDate;
     };
 
-    const uniqueEventItems = getUniqueEventItems(eventItems)
+    const getToday = () => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return today;
+    };
+
+    const getFeaturedEventSelection = (items) => {
+        const today = getToday();
+        const featureCandidates = items.flatMap((item) => item.seriesItems?.length ? item.seriesItems : [item]);
+        const timedCandidates = featureCandidates.map((item) => {
+            const startDate = parseEventDate(item.startDate);
+            const endDate = parseEventDate(item.endDate || item.startDate);
+            return { item, startDate, endDate };
+        });
+
+        const happeningNow = timedCandidates
+            .filter(({ startDate, endDate }) => startDate <= today && endDate >= today)
+            .sort((a, b) => b.startDate - a.startDate)[0];
+
+        if (happeningNow) {
+            return { item: happeningNow.item, status: 'Happening Now' };
+        }
+
+        const nextUpcoming = timedCandidates
+            .filter(({ startDate }) => startDate > today)
+            .sort((a, b) => a.startDate - b.startDate)[0];
+
+        if (!nextUpcoming) return null;
+
+        const daysUntilStart = Math.round((nextUpcoming.startDate - today) / MILLISECONDS_PER_DAY);
+        const status = daysUntilStart <= FEATURED_UPCOMING_WINDOW_DAYS
+            ? 'Happening Soon'
+            : 'Upcoming Event';
+
+        return { item: nextUpcoming.item, status };
+    };
+
+    const uniqueEventItems = collapseCourseSeries(getUniqueEventItems(eventItems))
         .sort((a, b) => parseEventDate(b.startDate) - parseEventDate(a.startDate));
-    const newestEvent = uniqueEventItems[0] || null;
     let filteredEventItems = [...uniqueEventItems];
     let selectedYear = '';
     let featuredEvent = null;
+    let featuredEventStatus = '';
     let regularEventItems = [];
+
+    loadState?.remove();
+    main.setAttribute('aria-busy', 'false');
 
     const gradientStage = main.querySelector('.news-gradient-stage');
     const featuredSlot = document.createElement('div');
@@ -168,6 +262,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             const matchesQuery = !query ||
                 item.title.toLowerCase().includes(query) ||
                 String(item.description || '').toLowerCase().includes(query) ||
+                String(item.searchText || '').toLowerCase().includes(query) ||
+                String(item.time || '').toLowerCase().includes(query) ||
                 searchableDateText.toLowerCase().includes(query);
 
             return matchesYear && matchesQuery;
@@ -179,7 +275,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const updateFeaturedAndRegularEvents = () => {
-        featuredEvent = newestEvent && filteredEventItems.includes(newestEvent) ? newestEvent : null;
+        const featuredSelection = getFeaturedEventSelection(filteredEventItems);
+        featuredEvent = featuredSelection?.item || null;
+        featuredEventStatus = featuredSelection?.status || '';
         regularEventItems = featuredEvent
             ? filteredEventItems.filter((item) => item !== featuredEvent)
             : filteredEventItems;
@@ -289,17 +387,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const label = document.createElement('p');
         label.className = 'event-featured-label';
-        label.textContent = 'Newest Event';
+        label.textContent = featuredEventStatus;
         content.appendChild(label);
 
         const title = document.createElement('h2');
         title.textContent = item.title;
         content.appendChild(title);
 
-        if (item.date) {
+        if (item.date || item.time) {
             const meta = document.createElement('p');
             meta.className = 'event-featured-meta';
-            meta.textContent = item.date;
+            meta.textContent = formatEventSchedule(item);
             content.appendChild(meta);
         }
 
@@ -336,6 +434,73 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const renderEventCard = (item) => {
+        if (item.seriesItems?.length) {
+            const card = document.createElement('article');
+            card.className = 'news-card event-series-card';
+
+            if (item.image) {
+                const imageLink = document.createElement('a');
+                imageLink.className = 'news-card-image event-series-image';
+                imageLink.href = item.url;
+                imageLink.setAttribute('aria-label', `Learn more about ${item.title}`);
+
+                const image = document.createElement('img');
+                image.src = item.image;
+                image.alt = item.imageAlt || item.title;
+                image.loading = 'lazy';
+
+                setImagePresentation(image, imageLink, 'news-card-image');
+                imageLink.appendChild(image);
+                card.appendChild(imageLink);
+            }
+
+            const content = document.createElement('div');
+            content.className = 'news-card-content';
+
+            const date = document.createElement('p');
+            date.className = 'news-card-date';
+            date.textContent = formatEventSchedule(item);
+            content.appendChild(date);
+
+            const title = document.createElement('h2');
+            const titleLink = document.createElement('a');
+            titleLink.href = item.url;
+            titleLink.textContent = item.title;
+            title.appendChild(titleLink);
+            content.appendChild(title);
+
+            const description = document.createElement('p');
+            description.textContent = item.description;
+            content.appendChild(description);
+
+            const sessionDetails = document.createElement('details');
+            sessionDetails.className = 'event-series-sessions';
+
+            const summary = document.createElement('summary');
+            summary.textContent = `View ${item.seriesItems.length} sessions`;
+            sessionDetails.appendChild(summary);
+
+            const sessionList = document.createElement('ol');
+            item.seriesItems.forEach((session) => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = session.url;
+                link.textContent = session.title;
+
+                const sessionDate = document.createElement('span');
+                sessionDate.textContent = formatEventSchedule(session);
+
+                listItem.appendChild(link);
+                listItem.appendChild(sessionDate);
+                sessionList.appendChild(listItem);
+            });
+
+            sessionDetails.appendChild(sessionList);
+            content.appendChild(sessionDetails);
+            card.appendChild(content);
+            return card;
+        }
+
         const card = document.createElement('a');
         card.className = 'news-card';
         card.href = item.url;
@@ -357,10 +522,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const content = document.createElement('div');
         content.className = 'news-card-content';
 
-        if (item.date) {
+        if (item.date || item.time) {
             const date = document.createElement('p');
             date.className = 'news-card-date';
-            date.textContent = item.date;
+            date.textContent = formatEventSchedule(item);
             content.appendChild(date);
         }
 
@@ -379,13 +544,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const renderPaginationButtons = (currentPage, totalPages) => {
-        const visiblePages = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+        const isMobile = window.matchMedia('(max-width: 760px)').matches;
+        const visiblePages = isMobile
+            ? new Set([1, totalPages, currentPage])
+            : new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
 
-        if (currentPage <= 3) {
+        if (isMobile && currentPage === 1) {
+            visiblePages.add(2);
+        } else if (isMobile && currentPage === totalPages) {
+            visiblePages.add(totalPages - 1);
+        } else if (!isMobile && currentPage <= 3) {
             [2, 3, 4].forEach((page) => visiblePages.add(page));
         }
 
-        if (currentPage >= totalPages - 2) {
+        if (!isMobile && currentPage >= totalPages - 2) {
             [totalPages - 3, totalPages - 2, totalPages - 1].forEach((page) => visiblePages.add(page));
         }
 
@@ -412,13 +584,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             const currentPageAttribute = item === currentPage ? ' aria-current="page"' : '';
-            return `<button type="button" data-page="${item}" aria-label="Go to page ${item}"${currentPageAttribute}>${item}</button>`;
+            return `<button class="news-pagination-page" type="button" data-page="${item}" aria-label="Go to page ${item}"${currentPageAttribute}>${item}</button>`;
         }).join('');
 
         return `
-            <button class="news-pagination-control" type="button" data-page="${Math.max(currentPage - 1, 1)}" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+            <button class="news-pagination-control" type="button" data-page="${Math.max(currentPage - 1, 1)}" aria-label="Previous events page" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
             ${pageButtonMarkup}
-            <button class="news-pagination-control" type="button" data-page="${Math.min(currentPage + 1, totalPages)}" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+            <button class="news-pagination-control" type="button" data-page="${Math.min(currentPage + 1, totalPages)}" aria-label="Next events page" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
         `;
     };
 
@@ -439,7 +611,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const renderPage = (page) => {
         if (!filteredEventItems.length) {
             renderFeaturedEvent(null);
-            eventsList.innerHTML = '<p class="news-empty-state">No events matched your search.</p>';
+            const hasActiveFilter = Boolean(searchInput?.value.trim() || selectedYear);
+            window.ImageomicsStates?.render(
+                eventsList,
+                'empty',
+                hasActiveFilter ? 'No events matched your search.' : 'No events are available right now.',
+                { tagName: 'p' }
+            );
             paginationControls.forEach((pagination) => {
                 pagination.innerHTML = '';
             });
@@ -453,6 +631,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         renderFeaturedEvent(currentPage === 1 ? featuredEvent : null);
         eventsList.innerHTML = '';
+        eventsList.setAttribute('aria-busy', 'false');
         pageEvents.forEach((item) => {
             eventsList.appendChild(renderEventCard(item));
         });
@@ -496,6 +675,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             goToPage(Number.parseInt(pageButton.dataset.page, 10));
         });
+
     });
 
     const applyFilters = () => {

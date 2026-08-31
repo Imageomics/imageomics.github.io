@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imageomics Foundation Model | Imageomics Institute</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/research.css" />
+    <script src="../../js/script.js" defer></script>
+    <script src="../../js/load-components.js" defer></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main class="research-project-detail research-project-detail--with-sidebar">
+        <nav class="research-breadcrumb" aria-label="Breadcrumb">
+            <a href="projects.html">Research Projects</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Imageomics Foundation Model</span>
+        </nav>
+        <header class="research-project-detail-header">
+            <h1>Imageomics Foundation Model</h1>
+        </header>
+
+        <div class="research-project-detail-layout research-project-detail-layout--publications">
+            <div class="research-project-detail-content">
+                <figure class="research-project-hero">
+                    <img src="../../images/research/imageomics-foundation-model-hero.png" alt="A bird next to a taxonomy pyramid, next to a cluster of bird images" />
+                </figure>
+
+                <section aria-labelledby="project-members-heading">
+                    <h2 id="project-members-heading">Project Members</h2>
+                    <p>Jianyang Gu, Samuel Stevens, Elizabeth G Campolongo, Matthew J Thompson, Net Zhang, Jiaman (Lisa) Wu, Andrei Kopanev, Zheda Mai, Alexander E White, James Balhoff, Wasila M Dahdul, Daniel Robenstein, Hilmar Lapp, Tanya Berger-Wolf, Wei-Lun (Harry) Chao, Yu Su, Jiaman W, Chan Hee Song, David Edward Carlyn, Charles Stewart, James Balhoff</p>
+                </section>
+
+                <section aria-labelledby="project-goals-heading">
+                    <h2 id="project-goals-heading">Project Goals</h2>
+                    <p>To develop a foundation model for image-based biology tasks. Foundation models are large-scale neural networks pre-trained on a large amount of data (e.g., millions of animal images), which can then be used in a wide range of downstream tasks. Potential applications include species categorization, trait segmentation, individual identification, video analysis, and more.</p>
+                </section>
+
+                <section aria-labelledby="project-overview-heading">
+                    <h2 id="project-overview-heading">Project Overview</h2>
+                    <p>The team introduced a novel learning objective to integrate biological taxonomies into the training of new foundation models for biology to be used in future studies. We are in the process of conducting extrinsic evaluation on a wide range of biology + machine learning tasks such as image classification, object detection, and segmentation. The foundation model team has been focusing on three main threads: incorporating biology taxonomy into foundation model training, new architecture for foundation models, and model interpretation.</p>
+                    <p>We developed BioCLIP, a vision foundation model for the tree of life. Trained on over 10 million organism images (the TreeOfLife-10M dataset) with the tree of life taxonomy integrated in a novel way, BioCLIP has captured an internal representation that conforms to the tree of life, and proves to be a strong foundation model for a wide range of organisms. We are continuing to develop stronger foundation models for biology and exploring interesting applications to answer various biology questions.</p>
+
+                    <figure class="research-project-inline-figure">
+                        <img src="../../images/research/imageomics-foundation-model-taxonomy.png" alt="The process of using a foundation model to classify species based on images is shown. Which is explained in more detail in text." />
+                        <figcaption><em>(a)Two taxa, or taxonomic labels, for two different plants, Onocleasensibilis (d) and Onocleahintonii (e). These taxa are identical except for the species. (b)The auto regressive text encoder naturally encodes the hierarchical structure of the taxonomy. See how the Order token(s) (Polypodiales) can incorporate information from the Kingdom, Phylum and Class tokens, but nothing later in the hierarchy. This helps align the visual representations to this same hierarchical structure. (c)These hierarchical representations of taxonomic labels are fed into the standard contrastive pre-training objective and are matched with image representations (d)and(e).</em></figcaption>
+                    </figure>
+                </section>
+
+                <section aria-labelledby="bioclip-2-heading">
+                    <h2 id="bioclip-2-heading">BioCLIP 2</h2>
+                    <p>BioCLIP 2 was built on TreeOfLife-200M, following the BioCLIP training protocol with the addition of experience replay. In this work, we look at the biology imagery, asking what properties emerge if we scale up the hierarchical contrastive training in BioCLIP. We have released TreeOfLife-200M, the largest and most diverse available dataset of biology images. The new BioCLIP 2 model improves species classification by 18.1% over BioCLIP. Also, we demonstrate that BioCLIP 2 generalizes to diverse biological questions beyond species classification solely through species-level supervision.</p>
+                    <p>We also developed a novel interpretable machine learning model named INterpretable TRansformer (INTR). Through visualizing the attention maps in a way faithful to its predictions, we show that INTR can successfully identify and localize biologically meaningful traits for species recognition. We hope to continue to expand the use of INTR, and further develop the technology.</p>
+                </section>
+
+                <section aria-labelledby="bioclip-ecosystem-heading">
+                    <h2 id="bioclip-ecosystem-heading">BioCLIP Ecosystem</h2>
+                    <p>The BioCLIP Ecosystem site is essential in finding the most up-to-date information about BioCLIP-related projects, tools, and resources.</p>
+                </section>
+            </div>
+
+            <aside class="research-project-tools research-publications-sidebar" aria-label="Related publications and project resources">
+                <section aria-labelledby="related-publications-heading">
+                    <h2 id="related-publications-heading">Related Publications</h2>
+                    <ol class="research-related-publications">
+                        <li><em>Samuel Stevens, Jiaman Wu, Matthew J Thompson, Elizabeth G Campolongo, Chan Hee Song, David Edward Carlyn, Li Dong, Wasila M Dahdul, Charles Stewart, Tanya Berger-Wolf, Wei-Lun Chao, Yu Su</em>; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024, pp. 19412-19424. <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.pdf" target="_blank" rel="noopener noreferrer">Open Access Paper.</a></li>
+                        <li>Dipanjyoti Paul, Arpita Chowdhury, Xinqi Xiong, Feng-Ju Chang, David Carlyn, Samuel Stevens, Kaiya Provost, Anuj Karpatne, Bryan Carstens, Daniel Rubenstein, Charles Stewart, Tanya Berger-Wolf, Yu Su, Wei-Lun Chao. A Simple Interpretable Transformer for Fine-Grained Image Classification and Analysis. International Conference on Learning Representations, 2024. <a href="https://arxiv.org/abs/2311.04157" target="_blank" rel="noopener noreferrer">Presentation Link.</a></li>
+                    </ol>
+                </section>
+
+                <section class="research-project-resources" aria-labelledby="project-resources-heading">
+                    <h2 id="project-resources-heading">Tools &amp; Repositories</h2>
+                    <ul>
+                        <li><a href="https://imageomics.github.io/bioclip-ecosystem/" target="_blank" rel="noopener noreferrer">Overview of the BioCLIP Ecosystem</a></li>
+                        <li><a href="https://huggingface.co/datasets/imageomics/TreeOfLife-10M" target="_blank" rel="noopener noreferrer">TreeOfLife-10M</a></li>
+                        <li><strong>BioCLIP</strong><span><a href="https://huggingface.co/imageomics/bioclip" target="_blank" rel="noopener noreferrer">Model</a> · <a href="https://huggingface.co/spaces/imageomics/bioclip-demo" target="_blank" rel="noopener noreferrer">Demo</a> · <a href="https://github.com/Imageomics/bioclip" target="_blank" rel="noopener noreferrer">Code</a></span></li>
+                        <li><strong>BioCLIP 2</strong><span><a href="https://huggingface.co/imageomics/bioclip-2" target="_blank" rel="noopener noreferrer">Model</a> · <a href="https://huggingface.co/spaces/imageomics/bioclip-2-demo" target="_blank" rel="noopener noreferrer">Demo</a> · <a href="https://github.com/Imageomics/bioclip-2" target="_blank" rel="noopener noreferrer">Code</a></span></li>
+                        <li><a href="https://huggingface.co/datasets/imageomics/rare-species" target="_blank" rel="noopener noreferrer">Rare Species Benchmark Dataset</a></li>
+                        <li><a href="https://github.com/Imageomics/pybioclip" target="_blank" rel="noopener noreferrer">pybioclip</a></li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+</body>
+</html>
