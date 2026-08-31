@@ -5,7 +5,7 @@
         </a>
     </div>
 
-    <nav class="nav">
+    <nav class="nav" id="site-navigation" aria-label="Primary navigation">
         <ul class="nav-links">
             <li class="dropdown dropdown-about">
                 <a>About</a>
@@ -74,16 +74,16 @@
         </ul>
     </nav>
 
-    <div class="search-container" id="searchContainer">
-        <button class="search-icon-btn" id="searchIconBtn" aria-label="Search">
-            <img src="images/search.png" alt="Search" />
+    <form class="search-container" id="searchContainer" role="search">
+        <button class="search-icon-btn" id="searchIconBtn" type="submit" aria-label="Search Imageomics">
+            <img src="images/search.png" alt="" />
         </button>
-        <input type="text" class="search-bar" id="searchBar" placeholder="Search..." />
+        <input type="search" class="search-bar" id="searchBar" placeholder="Search Imageomics…" aria-label="Search every Imageomics page" enterkeyhint="search" spellcheck="false" />
         <div class="search-results" id="searchResults"></div>
-    </div>
+    </form>
 
     <div class="header-actions">
-        <button class="hamburger" id="hamburger" aria-label="Menu">
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>

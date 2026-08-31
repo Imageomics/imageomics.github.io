@@ -1,5 +1,5 @@
-@import url('header-footer.css');
-@import url('search.css');
+@import url('header-footer.css?v=9');
+@import url('search.css?v=12');
 
 * {
     box-sizing: border-box;
@@ -125,10 +125,12 @@ a {
 }
 
 #header-placeholder {
-    min-height: calc(92px + var(--site-notice-height));
+    min-height: calc(82px + var(--site-notice-height));
     position: sticky;
     top: 0;
     z-index: 1000;
+    background-color: #ffffff !important;
+    background-image: none !important;
 }
 
 #footer-placeholder {

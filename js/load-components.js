@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-    const COMPONENT_CACHE_VERSION = '6';
+    const COMPONENT_CACHE_VERSION = '14';
 
     function getPathPrefix() {
         const path = window.location.pathname;
@@ -109,6 +109,15 @@
             })
             .catch((error) => {
                 console.error(`Error loading component from ${url}:`, error);
+                const target = document.getElementById(targetId);
+                const label = targetId === 'header-placeholder' ? 'Site navigation' : 'Footer';
+                window.ImageomicsStates?.render(
+                    target,
+                    'error',
+                    `${label} is temporarily unavailable.`,
+                    { className: 'component-load-state' }
+                );
+                target?.classList.add('is-ready');
             });
     }
 
