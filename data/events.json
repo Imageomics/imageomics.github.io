@@ -100,6 +100,17 @@
     "time": "2–3pm"
   },
   {
+    "title": "Seminar: A Generative Pretrained Transformer for Genomic Photosynthesis (GPTgp)",
+    "url": "events/2026-09-seminar-generative-pretrained-transformer-genomic-photosynthesis-gptgp.html",
+    "date": "Mon, Sep 21 2026",
+    "description": "Lianhong Gu and Mengjun Shu of Oak Ridge National Laboratory present GPTgp, an AI foundation model project connecting genomic variation with photosynthetic traits.",
+    "image": "../images/events-images/gptgp.png",
+    "imageAlt": "Plant leaf with DNA strand and AI.",
+    "startDate": "2026-09-21",
+    "endDate": "2026-09-21",
+    "time": "4–5pm ET"
+  },
+  {
     "title": "AI and Ecology Course: Module 1 Week 3 (Course Foundations: Exploring the Field Sites: Ecology and Research Themes)",
     "url": "events/2026-09-ai-and-ecology-course-module-1-week-3-course-foundations-exploring-field-sites-ecology-and-research-themes.html",
     "date": "Tue, Sep 15 2026",
