@@ -85,6 +85,10 @@ for (const [index, event] of events.entries()) {
         }
     }
 
+    if ('time' in event && (typeof event.time !== 'string' || !event.time.trim())) {
+        addError(index, '"time" must be a non-empty string when provided.');
+    }
+
     if (typeof event.startDate === 'string') {
         if (!isValidIsoDate(event.startDate)) {
             addError(index, `"startDate" is not a valid YYYY-MM-DD date: ${event.startDate}`);
@@ -95,6 +99,14 @@ for (const [index, event] of events.entries()) {
             } else if (displayedStartDate !== event.startDate) {
                 addError(index, `"startDate" ${event.startDate} does not match displayed date ${displayedStartDate}.`);
             }
+        }
+    }
+
+    if ('endDate' in event) {
+        if (typeof event.endDate !== 'string' || !isValidIsoDate(event.endDate)) {
+            addError(index, `"endDate" is not a valid YYYY-MM-DD date: ${event.endDate}`);
+        } else if (isValidIsoDate(event.startDate) && event.endDate < event.startDate) {
+            addError(index, `"endDate" ${event.endDate} is before "startDate" ${event.startDate}.`);
         }
     }
 
