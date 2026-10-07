@@ -145,6 +145,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         return today;
     };
 
+    const isPastEvent = (item) => {
+        if (!item.startDate && !item.endDate) return false;
+
+        const eventDate = parseEventDate(item.endDate || item.startDate);
+        return eventDate < getToday();
+    };
+
     const getFeaturedEventSelection = (items) => {
         const today = getToday();
         const featureCandidates = items.flatMap((item) => item.seriesItems?.length ? item.seriesItems : [item]);
@@ -483,15 +490,30 @@ document.addEventListener('DOMContentLoaded', async () => {
             const sessionList = document.createElement('ol');
             item.seriesItems.forEach((session) => {
                 const listItem = document.createElement('li');
+                const isComplete = isPastEvent(session);
+
+                if (isComplete) {
+                    listItem.className = 'is-complete';
+                }
+
                 const link = document.createElement('a');
                 link.href = session.url;
                 link.textContent = session.title;
 
                 const sessionDate = document.createElement('span');
+                sessionDate.className = 'event-series-session-meta';
                 sessionDate.textContent = formatEventSchedule(session);
 
                 listItem.appendChild(link);
                 listItem.appendChild(sessionDate);
+
+                if (isComplete) {
+                    const status = document.createElement('span');
+                    status.className = 'event-series-session-status';
+                    status.textContent = 'Completed';
+                    listItem.appendChild(status);
+                }
+
                 sessionList.appendChild(listItem);
             });
 

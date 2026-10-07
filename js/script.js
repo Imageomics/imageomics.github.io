@@ -669,10 +669,78 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    function initPastEventNotice() {
+        if (!document.body.classList.contains('event-detail-page')) return;
+
+        const dateSection = document.querySelector('section[aria-label="Event dates"]');
+        const eventArticle = document.querySelector('.event-detail-page main > article');
+        const eventTitle = eventArticle?.querySelector(':scope > h1');
+        if (!dateSection || !eventArticle || !eventTitle || eventTitle.querySelector('.event-past-title-label')) return;
+
+        const timestamps = Array.from(dateSection.querySelectorAll('time[datetime]'))
+            .map((time) => {
+                const value = time.getAttribute('datetime').trim();
+                const dateOnlyMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+                if (dateOnlyMatch) {
+                    const [, year, month, day] = dateOnlyMatch;
+                    return new Date(
+                        Number(year),
+                        Number(month) - 1,
+                        Number(day),
+                        23,
+                        59,
+                        59,
+                        999
+                    ).getTime();
+                }
+
+                return Date.parse(value);
+            })
+            .filter(Number.isFinite);
+
+        if (!timestamps.length || Date.now() <= Math.max(...timestamps)) return;
+
+        const titleLabel = document.createElement('span');
+        titleLabel.className = 'event-past-title-label';
+        titleLabel.textContent = 'Past event';
+
+        eventTitle.appendChild(titleLabel);
+    }
+
+    function initCourseSessionStatus() {
+        if (!document.body.classList.contains('course-overview-page')) return;
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        document.querySelectorAll('.course-session-list li').forEach((session) => {
+            if (session.querySelector('.course-session-status')) return;
+
+            const time = session.querySelector('time[datetime]');
+            const dateValue = time?.getAttribute('datetime')?.trim();
+            const dateOnlyMatch = dateValue?.match(/^(\d{4})-(\d{2})-(\d{2})/);
+            if (!dateOnlyMatch) return;
+
+            const [, year, month, day] = dateOnlyMatch;
+            const sessionDate = new Date(Number(year), Number(month) - 1, Number(day));
+            if (sessionDate >= today) return;
+
+            session.classList.add('is-complete');
+
+            const status = document.createElement('span');
+            status.className = 'course-session-status';
+            status.textContent = 'Completed';
+            session.appendChild(status);
+        });
+    }
+
     window.initHamburger();
     window.initSearchUI = initSearchUI;
     window.initSearchUI();
     window.initActiveNav();
+    initPastEventNotice();
+    initCourseSessionStatus();
 });
 
 (function initExternalLinkBehavior() {
