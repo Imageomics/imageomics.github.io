@@ -354,7 +354,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             const isAwkwardCardRatio = ratio < 1.25 || ratio > 2.1;
 
             if (isSmallAsset) {
-                imageWrap.classList.add(`${baseClassName}--contain`, `${baseClassName}--logo`);
+                imageWrap.classList.add(`${baseClassName}--contain`);
+                if (baseClassName !== 'news-card-image') {
+                    imageWrap.classList.add(`${baseClassName}--logo`);
+                }
                 return;
             }
 

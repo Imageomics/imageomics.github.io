@@ -1712,12 +1712,14 @@ a.news-card:focus-visible {
 
     .events-page .event-featured-card {
         grid-template-columns: 110px minmax(0, 1fr);
+        height: auto;
     }
 
     .events-page .event-featured-image {
         grid-column: 1 / -1;
         grid-row: 2;
         display: block;
+        height: auto;
         min-height: 260px;
         border-radius: 10px;
     }
