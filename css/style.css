@@ -270,7 +270,7 @@ a {
 
 .policy-hero,
 .policy-content {
-    width: min(820px, calc(100% - 2rem));
+    width: min(820px, calc(100% - var(--site-page-inset)));
     margin: 0 auto;
 }
 
@@ -278,8 +278,31 @@ a {
     padding: 4rem 0 1.5rem;
 }
 
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0 0 2.25rem;
+    color: var(--site-text-muted);
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+.breadcrumb a {
+    color: var(--site-link);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus-visible {
+    color: var(--site-text);
+}
+
 .policy-hero h1,
-.policy-content h2 {
+.policy-content h2,
+.policy-content h3,
+.policy-content h4 {
     font-family: 'Figtree', sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -322,6 +345,18 @@ a {
     margin: 2.1rem 0 0.35rem;
     font-size: clamp(1.35rem, 3vw, 1.75rem);
     line-height: 1.2;
+}
+
+.policy-content h3 {
+    margin: 1.5rem 0 0.1rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
+}
+
+.policy-content h4 {
+    margin: 1.25rem 0 0;
+    font-size: 1rem;
+    line-height: 1.35;
 }
 
 .policy-content p,
@@ -377,6 +412,62 @@ a {
 
 .policy-content blockquote p {
     margin: 0;
+}
+
+.policy-content hr {
+    width: 100%;
+    margin: 1.5rem 0 0.6rem;
+    border: 0;
+    border-top: 1px solid var(--site-border);
+}
+
+.policy-content table {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+
+.policy-content th,
+.policy-content td {
+    min-width: 8rem;
+    padding: 0.75rem;
+    border: 1px solid var(--site-border);
+    vertical-align: top;
+    text-align: left;
+}
+
+.policy-content th {
+    background: var(--site-soft-bg);
+    color: var(--site-text);
+}
+
+.policy-content table p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.policy-content table p + p {
+    margin-top: 0.55rem;
+}
+
+.policy-figure {
+    margin: 1.6rem 0 1rem;
+}
+
+.policy-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.policy-figure figcaption {
+    margin-top: 0.8rem;
+    color: var(--site-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
 }
 
 .excursion-content {
@@ -558,6 +649,56 @@ a {
     color: var(--site-link);
     text-decoration: underline;
     text-underline-offset: 0.12em;
+}
+
+.resource-page .policy-hero,
+.resource-page .resource-layout {
+    width: min(1100px, calc(100% - var(--site-page-inset)));
+}
+
+.resource-primary .policy-hero {
+    width: 100%;
+    margin: 0;
+}
+
+.resource-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+    gap: 2.4rem;
+    align-items: start;
+}
+
+.resource-primary {
+    min-width: 0;
+}
+
+.resource-sidebar {
+    position: sticky;
+    top: calc(82px + 0.75rem);
+    align-self: start;
+    min-width: 0;
+    max-height: calc(100vh - 82px - 1.5rem);
+    overflow-y: auto;
+    padding-left: 1.2rem;
+    border-left: 1px solid var(--site-border);
+}
+
+.resource-sidebar h2 {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+}
+
+.resource-sidebar p {
+    margin: 0;
+    color: var(--site-text-muted);
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.resource-sidebar hr {
+    margin: 0.9rem 0;
+    border: 0;
+    border-top: 1px solid var(--site-border);
 }
 
 .policy-emphasis {
@@ -1218,6 +1359,28 @@ a {
 
     .policy-content h2 {
         margin-top: 1.55rem;
+    }
+
+    .resource-page .policy-hero,
+    .resource-page .resource-layout {
+        width: min(calc(100% - var(--site-page-inset)), 1100px);
+    }
+
+    .resource-primary .policy-hero {
+        width: 100%;
+    }
+
+    .resource-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .resource-sidebar {
+        position: static;
+        margin-top: 1.25rem;
+        padding-top: 1.25rem;
+        padding-left: 0;
+        border-top: 1px solid var(--site-border);
+        border-left: 0;
     }
 
     .publications-page .policy-hero,
