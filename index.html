@@ -3,19 +3,275 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Imageomics turns images of life into knowledge through biodiversity science and artificial intelligence." />
     <title>Imageomics Institute</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/homepage.css" />
     <script src="js/script.js" defer></script>
+    <script src="js/homepage.js" defer></script>
     <script src="js/load-components.js" defer></script>
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <main class="page-shell">
-        <section class="stub-hero home-progress" aria-labelledby="home-progress-title">
-            <h1 id="home-progress-title">Still in the works.</h1>
+    <main class="home-page">
+        <section class="mobile-home-progress" aria-labelledby="mobile-home-progress-title">
+            <h1 id="mobile-home-progress-title">Still in the works.</h1>
             <p>We are still building the new Imageomics Institute website.</p>
             <p>In the meantime, explore our completed <a href="html/about.html">About</a>, <a href="html/news.html">News</a>, and <a href="html/events.html">Events</a> sections.</p>
         </section>
+
+        <section class="home-news-showcase" aria-label="Featured news">
+            <div class="hero-news-carousel" data-news-carousel data-paused="true">
+                <div class="hero-news-carousel__controls" aria-label="Carousel controls">
+                    <button class="hero-news-carousel__arrow" type="button" data-news-previous aria-label="Previous featured item" disabled>Previous</button>
+                    <button class="hero-news-carousel__arrow" type="button" data-news-next aria-label="Next featured item" disabled>Next</button>
+                </div>
+                <div class="hero-news-carousel__stage" data-news-viewport>
+                    <div class="hero-news-carousel__track" data-news-track>
+                        <div class="content-state content-state--loading hero-news-carousel__state" role="status" aria-live="polite">Loading featured items…</div>
+                    </div>
+                </div>
+                <div class="hero-news-carousel__footer">
+                    <output class="hero-news-carousel__counter" data-news-counter aria-live="polite">01 / 04</output>
+                    <div class="hero-news-carousel__dots" data-news-dots aria-label="Choose a featured item"></div>
+                    <button class="hero-news-carousel__toggle" type="button" data-news-toggle aria-pressed="false" disabled>
+                        <span data-news-toggle-icon aria-hidden="true">Ⅱ</span>
+                        <span data-news-toggle-label>Pause</span>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="home-question" aria-labelledby="home-question-title">
+            <div class="home-question__answer">
+                <figure class="home-question__image home-question__image--illustration">
+                    <img src="images/imageomics-discovery.jpg" alt="Illustration of artificial intelligence analyzing butterfly, bird, fish, and tree images to reveal biological insights" width="1024" height="1024" loading="lazy" />
+                </figure>
+                <div class="home-question__copy">
+                    <div class="home-question__question">
+                        <p class="home-eyebrow">Question</p>
+                        <h2 id="home-question-title">What if images could reveal what the eye cannot see?</h2>
+                    </div>
+                    <div class="home-question__response">
+                        <p class="home-question__label">Answer</p>
+                        <p>Every image of life contains clues about the world around us, from an animal’s physical traits and behavior to the ways species adapt and evolve. Imageomics uses artificial intelligence and biological knowledge to uncover those hidden patterns, turning images into new scientific discoveries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-hero" aria-labelledby="home-title">
+            <div class="home-hero__glow" aria-hidden="true"></div>
+            <div class="home-hero__content">
+                <h1 id="home-title">Turning images of life<br />into knowledge.</h1>
+                <p class="home-hero__intro">Join our mission in this rapidly growing field at the intersection of biodiversity and artificial intelligence.</p>
+                <a class="home-hero__link" href="html/about/vision.html">Join our mission <span aria-hidden="true">↗</span></a>
+            </div>
+            <a class="home-scroll-cue" href="#choose-your-path">
+                <span>Find your path</span>
+                <span aria-hidden="true">↓</span>
+            </a>
+        </section>
+
+        <section class="persona-section" id="choose-your-path" aria-labelledby="persona-title">
+            <div class="persona-heading">
+                <h2 id="persona-title">Explore Imageomics your way.</h2>
+                <p>Find your place to connect within the Imageomics community.</p>
+            </div>
+
+            <div class="persona-picker" data-persona-picker>
+                <div class="persona-tabs" role="tablist" aria-label="Choose your path">
+                    <button class="persona-tab is-active" id="persona-researcher-tab" type="button" role="tab" aria-selected="true" aria-controls="persona-researcher" tabindex="0" data-persona="researcher">
+                        <span class="persona-tab__number">01</span>
+                        <span class="persona-tab__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><circle cx="20" cy="20" r="11"></circle><path d="m28 28 10 10M15 20h10M20 15v10"></path></svg>
+                        </span>
+                        <span class="persona-tab__copy"><strong>I’m a researcher</strong><small>Biology, ecology, evolution, or AI</small></span>
+                        <span class="persona-tab__arrow" aria-hidden="true">→</span>
+                    </button>
+
+                    <button class="persona-tab" id="persona-student-tab" type="button" role="tab" aria-selected="false" aria-controls="persona-student" tabindex="-1" data-persona="student">
+                        <span class="persona-tab__number">02</span>
+                        <span class="persona-tab__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><path d="m6 19 18-9 18 9-18 9-18-9Z"></path><path d="M13 23v10c6 6 16 6 22 0V23M42 19v12"></path></svg>
+                        </span>
+                        <span class="persona-tab__copy"><strong>I’m a student</strong><small>Learning, training, and career pathways</small></span>
+                        <span class="persona-tab__arrow" aria-hidden="true">→</span>
+                    </button>
+
+                    <button class="persona-tab" id="persona-educator-tab" type="button" role="tab" aria-selected="false" aria-controls="persona-educator" tabindex="-1" data-persona="educator">
+                        <span class="persona-tab__number">03</span>
+                        <span class="persona-tab__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><path d="M8 10h24a4 4 0 0 1 4 4v25H12a4 4 0 0 1-4-4V10Z"></path><path d="M12 39c0-3 2-5 5-5h19M17 17h12M17 23h8"></path></svg>
+                        </span>
+                        <span class="persona-tab__copy"><strong>I’m an educator</strong><small>Courses, teaching, and shared resources</small></span>
+                        <span class="persona-tab__arrow" aria-hidden="true">→</span>
+                    </button>
+
+                    <button class="persona-tab" id="persona-builder-tab" type="button" role="tab" aria-selected="false" aria-controls="persona-builder" tabindex="-1" data-persona="builder">
+                        <span class="persona-tab__number">04</span>
+                        <span class="persona-tab__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><path d="m17 14-10 10 10 10M31 14l10 10-10 10M27 8l-6 32"></path></svg>
+                        </span>
+                        <span class="persona-tab__copy"><strong>I build with data</strong><small>Models, code, datasets, and tools</small></span>
+                        <span class="persona-tab__arrow" aria-hidden="true">→</span>
+                    </button>
+
+                    <button class="persona-tab" id="persona-curious-tab" type="button" role="tab" aria-selected="false" aria-controls="persona-curious" tabindex="-1" data-persona="curious">
+                        <span class="persona-tab__number">05</span>
+                        <span class="persona-tab__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><path d="M24 41s15-8 15-20a8 8 0 0 0-15-4 8 8 0 0 0-15 4c0 12 15 20 15 20Z"></path><path d="M17 25c4 0 4-6 8-6s4 8 8 8"></path></svg>
+                        </span>
+                        <span class="persona-tab__copy"><strong>I’m curious or looking to connect</strong><small>Stories, events, partnerships, and updates</small></span>
+                        <span class="persona-tab__arrow" aria-hidden="true">→</span>
+                    </button>
+                </div>
+
+                <div class="persona-results" aria-live="polite">
+                    <article class="persona-panel is-active" id="persona-researcher" role="tabpanel" aria-labelledby="persona-researcher-tab" aria-hidden="false" data-persona-panel="researcher">
+                        <h3>Turn biological questions into new discoveries through AI.</h3>
+                        <p>Explore Imageomics research, connect with interdisciplinary collaborators, and discover tools and methods that use artificial intelligence.</p>
+                        <nav aria-label="Researcher recommendations">
+                            <a href="html/research/projects.html"><span>Explore research projects</span><b aria-hidden="true">↗</b></a>
+                            <a href="html/research/publications.html"><span>Read our publications</span><b aria-hidden="true">↗</b></a>
+                            <a href="html/research/talks-presentations.html"><span>Watch talks and presentations</span><b aria-hidden="true">↗</b></a>
+                        </nav>
+                    </article>
+
+                    <article class="persona-panel" id="persona-student" role="tabpanel" aria-labelledby="persona-student-tab" aria-hidden="true" data-persona-panel="student" inert>
+                        <h3>Build skills and gain experience for the next step in your career.</h3>
+                        <p>Learn at the intersection of biology and AI, gain relevant hands-on experience, and find opportunities to explore Imageomics as a field of study and a career.</p>
+                        <nav aria-label="Student recommendations">
+                            <a href="html/about/nextgens.html"><span>Meet the NextGens</span><b aria-hidden="true">↗</b></a>
+                            <a href="html/tools-resources/experiential-introduction-ai-ecology-course-2026-2027.html"><span>Explore the AI &amp; ecology course</span><b aria-hidden="true">↗</b></a>
+                            <a href="html/events.html"><span>Find an upcoming event</span><b aria-hidden="true">↗</b></a>
+                        </nav>
+                    </article>
+
+                    <article class="persona-panel" id="persona-educator" role="tabpanel" aria-labelledby="persona-educator-tab" aria-hidden="true" data-persona-panel="educator" inert>
+                        <h3>Bring Imageomics into the classroom.</h3>
+                        <p>Build courses, find teaching materials, and develop lessons exploring artificial intelligence and its implications for research, biodiversity, and the natural world.</p>
+                        <nav aria-label="Educator recommendations">
+                            <a href="html/tools-resources/educational-tools-resources.html"><span>Browse educational resources</span><b aria-hidden="true">↗</b></a>
+                            <a href="html/tools-resources/tool-tutorials.html"><span>Use a tool tutorial</span><b aria-hidden="true">↗</b></a>
+                            <a href="html/research/talks-presentations.html"><span>Share a talk or presentation</span><b aria-hidden="true">↗</b></a>
+                        </nav>
+                    </article>
+
+                    <article class="persona-panel" id="persona-builder" role="tabpanel" aria-labelledby="persona-builder-tab" aria-hidden="true" data-persona-panel="builder" inert>
+                        <h3>Build the tools that make new discoveries possible.</h3>
+                        <p>Be at the forefront of AI development by exploring open-source models, datasets, code, and software for working with biology.</p>
+                        <nav aria-label="Builder recommendations">
+                            <a href="html/tools-resources/software-tools-resources.html"><span>Explore software and tools</span><b aria-hidden="true">↗</b></a>
+                            <a href="https://imageomics.github.io/catalog/" target="_blank" rel="noopener noreferrer"><span>Search the Imageomics Catalog</span><b aria-hidden="true">↗</b></a>
+                            <a href="https://github.com/Imageomics" target="_blank" rel="noopener noreferrer"><span>View Imageomics on GitHub</span><b aria-hidden="true">↗</b></a>
+                        </nav>
+                    </article>
+
+                    <article class="persona-panel" id="persona-curious" role="tabpanel" aria-labelledby="persona-curious-tab" aria-hidden="true" data-persona-panel="curious" inert>
+                        <h3>You don’t have to be an expert to connect.</h3>
+                        <p>Discover new ideas, people, and the endless possibilities within this emerging field through the Imageomics community.</p>
+                        <nav aria-label="Community recommendations">
+                            <a href="html/about/vision.html"><span>Learn what Imageomics is</span><b aria-hidden="true">↗</b></a>
+                            <a href="html/news.html"><span>Read the latest stories</span><b aria-hidden="true">↗</b></a>
+                            <a href="html/about/mailing-list.html"><span>Join the mailing list</span><b aria-hidden="true">↗</b></a>
+                        </nav>
+                    </article>
+                </div>
+            </div>
+            <section class="persona-resources" aria-labelledby="persona-resources-title">
+                <div class="persona-resource-links">
+                    <a class="persona-resource-card" href="https://imageomics.github.io/catalog/" target="_blank" rel="noopener noreferrer">
+                        <span class="persona-resource-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><circle cx="20" cy="20" r="12"></circle><path d="m29 29 10 10"></path></svg>
+                        </span>
+                        <small>catalog.imageomics.org</small>
+                        <strong>Catalog</strong>
+                        <p>Search Imageomics code, datasets, models, demonstrations, and other open research products.</p>
+                        <b>Start searching <span aria-hidden="true">→</span></b>
+                    </a>
+
+                    <a class="persona-resource-card" href="https://imageomics.github.io/Imageomics-guide/" target="_blank" rel="noopener noreferrer">
+                        <span class="persona-resource-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"></circle><path d="m29 17-4 10-10 4 4-10 10-4Z"></path></svg>
+                        </span>
+                        <small>Imageomics guide</small>
+                        <strong>Guide</strong>
+                        <p>Follow Imageomics workflows, documentation, tutorials, and collaborative science practices.</p>
+                        <b>Open the guide <span aria-hidden="true">→</span></b>
+                    </a>
+                </div>
+
+                <div class="persona-demos">
+                    <div class="persona-demos__heading">
+                        <h3 id="persona-resources-title">Not sure where to start? Explore a demo.</h3>
+                    </div>
+                    <div class="persona-demo-grid">
+                        <a class="persona-demo-card persona-demo-card--bioclip" href="https://github.com/Imageomics/bioclip-2" target="_blank" rel="noopener noreferrer">
+                            <span class="persona-demo-card__image" aria-hidden="true">
+                                <img src="images/bioclip-2-beak-size.png" alt="" width="2800" height="2400" loading="lazy" />
+                                <small>AI demo</small>
+                            </span>
+                            <span class="persona-demo-card__body">
+                                <strong>BioCLIP 2 Demo</strong>
+                                <p>Explore predictions from a vision foundation model built to recognize and understand organisms across the tree of life.</p>
+                                <b>Explore demo <span aria-hidden="true">→</span></b>
+                            </span>
+                        </a>
+
+                        <a class="persona-demo-card persona-demo-card--guide" href="https://imageomics.github.io/Imageomics-guide/" target="_blank" rel="noopener noreferrer">
+                            <span class="persona-demo-card__image" aria-hidden="true">
+                                <img src="images/imageomics-guide.png" alt="" width="1326" height="488" loading="lazy" />
+                                <small>Documentation</small>
+                            </span>
+                            <span class="persona-demo-card__body">
+                                <strong>Imageomics Guide</strong>
+                                <p>Find practical workflows, templates, documentation, and shared practices for collaborative Imageomics research.</p>
+                                <b>Open the guide <span aria-hidden="true">→</span></b>
+                            </span>
+                        </a>
+
+                        <a class="persona-demo-card persona-demo-card--robot" href="https://github.com/Imageomics/cautious-robot" target="_blank" rel="noopener noreferrer">
+                            <span class="persona-demo-card__image" aria-hidden="true">
+                                <img src="images/cautious-robot-logo.png" alt="" width="1080" height="1080" loading="lazy" />
+                                <small>Software tool</small>
+                            </span>
+                            <span class="persona-demo-card__body">
+                                <strong>Cautious Robot</strong>
+                                <p>Download images from URLs in a CSV, organize and resize them, and verify the results without overwriting existing files.</p>
+                                <b>View the tool <span aria-hidden="true">→</span></b>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="home-updates" aria-label="Latest news and upcoming events">
+            <div class="home-updates__grid">
+                <section class="home-update-list" aria-labelledby="latest-news-title">
+                    <header>
+                        <h3 id="latest-news-title">Latest news</h3>
+                        <a href="html/news.html">All news <span aria-hidden="true">→</span></a>
+                    </header>
+                    <ol class="home-update-list__items" data-latest-news-list aria-busy="true">
+                        <li class="content-state content-state--loading" role="status" aria-live="polite">Loading latest news…</li>
+                    </ol>
+                </section>
+
+                <section class="home-update-list" aria-labelledby="upcoming-events-title">
+                    <header>
+                        <h3 id="upcoming-events-title">Upcoming events</h3>
+                        <a href="html/events.html">All events <span aria-hidden="true">→</span></a>
+                    </header>
+                    <ol class="home-update-list__items" data-upcoming-events-list aria-busy="true">
+                        <li class="content-state content-state--loading" role="status" aria-live="polite">Loading upcoming events…</li>
+                    </ol>
+                </section>
+            </div>
+        </section>
+
     </main>
     <div id="footer-placeholder"></div>
 </body>
