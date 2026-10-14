@@ -1744,11 +1744,25 @@ a {
         grid-column: auto;
         grid-row: auto;
         flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.35rem 0.8rem;
+        flex-wrap: nowrap;
+        gap: 0.8rem;
+        width: 100%;
+        max-width: 100%;
         margin: 0 0 2.2rem;
-        padding: 0 0 1.1rem;
+        padding: 0 0 0.65rem;
         border-bottom: 1px solid var(--site-border);
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .in-the-news-years a {
+        display: inline-flex;
+        flex: 0 0 auto;
+        min-height: 44px;
+        align-items: center;
     }
 
     .nextgens-list {
