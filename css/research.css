@@ -640,3 +640,135 @@ body.research-projects-page {
         border-bottom: 0 !important;
     }
 }
+
+/* Project accordion: match the design width while allowing rows to grow. */
+.research-projects-page .research-projects-layout {
+    width: min(1113px, calc(100% - 3rem));
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+}
+
+.research-projects-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.research-project-accordion {
+    border-bottom: 2px solid rgba(93, 128, 149, 0.4);
+}
+
+.research-project-accordion > summary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 64px;
+    padding: 1rem 1.25rem 1rem 0;
+    cursor: pointer;
+    list-style: none;
+}
+
+.research-project-accordion > summary::-webkit-details-marker { display: none; }
+
+.research-project-accordion > summary h2 {
+    margin: 0;
+    color: #07273d;
+    font-family: 'Figtree', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.research-project-accordion > summary::after {
+    content: '';
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+    margin: 7px 4px 0 0;
+    border-top: 4px solid rgba(93, 128, 149, 0.4);
+    border-right: 4px solid rgba(93, 128, 149, 0.4);
+    transform: rotate(45deg);
+}
+
+.research-project-accordion[open] > summary::after { transform: rotate(135deg); }
+.research-project-accordion > summary:hover h2 { color: var(--site-link); }
+.research-project-accordion > summary:focus-visible {
+    outline: 3px solid var(--site-link);
+    outline-offset: 4px;
+}
+
+.research-project-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding: 0.75rem 0 2rem;
+}
+
+.research-project-panel--with-team {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+}
+
+.research-project-panel-copy { min-width: 0; display: grid; gap: 1.5rem; }
+.research-project-info {
+    padding: 0 1rem;
+    border-left: 5px solid #8dcd4b;
+}
+.research-project-panel h3 {
+    margin: 0 0 0.75rem;
+    color: #07273d;
+    font-family: 'Figtree', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+.research-project-panel p {
+    margin: 0;
+    color: #5d8095;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+.research-project-team-card {
+    padding: 1.25rem;
+    background: #ecf0f5;
+    border-top: 5px solid #5d8095;
+}
+.research-project-team-card h3 { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 1rem; }
+.research-project-team-card p { color: #282828; }
+.research-project-team-icon { position: relative; width: 24px; height: 24px; flex: 0 0 24px; }
+.research-project-team-icon::before {
+    content: ''; position: absolute; width: 12px; height: 12px;
+    left: 6px; top: 0; border-radius: 50%; background: #374957;
+}
+.research-project-team-icon::after {
+    content: ''; position: absolute; width: 18px; height: 10px;
+    left: 3px; bottom: 0; border-radius: 8px 8px 0 0; background: #374957;
+}
+@media (max-width: 800px) {
+    .research-project-panel--with-team { grid-template-columns: minmax(0, 1fr); }
+    .research-project-panel { padding-left: 0; padding-bottom: 2rem; }
+    .research-project-team-card { width: 100%; }
+}
+.research-project-link { color: var(--site-link); font-weight: 700; }
+.research-projects-page .research-approach {
+    position: static;
+    max-width: 760px;
+    margin: 0 0 3rem;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .research-projects-accordion { gap: 16px; }
+    .research-project-accordion > summary { padding-right: 12px; gap: 16px; }
+    .research-project-accordion > summary h2 { font-size: 1.25rem; line-height: 1.4; }
+    .research-project-panel { grid-template-columns: minmax(0, 1fr); padding-right: 0; gap: 1.5rem; }
+    .research-project-panel h3 { font-size: 1.2rem; line-height: 1.35; }
+}
+
+.research-project-panel--with-team > .research-project-team-card:only-child {
+    grid-column: 1 / -1;
+    max-width: 36rem;
+}
