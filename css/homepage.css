@@ -8,10 +8,6 @@
     background: #f6faf9;
 }
 
-.mobile-home-progress {
-    display: none;
-}
-
 .home-hero {
     position: relative;
     min-height: min(760px, calc(100vh - 82px));
@@ -458,10 +454,17 @@
 }
 
 .home-question__image--illustration {
+    align-self: center;
+    min-height: 0;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 1rem;
     background: #badbdc;
 }
 
 .home-question__image--illustration img {
+    height: auto;
+    aspect-ratio: 1;
     object-fit: contain;
 }
 
@@ -959,7 +962,7 @@
 }
 
 .persona-demo-card--robot .persona-demo-card__image img {
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .persona-demo-card--guide .persona-demo-card__image,
@@ -1217,47 +1220,6 @@
         max-width: 12ch;
     }
 
-}
-
-@media (max-width: 768px) {
-    .home-page > :not(.mobile-home-progress) {
-        display: none;
-    }
-
-    .mobile-home-progress {
-        min-height: calc(100vh - 126px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 4rem 1.5rem;
-        background: #fff;
-        color: var(--home-ink);
-    }
-
-    .mobile-home-progress h1 {
-        max-width: 9ch;
-        margin: 0 0 1.25rem;
-        font-family: 'Figtree', sans-serif;
-        font-size: clamp(3rem, 15vw, 4.75rem);
-        font-weight: 600;
-        letter-spacing: -0.055em;
-        line-height: 0.95;
-    }
-
-    .mobile-home-progress p {
-        max-width: 34rem;
-        margin: 0 0 1rem;
-        color: #526670;
-        font-size: 1.05rem;
-        line-height: 1.6;
-    }
-
-    .mobile-home-progress a {
-        color: var(--home-blue);
-        font-weight: 700;
-        text-decoration: underline;
-        text-underline-offset: 0.15em;
-    }
 }
 
 @media (max-width: 620px) {
