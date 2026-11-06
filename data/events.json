@@ -1,5 +1,15 @@
 [
   {
+    "title": "2027 Imageomics Conference: Save the Date",
+    "url": "events/2027-imageomics-conference.html",
+    "date": "Mon, May 24 - Wed, May 26 2027",
+    "description": "Mark your calendars for the 2027 Imageomics Conference, taking place May 24–26, 2027, at The Ohio State University in Columbus, Ohio!",
+    "image": "../images/events-images/imageomics-conference-2027-save-the-date.png",
+    "imageAlt": "2027 Imageomics Conference save-the-date poster: May 24–26, 2027, Columbus, Ohio",
+    "startDate": "2027-05-24",
+    "endDate": "2027-05-26"
+  },
+  {
     "title": "Invitation Only - Experiential Introduction to AI and Ecology Field Course",
     "url": "events/2027-01-invitation-only-experiential-introduction-ai-and-ecology-field-course.html",
     "date": "Tue, Jan 5 - Tue, Jan 26 2027",

@@ -1,0 +1,159 @@
+/* Independent conference page; ready for the 2027 design. */
+.conference-2027 {
+    width: min(900px, calc(100% - 3rem));
+    margin: 0 auto;
+    padding: 0 0 5rem;
+}
+.conference-2027 h1 {
+    font-family: 'Figtree', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin: 0 0 2rem;
+}
+.conference-2027 section { margin: 0 0 1.5rem; }
+.conference-2027 h2 { font-family: 'Figtree', sans-serif; font-size: 1.15rem; margin: 0 0 0.5rem; }
+.conference-2027 p { line-height: 1.65; }
+.conference-2027__flyer { margin: 2rem 0; }
+.conference-2027__flyer img { display: block; width: min(100%, 760px); height: auto; margin: 0 auto; }
+.conference-2027 .conference-save-date {
+    margin: 1.5rem 0 1rem;
+    font-family: 'Figtree', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.conference-2027__header-image {
+    position: relative;
+    width: 100vw;
+    margin: 0 calc(50% - 50vw) 2rem;
+}
+.conference-2027__header-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #0097b2;
+    opacity: 0.2;
+    pointer-events: none;
+}
+.conference-2027__header-image::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: linear-gradient(to right, transparent 25%, rgba(0, 151, 178, 0.65) 60%, rgba(0, 151, 178, 0.95) 100%);
+    pointer-events: none;
+}
+.conference-2027__header-image img {
+    display: block;
+    width: 100%;
+    height: clamp(300px, 30vw, 420px);
+    object-fit: cover;
+    object-position: center 45%;
+}
+
+.conference-2027__banner-title {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    width: max-content;
+    max-width: 65%;
+    margin: 0;
+    text-align: right;
+    color: #fff;
+    font-family: 'Figtree', sans-serif;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+@media (max-width: 620px) {
+    .conference-2027__banner-title {
+        right: 6%;
+        max-width: 88%;
+    }
+}
+
+.conference-2027__banner-date,
+.conference-2027__banner-location {
+    display: block;
+    text-align: right;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 800;
+    line-height: 1.4;
+}
+.conference-2027__banner-date { margin-top: 1.5rem; }
+.conference-2027__banner-location { margin-top: 0.2rem; }
+
+.conference-2027__banner-title { right: 5%; }
+.conference-2027 h1.conference-2027__banner-heading {
+    margin: 0;
+    color: inherit;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+}
+.conference-2027__banner-date { font-size: clamp(1.25rem, 2.2vw, 1.75rem); }
+.conference-2027__banner-venue,
+.conference-2027__banner-location {
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    font-weight: 500;
+}
+.conference-2027__banner-venue {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.conference-2027__announcement {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+    align-items: start;
+    gap: clamp(2rem, 5vw, 4rem);
+    padding-top: 1rem;
+}
+.conference-2027__announcement .conference-save-date { margin-top: 0; }
+.conference-2027__announcement .conference-2027__flyer { margin: 0; }
+.conference-2027__flyer > a { display: block; }
+.conference-2027__flyer figcaption { margin-top: 0.75rem; font-size: 0.95rem; }
+.conference-2027__flyer figcaption a { color: var(--site-link); text-underline-offset: 3px; }
+@media (max-width: 700px) {
+    .conference-2027__announcement { grid-template-columns: minmax(0, 1fr); }
+    .conference-2027__announcement .conference-2027__flyer { width: min(100%, 360px); }
+}
+
+/* Photo arrangement from the 1487 × 741 design, scaled to the banner. */
+.conference-2027__photo-boxes {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 48%;
+    height: 100%;
+}
+.conference-2027__header-image .conference-2027__photo-box {
+    position: absolute;
+    width: min(29.83%, 170px);
+    height: auto;
+    aspect-ratio: 212.94 / 205.87;
+    border-radius: clamp(14px, 2.42vw, 36px);
+    object-fit: cover;
+}
+.conference-2027__photo-box--87 { left: 11.39%; top: 34.91%; }
+.conference-2027__photo-box--89 { left: 55%; top: 46.37%; }
+.conference-2027__photo-box--88 { left: 31.07%; top: 16.94%; }
+@media (max-width: 700px) {
+    .conference-2027__photo-boxes { width: 43%; }
+    .conference-2027__header-image .conference-2027__photo-box { width: 48%; height: auto; border-radius: 14px; }
+    .conference-2027__photo-box--87 { left: 5%; top: 48%; }
+    .conference-2027__photo-box--88 { left: 20%; top: 12%; }
+    .conference-2027__photo-box--89 { left: 42%; top: 68%; }
+    .conference-2027__banner-title { max-width: 55%; }
+    .conference-2027 h1.conference-2027__banner-heading { font-size: clamp(1.6rem, 4.5vw, 2.4rem); }
+    .conference-2027__banner-date { font-size: 1.1rem; }
+    .conference-2027__banner-venue, .conference-2027__banner-location { font-size: 0.95rem; }
+}
