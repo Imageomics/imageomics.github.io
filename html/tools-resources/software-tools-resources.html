@@ -10,7 +10,133 @@
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <main></main>
+    <main class="page-shell policy-page">
+        <section class="policy-hero">
+            <h1>Tools &amp; Resources</h1>
+        </section>
+
+        <section class="policy-content" aria-label="Tools &amp; Resources">
+            <h2><em>Imageomics Institute is developing open source tools and resources for the biological community and beyond.&nbsp;</em></h2>
+
+            <p>Democratizing science through open source biological tools and resources represents a powerful paradigm shift in the world of scientific research. This movement champions the idea that knowledge should be freely accessible and shareable, transcending the traditional boundaries of academia. By making cutting-edge biological tools, resources, and data openly available to researchers, citizen scientists, and enthusiasts alike, we are fostering a more inclusive and collaborative scientific community. This approach empowers individuals from diverse backgrounds to actively participate in research, driving innovation and accelerating discoveries. It not only enhances scientific transparency but also holds the potential to address global challenges more effectively, from advancing biological knowledge to addressing environmental concerns.&nbsp;</p>
+
+            <section aria-labelledby="tools-resources-heading">
+                <h2 id="tools-resources-heading">Tools &amp; Resources</h2>
+
+                <h2><strong><a href="https://imageomics.github.io/catalog/">Imageomics Catalog</a></strong></h2>
+
+                <p>The Imageomics Catalog pulls all digital products in real time. This is the easiest way to find up-to-date resources.</p>
+
+                <h2><strong><a href="https://github.com/imageomics">Imageomics GitHub</a> </strong></h2>
+
+                <p>The Imageomics Institute GitHub organization hosts the development and distribution of a collection of open-source ML tools used to study the biological information encoded in images and videos integrated with structured biological knowledge.</p>
+
+                <h2><strong><a href="https://huggingface.co/imageomics">Imageomics Hugging Face</a></strong></h2>
+
+                <p>The Imageomics Hugging Face organization is an extension of the Institute GitHub, hosting the open-source models, datasets, and demos developed.</p>
+
+                <h2><a href="https://huggingface.co/spaces/imageomics/Andromeda"><strong>Andromeda </strong></a></h2>
+
+                <p>General-use, data exploration&nbsp;software for high-dimensional image data.&nbsp;Andromeda is a website that allows a user to perform dimensional reduction on an uploaded CSV file. To learn more visit the imageomics GitHub.</p>
+
+                <h2><a href="https://huggingface.co/spaces/imageomics/dashboard-prototype"><strong>Data Dashboard</strong></a></h2>
+
+                <p>There is a lot of available data, but determining its level of usefulness (via exploratory data analysis) can be a very time-consuming process. To facilitate the exploration of new data, we developed a&nbsp;dashboard&nbsp;to visualize distribution information and samples of datasets efficiently and with no coding required.</p>
+
+                <p>Our current version is focused on plant and animal images (being hard-coded for information about samples from species through type of view), though images aren&rsquo;t required to gather distribution statistics. We are actively working to expand the functionality for a more general audience as a way to quickly generate visuals for data or explore whether new data would be suitable for experiments without having to invest large amounts of time into EDA.</p>
+
+                <p>To learn more about the project, visit the <a href="https://github.com/Imageomics/dashboard-prototype">GitHub Repository</a>.</p>
+
+                <h2><strong><a href="https://imageomics.github.io/bioclip/">BioCLIP</a></strong></h2>
+
+                <p>We develop the first large-scale multimodal model,&nbsp;<a href="https://huggingface.co/imageomics/bioclip">BioCLIP</a>, for general biology questions on images. We leverage the unique properties of biology as the the application domain for computer vision:</p>
+
+                <ol>
+                    <li>The abundance and variety of images about plants, animals, and fungi.</li>
+                    <li>The availability of rich structured biological knowledge.</li>
+                </ol>
+
+                <h2><strong><a href="https://fishair.org/">FishAIR</a></strong></h2>
+
+                <p>In 2019, we started working on an NSF funded project, known as Biology Guided Neural Networks with the purpose of extracting information about biology by using neural networks and biological guidance. We have built a dataset composed of digitized fish specimens either directly from collections or from data repositories. With another NSF-Institute project, Imageomics, as continuum of the Biology Guided Neural Networks, we have added new functionalities to the dataset management system including image quality metadata, extended image metadata and batch metadata. Additional flexible database infrastructure with RDF framework allowed system to host different taxonomic groups with a variety of new metadata features. By the combination of these features, along with FAIR principles and reproducibility, we provide Artificial Intelligence Readiness (AIR) feature to the dataset. Currently, the dataset serves as the largest and the most detailed AI-Ready fish image dataset with integrated Image Quality Management System.</p>
+
+                <p>To learn more visit the <a href="https://fishair.org/">FishAIR </a>website.</p>
+
+                <h2><strong><a href="https://github.com/Imageomics/INTR?tab=readme-ov-file">INTR: A Simple Interpretable Transformer for Fine-grained Image Classification and Analysis</a></strong></h2>
+
+                <p>INTR is a novel usage of Transformers to make image classification interpretable.</p>
+
+                <h2><a href="https://github.com/Imageomics/TraitBlender"><strong>TraitBlender</strong></a></h2>
+
+                <p>TraitBlender allows users to represent theoretical morphospaces as python functions, which can be be used to evolve imaginary taxa on a simulated phylogeny. TraitBlender can then take 'museum-specimen' style photos of these imaginary taxa in bulk, allowing users to create huge synthetic image datasets where the evolutionary and developmental processes are known in their entireties.</p>
+
+                <h2><a href="https://github.com/Imageomics/cautious-robot "><strong>Cautious Robot</strong></a></h2>
+
+                <p>A simple tool, which downloads images from URLs in a CSV and names them by the given column (after ensuring all its values are unique). I can organize your images into subfolders based on any column in your CSV and will warn you if the parent image folder already exists before overwriting it. If you need square images for modeling, I'll create a second directory (organized in the same format) with downsized copies of your images. Patience is a virtue, so I will wait a designated time before re-requesting an image after receiving an error on my retry list; if all retries are expended or I receive another error, I log that for your review and move on. I also keep a log of all successful responses.</p>
+
+                <h2><strong><a href="https://kabrdata.xyz">KABR Dataset</a>&nbsp;</strong></h2>
+
+                <p>A comprehensive dataset featuring over 10 hours of annotated drone video footage capturing behaviors of giraffes, Plains zebras, and Grevy's zebras in their natural habitats. The dataset includes eight behavior categories and is designed to support research in animal behavior recognition.</p>
+
+                <h2><strong><a href="https://baboonland.xyz">BaboonLand Dataset</a>&nbsp;</strong></h2>
+
+                <p>A specialized dataset focusing on olive baboons, providing drone video data for detection, tracking, and behavior recognition. It encompasses approximately 30,000 images and offers a valuable resource for studying primate behavior in the wild.</p>
+
+                <h2><strong><a href="https://github.com/Imageomics/kabr-tools">KABR Tools</a></strong></h2>
+
+                <p>A suite of tools developed to facilitate the preparation and annotation of the KABR dataset. These tools assist in tasks such as object detection, tracking, and conversion of annotations to various formats, streamlining the data processing pipeline for animal behavior analysis.</p>
+
+                <h2><strong><a href="https://huggingface.co/datasets/imageomics/KABR-telemetry">KABR Telemetry Dataset</a>&nbsp;</strong></h2>
+
+                <p>This dataset contains drone telemetry data associated with the KABR dataset, providing information about the drone's status during missions, including location and altitude, along with bounding box dimensions of wildlife in the frame and behavior annotation information.</p>
+            </section>
+
+            <aside aria-labelledby="tools-resources-links-heading">
+                <h2 id="tools-resources-links-heading">Links to Tools &amp; Resources</h2>
+
+                <p class="monospace"><a href="https://github.com/Imageomics">Imageomics GitHub</a></p>
+
+                <hr>
+                <p class="monospace"><a href="https://huggingface.co/imageomics">Imageomics Hugging Face</a></p>
+
+                <hr>
+                <p class="monospace"><strong>Andromeda</strong> <a href="https://github.com/Imageomics/Andromeda">GitHub </a>| <a href="https://huggingface.co/spaces/imageomics/Andromeda">Demo&nbsp;</a></p>
+
+                <hr>
+                <p class="monospace"><strong>BioCLIP</strong>&nbsp;<a href="https://imageomics.github.io/bioclip/">Overview</a> |&nbsp;<a href="https://huggingface.co/imageomics/bioclip">Model</a>&nbsp;|&nbsp;<a href="https://huggingface.co/spaces/imageomics/bioclip-demo">Demo</a>&nbsp;|&nbsp;<a href="https://github.com/Imageomics/bioclip">Code</a>&nbsp;| <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.pdf">Paper</a>&nbsp;| <a href="https://github.com/Imageomics/pybioclip">Tool</a></p>
+
+                <hr>
+                <p class="monospace"><strong>Dashboard</strong> <a href="https://github.com/Imageomics/dashboard-prototype">GitHub </a>| <a href="https://huggingface.co/spaces/imageomics/dashboard-prototype">Demo </a>| <a href="https://github.com/Imageomics/telemetry-dashboard">Telemetry version GitHub</a> | <a href="https://huggingface.co/spaces/imageomics/telemetry-dashboard">Telemetry Demo</a></p>
+
+                <hr>
+                <p class="monospace"><strong>FishAIR </strong><a href="https://fishair.org/">Overview</a></p>
+
+                <hr>
+                <p class="monospace"><strong>HComp-Net</strong> <a href="https://imageomics.github.io/HComPNet/">Overview </a>| <a href="https://github.com/Imageomics/HComPNet">GitHub </a>| <a href="https://arxiv.org/pdf/2409.02335">Paper</a></p>
+
+                <hr>
+                <p class="monospace"><strong>INTR</strong> <a href="https://github.com/Imageomics/INTR?tab=readme-ov-file">GitHub</a>&nbsp;| <a href="https://arxiv.org/pdf/2311.04157">Paper</a></p>
+
+                <hr>
+                <p class="monospace"><strong>KABR</strong> <a href="https://kabrdata.xyz/">Overview&nbsp;</a>|&nbsp;<a href="https://huggingface.co/datasets/imageomics/KABR">Model</a>&nbsp;| <a href="https://github.com/Imageomics/kabr-tools?tab=readme-ov-file">Code</a>&nbsp;| <a href="https://openaccess.thecvf.com/content/WACV2024W/CV4Smalls/papers/Kholiavchenko_KABR_In-Situ_Dataset_for_Kenyan_Animal_Behavior_Recognition_From_Drone_WACVW_2024_paper.pdf">Paper</a></p>
+
+                <hr>
+                <p class="monospace"><strong>LatLonCover</strong> <a href="https://github.com/Imageomics/LatLonCover">GitHub </a>| <a href="https://huggingface.co/spaces/imageomics/LatLonCover">Demo</a></p>
+
+                <hr>
+                <p class="monospace"><strong>PyMorphoSource</strong>&nbsp;<a href="https://github.com/Imageomics/pyMorphoSource">GitHub</a></p>
+
+                <hr>
+                <p class="monospace"><strong>Phylo-Diffusion</strong> <a href="https://imageomics.github.io/phylo-diffusion/">Overview</a> | <a href="https://huggingface.co/spaces/mridulk/phylo-diffusion">Demo </a>| <a href="https://github.com/Imageomics/phylo-diffusion">Code</a></p>
+
+                <hr>
+                <p class="monospace"><strong>PhyloNN </strong><a href="https://github.com/elhamod/phylonn">GitHub</a>&nbsp;| <a href="https://dl.acm.org/doi/pdf/10.1145/3580305.3599808">Paper</a></p>
+
+                <hr>
+                <p class="monospace"><strong>TraitBlender </strong><a href="https://github.com/Imageomics/TraitBlender">Code</a></p>
+            </aside>
+        </section>
+    </main>
     <div id="footer-placeholder"></div>
 </body>
 </html>

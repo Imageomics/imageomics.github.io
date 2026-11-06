@@ -1,0 +1,16 @@
+/* Saved option 2; load only when registration opens. */
+.conference-registration-popup { width: min(900px, calc(100% - 40px)); max-height: calc(100dvh - 40px); padding: 0; border: 0; overflow-y: auto; background: #fff; color: #082438; }
+.conference-registration-popup[open] { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+.conference-registration-popup::backdrop { background: rgba(8, 36, 56, 0.6); }
+.conference-registration-popup > img { width: 100%; height: 100%; object-fit: contain; background: #f0f8f8; }
+.conference-registration-popup__copy { padding: 48px 32px 36px; }
+.conference-registration-popup h2 { font-family: 'Figtree', sans-serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.1; margin: 12px 0 24px; }
+.conference-registration-popup p { line-height: 1.55; }
+.conference-registration-popup a { color: #082438; text-decoration: underline; text-underline-offset: 4px; }
+.conference-registration-popup__close { position: absolute; right: 12px; top: 12px; width: 44px; height: 44px; border: 0; background: #fff; color: #082438; font-size: 28px; cursor: pointer; }
+.conference-registration-popup :focus-visible { outline: 3px solid #007f96; outline-offset: 3px; }
+@media (max-width: 700px) {
+    .conference-registration-popup[open] { grid-template-columns: 1fr; }
+    .conference-registration-popup > img { height: auto; max-height: 32dvh; }
+    .conference-registration-popup__copy { padding: 24px; }
+}
