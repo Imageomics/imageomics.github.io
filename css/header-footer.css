@@ -861,11 +861,23 @@ body.menu-open .nav {
 }
 
 @media (max-width: 768px), (max-width: 1024px) and (orientation: portrait) {
+    body.menu-open #header-placeholder {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    body.menu-open .header {
+        height: var(--open-header-height);
+    }
+
     .nav {
-        padding: 8px 24px 30px;
+        padding: 16px 24px max(30px, env(safe-area-inset-bottom));
         background: #ffffff;
         border-bottom: 0;
-        box-shadow: 0 10px 26px rgba(16, 38, 58, 0.08);
+        box-shadow: none;
+        scrollbar-gutter: stable;
     }
 
     .nav-links {
@@ -881,11 +893,11 @@ body.menu-open .nav {
     }
 
     .nav-links > li > a {
-        min-height: 50px;
-        padding: 13px 2px;
+        min-height: 64px;
+        padding: 17px 2px;
         color: var(--site-text);
         font-family: 'Figtree', sans-serif;
-        font-size: 0.98rem;
+        font-size: 1.5rem;
         font-weight: 700;
         line-height: 1.35;
     }
