@@ -826,6 +826,10 @@
     line-height: 0.98;
 }
 
+.persona-panel__mobile-copy {
+    display: none;
+}
+
 .persona-panel > p {
     max-width: 31rem;
     margin: 0 0 3rem;
@@ -1471,11 +1475,23 @@
     }
 
     .persona-results {
-        min-height: 590px;
+        min-height: 0;
     }
 
     .persona-panel {
         padding: 2.25rem 1.5rem;
+    }
+
+    .persona-panel:not(.is-active) {
+        display: none;
+    }
+
+    .persona-panel__desktop-copy {
+        display: none;
+    }
+
+    .persona-panel__mobile-copy {
+        display: inline;
     }
 
     .persona-heading {
@@ -1483,7 +1499,11 @@
     }
 
     .persona-panel h3 {
-        margin-bottom: 0.9rem;
+        max-width: none;
+        margin-bottom: 1.5rem;
+        font-size: 1.25rem;
+        letter-spacing: -0.02em;
+        line-height: 1.4;
     }
 
     .persona-demos__heading {
