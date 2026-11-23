@@ -76,54 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return searchIndexPromise;
     };
 
-    function initSearchUI() {
-        const searchContainer = document.getElementById('searchContainer');
-        const searchIconBtn = document.getElementById('searchIconBtn');
-        const searchBar = document.getElementById('searchBar');
-        const searchResults = document.getElementById('searchResults');
-
-        if (!searchContainer || !searchIconBtn || !searchBar || !searchResults || searchBar.dataset.bound === 'true') {
-            return;
-        }
-
-        searchBar.dataset.bound = 'true';
-        searchBar.setAttribute('autocomplete', 'off');
-        searchBar.setAttribute('aria-controls', 'searchResults');
-        searchBar.setAttribute('aria-expanded', 'false');
-        searchBar.setAttribute('aria-autocomplete', 'list');
-        searchBar.setAttribute('role', 'combobox');
-        searchResults.setAttribute('role', 'listbox');
-        searchResults.setAttribute('aria-label', 'Search results');
-        searchResults.setAttribute('aria-live', 'polite');
-        let searchRequest = 0;
-        let searchTimer;
-        let activeResultIndex = -1;
-        let renderedQuery = '';
-
-        const closeResults = () => {
-            window.clearTimeout(searchTimer);
-            searchResults.classList.remove('is-visible');
-            searchResults.replaceChildren();
-            searchBar.setAttribute('aria-expanded', 'false');
-            searchBar.removeAttribute('aria-activedescendant');
-            activeResultIndex = -1;
-            renderedQuery = '';
-        };
-
-        const showResults = () => {
-            searchResults.classList.add('is-visible');
-            searchBar.setAttribute('aria-expanded', 'true');
-        };
-
-        const renderStatus = (message, className = '') => {
-            const status = document.createElement('div');
-            status.className = `search-no-results content-state content-state--empty ${className}`.trim();
-            status.setAttribute('role', 'status');
-            status.textContent = message;
-            searchResults.replaceChildren(status);
-            showResults();
-        };
-
         const boundedEditDistance = (left, right, limit) => {
             if (Math.abs(left.length - right.length) > limit) return limit + 1;
             let previous = Array.from({ length: right.length + 1 }, (_, index) => index);
@@ -228,6 +180,140 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 expression.lastIndex = 0;
             });
+        };
+
+
+    function initSearchPage() {
+        const form = document.getElementById('page-search-form');
+        if (!form) return;
+        const input = document.getElementById('page-search-query');
+        const status = document.getElementById('page-search-status');
+        const results = document.getElementById('page-search-results');
+        const more = document.getElementById('page-search-more');
+        let request = 0;
+        let matches = [];
+        let shown = 0;
+        let query = '';
+        let terms = [];
+
+        const showMore = () => {
+            matches.slice(shown, shown + 20).forEach(({ page, fuzzyWords }) => {
+                const item = document.createElement('li');
+                const section = document.createElement('p');
+                section.className = 'search-result-section';
+                section.textContent = page.section;
+                const heading = document.createElement('h2');
+                const link = document.createElement('a');
+                link.href = new URL(page.url, siteRootUrl).href;
+                appendHighlightedText(link, page.title, [query, ...terms, ...fuzzyWords]);
+                heading.append(link);
+                const snippet = document.createElement('p');
+                appendHighlightedText(snippet, createSnippet(page, query, terms, fuzzyWords), [query, ...terms, ...fuzzyWords]);
+                item.append(section, heading, snippet);
+                results.append(item);
+            });
+            shown = Math.min(shown + 20, matches.length);
+            more.hidden = shown >= matches.length;
+        };
+
+        const search = async () => {
+            const currentRequest = ++request;
+            query = normalizeSearchValue(input.value);
+            terms = getSearchTerms(query);
+            results.replaceChildren();
+            more.hidden = true;
+            if (!query) {
+                results.setAttribute('aria-busy', 'false');
+                status.textContent = 'Enter a keyword to search across the Imageomics website.';
+                return;
+            }
+            status.textContent = 'Searching…';
+            results.setAttribute('aria-busy', 'true');
+            try {
+                const pages = await loadSearchIndex();
+                if (currentRequest !== request) return;
+                matches = pages.map((page) => scorePage(page, query, terms)).filter(Boolean)
+                    .sort((a, b) => b.score - a.score || a.page.title.localeCompare(b.page.title));
+                shown = 0;
+                status.textContent = matches.length
+                    ? `${matches.length} result${matches.length === 1 ? '' : 's'} for “${input.value.trim()}”`
+                    : `No results for “${input.value.trim()}”. Try a different keyword or a shorter phrase.`;
+                showMore();
+            } catch (error) {
+                if (currentRequest !== request) return;
+                status.textContent = 'Search is temporarily unavailable. Please try again.';
+            } finally {
+                if (currentRequest === request) results.setAttribute('aria-busy', 'false');
+            }
+        };
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const url = new URL(window.location.href);
+            if (input.value.trim()) url.searchParams.set('q', input.value.trim());
+            else url.searchParams.delete('q');
+            window.history.pushState({}, '', url);
+            search();
+        });
+        const readQuery = () => {
+            input.value = new URLSearchParams(window.location.search).get('q') || '';
+            search();
+        };
+        more.addEventListener('click', () => {
+            const previousCount = results.children.length;
+            showMore();
+            results.children[previousCount]?.querySelector('a')?.focus();
+        });
+        window.addEventListener('popstate', readQuery);
+        readQuery();
+    }
+    initSearchPage();
+
+    function initSearchUI() {
+        const searchContainer = document.getElementById('searchContainer');
+        const searchIconBtn = document.getElementById('searchIconBtn');
+        const searchBar = document.getElementById('searchBar');
+        const searchResults = document.getElementById('searchResults');
+
+        if (!searchContainer || !searchIconBtn || !searchBar || !searchResults || searchBar.dataset.bound === 'true') {
+            return;
+        }
+
+        searchBar.dataset.bound = 'true';
+        searchBar.setAttribute('autocomplete', 'off');
+        searchBar.setAttribute('aria-controls', 'searchResults');
+        searchBar.setAttribute('aria-expanded', 'false');
+        searchBar.setAttribute('aria-autocomplete', 'list');
+        searchBar.setAttribute('role', 'combobox');
+        searchResults.setAttribute('role', 'listbox');
+        searchResults.setAttribute('aria-label', 'Search results');
+        searchResults.setAttribute('aria-live', 'polite');
+        let searchRequest = 0;
+        let searchTimer;
+        let activeResultIndex = -1;
+        let renderedQuery = '';
+
+        const closeResults = () => {
+            window.clearTimeout(searchTimer);
+            searchResults.classList.remove('is-visible');
+            searchResults.replaceChildren();
+            searchBar.setAttribute('aria-expanded', 'false');
+            searchBar.removeAttribute('aria-activedescendant');
+            activeResultIndex = -1;
+            renderedQuery = '';
+        };
+
+        const showResults = () => {
+            searchResults.classList.add('is-visible');
+            searchBar.setAttribute('aria-expanded', 'true');
+        };
+
+        const renderStatus = (message, className = '') => {
+            const status = document.createElement('div');
+            status.className = `search-no-results content-state content-state--empty ${className}`.trim();
+            status.setAttribute('role', 'status');
+            status.textContent = message;
+            searchResults.replaceChildren(status);
+            showResults();
         };
 
         const renderResults = (matches, query, terms) => {
@@ -347,11 +433,13 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const links = getResultLinks();
             const currentQuery = normalizeSearchValue(searchBar.value);
-            if (links.length && currentQuery === renderedQuery) {
+            if (activeResultIndex >= 0 && links.length && currentQuery === renderedQuery) {
                 links[activeResultIndex >= 0 ? activeResultIndex : 0].click();
             } else if (searchBar.value.trim()) {
                 window.clearTimeout(searchTimer);
-                runSearch();
+                const target = new URL('html/search.html', siteRootUrl);
+                target.searchParams.set('q', searchBar.value.trim());
+                window.location.assign(target.href);
             } else {
                 searchBar.focus();
             }
@@ -451,18 +539,31 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const setMenuOpen = (isOpen) => {
+            if (isOpen && header) {
+                header.style.setProperty('--open-header-height', `${header.getBoundingClientRect().height}px`);
+            }
+            document.body.classList.toggle('menu-open', isOpen);
             if (isOpen) {
-                updateMenuPosition();
                 lockPageScroll();
+                updateMenuPosition();
             } else {
                 unlockPageScroll();
+                header?.style.removeProperty('--open-header-height');
             }
             setPageContentInert(isOpen);
             hamburger.classList.toggle('active', isOpen);
             navMenu.classList.toggle('active', isOpen);
-            document.body.classList.toggle('menu-open', isOpen);
             hamburger.setAttribute('aria-expanded', String(isOpen));
             hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            if (isOpen) {
+                navMenu.scrollTop = 0;
+                hamburger.focus({ preventScroll: true });
+            } else {
+                navMenu.querySelectorAll('.dropdown.active').forEach((dropdown) => {
+                    dropdown.classList.remove('active');
+                    dropdown.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
+                });
+            }
         };
 
         hamburger.addEventListener('click', function() {
@@ -597,6 +698,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab' && isMobileNav() && navMenu.classList.contains('active') && header) {
+                const controls = Array.from(header.querySelectorAll(
+                    'a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]'
+                )).filter((control) => control.getClientRects().length && !control.closest('[inert]'));
+                const first = controls[0];
+                const last = controls[controls.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last?.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first?.focus();
+                }
+            }
             if (e.key === 'Escape') {
                 const focusedDropdown = document.activeElement?.closest('.dropdown.is-open');
                 closeDesktopDropdowns();

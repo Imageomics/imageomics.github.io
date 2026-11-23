@@ -20,6 +20,56 @@
     "endDate": "2027-01-26"
   },
   {
+    "title": "AI and Ecology Course - Field Experience Readiness",
+    "url": "events/2026-12-ai-and-ecology-course-field-experience-readiness.html",
+    "date": "Tue, Dec 15 2026",
+    "description": "This module prepares students for their field experiences in Hawaii and Kenya by examining the importance of cultural context in ecological research. Students will explore how to be respectful and effective partners with local communities, learn principles of community-engaged research, and discuss field safety, professional conduct, and expectations for working in interdisciplinary field teams. The module also introduces the field sites and research facilities, highlighting the unique opportunities and responsibilities of conducting AI-enabled ecological research in diverse cultural and environmental settings.",
+    "image": "../images/events-images/ai-ecology-course-icon.jpg",
+    "imageAlt": "Experiential Introduction to AI and Ecology course icon",
+    "startDate": "2026-12-15",
+    "time": "2–3pm ET"
+  },
+  {
+    "title": "AI and Ecology Course - Safe and Inclusive Field Work",
+    "url": "events/2026-12-ai-and-ecology-course-safe-and-inclusive-field-work.html",
+    "date": "Tue, Dec 8 2026",
+    "description": "This module prepares students for their field experiences in Hawaii and Kenya by examining the importance of cultural context in ecological research. Students will explore how to be respectful and effective partners with local communities, learn principles of community-engaged research, and discuss field safety, professional conduct, and expectations for working in interdisciplinary field teams. The module also introduces the field sites and research facilities, highlighting the unique opportunities and responsibilities of conducting AI-enabled ecological research in diverse cultural and environmental settings.",
+    "image": "../images/events-images/ai-ecology-course-icon.jpg",
+    "imageAlt": "Experiential Introduction to AI and Ecology course icon",
+    "startDate": "2026-12-08",
+    "time": "2–3pm ET"
+  },
+  {
+    "title": "AI and Ecology Course - Project Pitches (Kenya)",
+    "url": "events/2026-12-ai-and-ecology-course-project-pitches-kenya.html",
+    "date": "Tue, Dec 1 2026",
+    "description": "This module introduces the potential research projects available at the Hawaii and Kenya field sites. Students will explore the scientific questions, datasets, and AI methods associated with each project to help inform their project preferences and prepare for the field experience.",
+    "image": "../images/events-images/ai-ecology-course-icon.jpg",
+    "imageAlt": "Experiential Introduction to AI and Ecology course icon",
+    "startDate": "2026-12-01",
+    "time": "2–3pm ET"
+  },
+  {
+    "title": "AI and Ecology Course - Project Pitches (Hawaii)",
+    "url": "events/2026-11-ai-and-ecology-course-project-pitches-hawaii.html",
+    "date": "Tue, Nov 24 2026",
+    "description": "This module introduces the potential research projects available at the Hawaii and Kenya field sites. Students will explore the scientific questions, datasets, and AI methods associated with each project to help inform their project preferences and prepare for the field experience.",
+    "image": "../images/events-images/ai-ecology-course-icon.jpg",
+    "imageAlt": "Experiential Introduction to AI and Ecology course icon",
+    "startDate": "2026-11-24",
+    "time": "2–3pm ET"
+  },
+  {
+    "title": "Seminar: From sequences to satellites: Decoding phytoplankton biodiversity in the global ocean",
+    "url": "events/2026-11-seminar-sequences-satellites-decoding-phytoplankton-biodiversity-global-ocean.html",
+    "date": "Mon, Nov 23 2026",
+    "description": "Dr. Sasha Kramer of Boston University discusses how remote sensing and in-water observations reveal phytoplankton biodiversity across the global ocean.",
+    "image": "../images/events-images/sasha-kramer.png",
+    "imageAlt": "Sasha Kramer with the beach and ocean in the background",
+    "startDate": "2026-11-23",
+    "time": "4–5pm ET"
+  },
+  {
     "title": "AI and Ecology Course: Module 5 Week 2 (Advanced Ecology: Global Biodiversity: An AI perspective)",
     "url": "events/2026-11-ai-and-ecology-course-module-5-week-2-advanced-ecology-global-biodiversity-ai-perspective.html",
     "date": "Tue, Nov 17 2026",

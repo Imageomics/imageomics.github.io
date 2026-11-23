@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | Imageomics Institute</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/search-page.css">
+    <script src="../js/script.js" defer></script>
+    <script src="../js/load-components.js" defer></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main class="search-page">
+        <h1>Search Imageomics</h1>
+        <p>Explore our research, people, news, events, tools and resources.</p>
+        <form id="page-search-form" role="search" aria-label="Site search">
+            <label for="page-search-query">Search the website</label>
+            <div class="search-page__fields">
+                <input id="page-search-query" name="q" type="search" placeholder="Try BioCLIP, fieldwork, or education">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <p id="page-search-status" role="status" aria-live="polite"></p>
+        <ol id="page-search-results" aria-label="Search results"></ol>
+        <button id="page-search-more" type="button" hidden>Show more results</button>
+        <noscript>Please enable JavaScript to search this website.</noscript>
+    </main>
+    <div id="footer-placeholder"></div>
+</body>
+</html>

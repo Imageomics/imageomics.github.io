@@ -198,7 +198,8 @@
             title: 'Repository Exporter: A New Python Package',
             description: 'Collect key metadata from GitHub and Hugging Face organizations and export it to a color-coded Google Sheet.',
             url: 'https://pypi.org/project/repo-exporter/',
-            placeholder: true,
+            image: 'images/news-images/repository-exporter.png',
+            imageFit: 'contain',
             cta: 'View the package'
         },
         {
@@ -255,6 +256,7 @@
         if (!carousel) return;
 
         const track = carousel.querySelector('[data-news-track]');
+        const viewport = carousel.querySelector('[data-news-viewport]');
         const previousButton = carousel.querySelector('[data-news-previous]');
         const nextButton = carousel.querySelector('[data-news-next]');
         const dots = carousel.querySelector('[data-news-dots]');
@@ -269,6 +271,7 @@
         let physicalIndex = 1;
         let userPaused = prefersReducedMotion;
         let rotationTimer = null;
+        let pointerHovering = false;
 
         const getStoryUrl = (story) => {
             if (/^https?:\/\//.test(story.url || '')) return story.url;
@@ -287,6 +290,7 @@
             if (isClone) {
                 slide.setAttribute('aria-hidden', 'true');
                 slide.tabIndex = -1;
+                slide.inert = true;
             }
 
             const image = document.createElement('span');
@@ -310,9 +314,6 @@
             const content = document.createElement('span');
             content.className = 'hero-news-slide__content';
 
-            const category = document.createElement('small');
-            category.textContent = story.category;
-
             const title = document.createElement('strong');
             title.textContent = story.title;
 
@@ -326,10 +327,10 @@
             const arrow = document.createElement('span');
             arrow.className = 'hero-news-slide__read-more-icon';
             arrow.setAttribute('aria-hidden', 'true');
-            arrow.textContent = '→';
+            arrow.innerHTML = '<svg class="home-arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h16m-7-7 7 7-7 7" /></svg>';
 
             readMore.append(arrow);
-            content.append(category, title, description, readMore);
+            content.append(title, description, readMore);
             slide.append(image, content);
             return slide;
         };
@@ -344,6 +345,10 @@
         };
 
         const positionTrack = (animate = true) => {
+            if (prefersReducedMotion) {
+                physicalIndex = activeIndex + 1;
+                animate = false;
+            }
             if (!animate) track.style.transition = 'none';
             track.style.transform = `translate3d(-${physicalIndex * getStep()}px, 0, 0)`;
 
@@ -365,6 +370,8 @@
             slides.forEach((slide, index) => {
                 slide.tabIndex = index === activeIndex ? 0 : -1;
                 slide.setAttribute('aria-current', String(index === activeIndex));
+                slide.setAttribute('aria-hidden', String(index !== activeIndex));
+                slide.inert = index !== activeIndex;
             });
         };
 
@@ -375,7 +382,7 @@
 
         const startRotation = () => {
             stopRotation();
-            if (userPaused || prefersReducedMotion || stories.length < 2 || carousel.matches(':hover') || carousel.contains(document.activeElement)) return;
+            if (userPaused || prefersReducedMotion || stories.length < 2 || pointerHovering || carousel.querySelector(':focus-visible')) return;
             rotationTimer = window.setInterval(() => move(1, false), 5500);
         };
 
@@ -387,6 +394,8 @@
         };
 
         const move = (direction, restart = true) => {
+            // Normalize a pending loop transition before accepting another gesture.
+            physicalIndex = activeIndex + 1;
             if (direction > 0) {
                 physicalIndex += 1;
                 activeIndex = (activeIndex + 1) % stories.length;
@@ -484,6 +493,61 @@
             previousButton.addEventListener('click', () => move(-1));
             nextButton.addEventListener('click', () => move(1));
 
+            let gesture = null;
+            let suppressClickUntil = 0;
+
+            viewport.addEventListener('touchstart', (event) => {
+                suppressClickUntil = 0;
+                gesture = event.touches.length === 1 ? {
+                    x: event.touches[0].clientX,
+                    y: event.touches[0].clientY,
+                    axis: null
+                } : null;
+                stopRotation();
+            }, { passive: true });
+
+            viewport.addEventListener('touchmove', (event) => {
+                if (!gesture) return;
+                if (event.touches.length !== 1) {
+                    gesture = null;
+                    return;
+                }
+                const dx = event.touches[0].clientX - gesture.x;
+                const dy = event.touches[0].clientY - gesture.y;
+                if (!gesture.axis && Math.max(Math.abs(dx), Math.abs(dy)) >= 10) {
+                    gesture.axis = Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical';
+                }
+                if (gesture.axis === 'horizontal') {
+                    event.preventDefault();
+                    suppressClickUntil = Date.now() + 700;
+                }
+            }, { passive: false });
+
+            viewport.addEventListener('touchend', (event) => {
+                if (gesture && event.changedTouches.length) {
+                    const dx = event.changedTouches[0].clientX - gesture.x;
+                    const dy = event.changedTouches[0].clientY - gesture.y;
+                    if (gesture.axis !== 'vertical' && Math.abs(dx) >= 40 && Math.abs(dx) > Math.abs(dy)) {
+                        suppressClickUntil = Date.now() + 700;
+                        if (stories.length > 1) move(dx < 0 ? 1 : -1, false);
+                    }
+                }
+                gesture = null;
+                startRotation();
+            }, { passive: true });
+
+            viewport.addEventListener('touchcancel', () => {
+                gesture = null;
+                startRotation();
+            }, { passive: true });
+
+            viewport.addEventListener('click', (event) => {
+                if (Date.now() < suppressClickUntil) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            }, true);
+
             if (prefersReducedMotion) {
                 toggle.disabled = true;
                 toggleIcon.textContent = '■';
@@ -500,9 +564,16 @@
                     else startRotation();
                 });
 
-                carousel.addEventListener('mouseenter', stopRotation);
-                carousel.addEventListener('mouseleave', startRotation);
-                carousel.addEventListener('focusin', stopRotation);
+                carousel.addEventListener('pointerenter', (event) => {
+                    if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+                    pointerHovering = true;
+                    stopRotation();
+                });
+                carousel.addEventListener('pointerleave', () => {
+                    pointerHovering = false;
+                    startRotation();
+                });
+                carousel.addEventListener('focusin', startRotation);
                 carousel.addEventListener('focusout', (event) => {
                     if (!carousel.contains(event.relatedTarget)) startRotation();
                 });

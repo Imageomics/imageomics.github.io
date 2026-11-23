@@ -10,6 +10,7 @@ const structuredContentPaths = [
 ];
 const excludedPaths = new Set([
     'html/components/conference-registration-popup.html',
+    'html/search.html',
     'html/components/footer.html',
     'html/components/header.html'
 ]);

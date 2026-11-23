@@ -95,14 +95,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         }));
     };
 
-    const COURSE_MODULE_URL_MARKER = 'ai-and-ecology-course-module-';
+    const COURSE_SESSION_URL_MARKER = 'ai-and-ecology-course-';
     const COURSE_SERIES_URL = 'tools-resources/experiential-introduction-ai-ecology-course-2026-2027.html';
     const FEATURED_UPCOMING_WINDOW_DAYS = 14;
     const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
 
     const collapseCourseSeries = (items) => {
         const seriesItems = items
-            .filter((item) => item.url?.includes(COURSE_MODULE_URL_MARKER))
+            .filter((item) => item.url?.includes(COURSE_SESSION_URL_MARKER))
             .sort((a, b) => a.startDate.localeCompare(b.startDate));
 
         if (seriesItems.length < 2) return items;
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             title: 'Experiential Introduction to AI and Ecology',
             url: COURSE_SERIES_URL,
             date: `${firstSession.date} - ${lastDateWithoutWeekday} (${seriesItems.length} sessions)`,
-            description: 'Weekly virtual course sessions from August through November 2026.',
+            description: 'Weekly virtual course sessions from August through December 2026.',
             image: firstSession.image,
             imageAlt: firstSession.imageAlt,
             startDate: firstSession.startDate,
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
 
         return items
-            .filter((item) => !item.url?.includes(COURSE_MODULE_URL_MARKER))
+            .filter((item) => !item.url?.includes(COURSE_SESSION_URL_MARKER))
             .concat(seriesItem);
     };
 
@@ -449,88 +449,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const renderEventCard = (item) => {
-        if (item.seriesItems?.length) {
-            const card = document.createElement('article');
-            card.className = 'news-card event-series-card';
-
-            if (item.image) {
-                const imageLink = document.createElement('a');
-                imageLink.className = 'news-card-image event-series-image';
-                imageLink.href = item.url;
-                imageLink.setAttribute('aria-label', `Learn more about ${item.title}`);
-
-                const image = document.createElement('img');
-                image.src = item.image;
-                image.alt = item.imageAlt || item.title;
-                image.loading = 'lazy';
-
-                setImagePresentation(image, imageLink, 'news-card-image');
-                imageLink.appendChild(image);
-                card.appendChild(imageLink);
-            }
-
-            const content = document.createElement('div');
-            content.className = 'news-card-content';
-
-            const date = document.createElement('p');
-            date.className = 'news-card-date';
-            date.textContent = formatEventSchedule(item);
-            content.appendChild(date);
-
-            const title = document.createElement('h2');
-            const titleLink = document.createElement('a');
-            titleLink.href = item.url;
-            titleLink.textContent = item.title;
-            title.appendChild(titleLink);
-            content.appendChild(title);
-
-            const description = document.createElement('p');
-            description.textContent = item.description;
-            content.appendChild(description);
-
-            const sessionDetails = document.createElement('details');
-            sessionDetails.className = 'event-series-sessions';
-
-            const summary = document.createElement('summary');
-            summary.textContent = `View ${item.seriesItems.length} sessions`;
-            sessionDetails.appendChild(summary);
-
-            const sessionList = document.createElement('ol');
-            item.seriesItems.forEach((session) => {
-                const listItem = document.createElement('li');
-                const isComplete = isPastEvent(session);
-
-                if (isComplete) {
-                    listItem.className = 'is-complete';
-                }
-
-                const link = document.createElement('a');
-                link.href = session.url;
-                link.textContent = session.title;
-
-                const sessionDate = document.createElement('span');
-                sessionDate.className = 'event-series-session-meta';
-                sessionDate.textContent = formatEventSchedule(session);
-
-                listItem.appendChild(link);
-                listItem.appendChild(sessionDate);
-
-                if (isComplete) {
-                    const status = document.createElement('span');
-                    status.className = 'event-series-session-status';
-                    status.textContent = 'Completed';
-                    listItem.appendChild(status);
-                }
-
-                sessionList.appendChild(listItem);
-            });
-
-            sessionDetails.appendChild(sessionList);
-            content.appendChild(sessionDetails);
-            card.appendChild(content);
-            return card;
-        }
-
         const card = document.createElement('a');
         card.className = 'news-card';
         card.href = item.url;
