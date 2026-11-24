@@ -9,6 +9,7 @@ const structuredContentPaths = [
     path.join(projectRoot, 'data', 'news.json')
 ];
 const excludedPaths = new Set([
+    'html/components/conference-registration-popup.html',
     'html/components/footer.html',
     'html/components/header.html'
 ]);

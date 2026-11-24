@@ -177,6 +177,15 @@
 
     const featuredItems = [
         {
+            category: 'Save the date · May 24–26, 2027',
+            title: '2027 Imageomics Conference',
+            description: 'Mark your calendars for the 2027 Imageomics Conference, taking place May 24–26, 2027, at The Ohio State University in Columbus, Ohio!',
+            url: 'events/2027-imageomics-conference.html',
+            image: 'images/events-images/imageomics-conference-2027-save-the-date.png',
+            imageFit: 'contain',
+            cta: 'View conference details'
+        },
+        {
             category: 'Recent publication',
             title: 'Beyond Flat Labels: Level-Restricted Contrastive Learning for Hierarchical Fine-Grained Vision Classification',
             description: 'Explore a hierarchy-aware approach to fine-grained visual classification that learns beyond flat category labels.',
@@ -226,14 +235,18 @@
 
         if (!upcomingEvent) return [...featuredItems];
 
+        const conference = featuredItems.find((item) => item.url === 'events/2027-imageomics-conference.html');
+        if (upcomingEvent.url === conference?.url) return [...featuredItems];
+
         return [
+            ...(conference ? [conference] : []),
             {
                 ...upcomingEvent,
                 category: `Upcoming event${upcomingEvent.date ? ` · ${upcomingEvent.date}` : ''}`,
                 placeholder: !upcomingEvent.image,
                 cta: 'View the event'
             },
-            ...featuredItems
+            ...featuredItems.filter((item) => item !== conference)
         ];
     }
 

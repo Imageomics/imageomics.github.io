@@ -155,6 +155,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const getFeaturedEventSelection = (items) => {
         const today = getToday();
         const featureCandidates = items.flatMap((item) => item.seriesItems?.length ? item.seriesItems : [item]);
+        const conference = featureCandidates.find((item) =>
+            item.url === 'events/2027-imageomics-conference.html' && !isPastEvent(item));
+        if (conference) {
+            return { item: conference, status: 'Save the Date!' };
+        }
         const timedCandidates = featureCandidates.map((item) => {
             const startDate = parseEventDate(item.startDate);
             const endDate = parseEventDate(item.endDate || item.startDate);
