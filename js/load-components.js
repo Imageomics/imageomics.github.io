@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-    const COMPONENT_CACHE_VERSION = '5';
+    const COMPONENT_CACHE_VERSION = '14';
 
     function getPathPrefix() {
         const path = window.location.pathname;
@@ -89,13 +89,14 @@
     }
 
     function loadComponent(url, targetId) {
-        const cachedHtml = getCachedComponent(url);
+        const versionedUrl = `${url}?v=${COMPONENT_CACHE_VERSION}`;
+        const cachedHtml = getCachedComponent(versionedUrl);
         if (cachedHtml) {
             renderComponent(cachedHtml, targetId);
             return;
         }
 
-        fetch(url, { cache: 'force-cache' })
+        fetch(versionedUrl, { cache: 'no-cache' })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Failed to load ${url}: ${response.status}`);
@@ -103,11 +104,20 @@
                 return response.text();
             })
             .then((html) => {
-                cacheComponent(url, html);
+                cacheComponent(versionedUrl, html);
                 renderComponent(html, targetId);
             })
             .catch((error) => {
                 console.error(`Error loading component from ${url}:`, error);
+                const target = document.getElementById(targetId);
+                const label = targetId === 'header-placeholder' ? 'Site navigation' : 'Footer';
+                window.ImageomicsStates?.render(
+                    target,
+                    'error',
+                    `${label} is temporarily unavailable.`,
+                    { className: 'component-load-state' }
+                );
+                target?.classList.add('is-ready');
             });
     }
 

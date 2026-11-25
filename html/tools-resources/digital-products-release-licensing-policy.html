@@ -3,14 +3,87 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Products Release and Licensing Policy | Imageomics Institute</title>
+    <title>Imageomics Digital Products Release and Licensing Policy | Imageomics Institute</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <script src="../../js/script.js" defer></script>
     <script src="../../js/load-components.js" defer></script>
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <main></main>
+    <main class="page-shell policy-page">
+        <section class="policy-hero">
+            <h1>Imageomics Digital Products Release and Licensing Policy</h1>
+        </section>
+
+        <section class="policy-content" aria-label="Imageomics Digital Products Release and Licensing Policy">
+            <p>To further the goals and motivations of the NSF grant supporting the Imageomics Institute, and to fulfill the requirements from the Data Management Plan (DMP) associated with the grant, all data, model, and code products generated or augmented under the auspices and support of the Institute should adhere to <a href="https://www.go-fair.org/fair-principles/">FAIR principles</a>. Datasets that include Indigenous data should also adhere to <a href="https://www.gida-global.org/care">CARE principles</a>.</p>
+
+            <p>This means the following policy applies for digital products of the Imageomics Institute:</p>
+
+            <ol>
+                <li>
+                    <p>All digital products (code, data, models, documentation, tutorials, etc) are to be released such that they are accessible to the public, at the latest by the time of associated paper publication, under an <a href="https://en.wikipedia.org/wiki/Free_content">Open Content</a> license or terms of use.</p>
+
+                    <ul>
+                        <li>Educational materials are outside of the scope of this policy, but are encouraged to follow these guidelines nonetheless.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Code is to be released under an <a href="https://opensource.org/licenses/">OSI-approved open source license</a>, or to the public domain (for example, by applying a <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC-Zero</a> waiver).</p>
+
+                    <ul>
+                        <li>
+                            <p>This should be in a well-documented GitHub repository that follows the format specified in the <a href="https://imageomics.github.io/Imageomics-guide/wiki-guide/GitHub-Repo-Guide/">Institute GitHub Repo Guide</a>.&nbsp;</p>
+                        </li>
+                        <li>If associated with a publication, code should be versioned with a release linked to a DOI that can be referenced in the publication.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Data, documents, tutorials, etc are to be released either to the public domain (for example, by applying a <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC-Zero</a> waiver), or under terms no more restrictive than requiring attribution (such as <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>).</p>
+
+                    <ul>
+                        <li>
+                            <p>For image and video datasets, this only applies to items that are not already licensed by (and thus used under license from) a third party.</p>
+                        </li>
+                        <li>
+                            <p>For datasets that include Indigenous data, see <a href="https://doi.org/10.5334/dsj-2020-043">Carroll <em>et al</em> (2020)</a> and <a href="https://doi.org/10.1038/s41597-021-00892-0">Carroll <em>et al</em> (2021)</a> for reconciling FAIR and CARE principles for scientific data.</p>
+                        </li>
+                        <li>
+                            <p>Datasets collected in whole or in part from regions that harbor Indigenous researchers are to at least adhere to the Collective Benefit principle (the <em>C</em> in CARE), even if they have been expressly released from or are otherwise entirely unencumbered by Indigenous rights. Specifically, at a minimum they are to be made available to respective Indigenous researchers with the least obstacles possible.</p>
+                        </li>
+                        <li>
+                            <p>For ML-ready datasets, for storage, version control, and sharing we recommend using <a href="https://huggingface.co/docs/hub/datasets-overview">Hugging Face Dataset Hub</a>, which provides for rich metadata description in the form of a <a href="https://imageomics.github.io/Imageomics-guide/wiki-guide/HF_DatasetCard_Template_mkdocs/">Dataset Card</a>. (See <a href="https://huggingface.co/imageomics">Imageomics datasets</a> published there as examples.)</p>
+                        </li>
+                        <li>
+                            <p>Refer to the Imageomics <a href="https://imageomics.github.io/Imageomics-guide/wiki-guide/Hugging-Face-Repo-Guide/">Hugging Face</a> and <a href="https://imageomics.github.io/Imageomics-guide/wiki-guide/Metadata-Guide/">Metadata</a> guides for best-practices and further guidance.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>ML models are to be released under an <a href="https://opensource.org/licenses/">OSI-approved open source license</a> or to the public domain (for example, by applying a <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC-Zero</a> waiver). In the case of potentially sensitive models or data (e.g., endangered species information), an Open <a href="https://www.licenses.ai/ai-licenses">Responsible AI License</a> (<a href="https://www.licenses.ai/blog/2022/8/18/naming-convention-of-responsible-ai-licenses">Open RAIL-M</a>) may be considered.</p>
+
+                    <ul>
+                        <li>
+                            <p>For further guidance, consider the chapter on <a href="https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-ml.html">Machine Learning Model Licenses</a> from The Turing Way.</p>
+                        </li>
+                        <li>
+                            <p>For storage, version control, sharing, and publishing (including DOI provision), we recommend using <a href="https://huggingface.co/docs/hub/models">Hugging Face Model Hub</a>, which provides for rich metadata description in the form of a <a href="https://imageomics.github.io/Imageomics-guide/wiki-guide/HF_ModelCard_Template_mkdocs/">Model Card</a>. (See <a href="https://huggingface.co/imageomics">Imageomics models</a> published there as examples.)</p>
+                        </li>
+                        <li>
+                            <p>Refer to the <a href="https://imageomics.github.io/Imageomics-guide/wiki-guide/Hugging-Face-Repo-Guide/">Imageomics Hugging Face Guide</a> for best-practices and further guidance.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>All code, data, and models published on the Imageomics Organization (<a href="https://github.com/Imageomics">GitHub</a> or <a href="https://huggingface.co/imageomics">Hugging Face</a>) must be reviewed and approved by the Senior Data Scientist or Institute leadership prior to <a href="https://imageomics.github.io/Imageomics-guide/wiki-guide/DOI-Generation/">DOI generation</a>.</p>
+
+                    <ul>
+                        <li>Further guidance and resources to best adhere to Institute standards can be found in the <a href="https://imageomics.github.io/Imageomics-guide/">Imageomics Guide</a>.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+    </main>
     <div id="footer-placeholder"></div>
 </body>
 </html>

@@ -35,7 +35,9 @@
             <p class="news-results-count" id="news-results-count" aria-live="polite"></p>
         </section>
         <section class="stub-page news-list-section" aria-label="News list">
-            <div class="news-grid" id="news-list"></div>
+            <div class="news-grid" id="news-list" aria-busy="true">
+                <p class="content-state content-state--loading" role="status" aria-live="polite">Loading news…</p>
+            </div>
             <nav class="news-pagination news-pagination-bottom-previous news-pagination-previous" id="news-pagination" aria-label="News pages"></nav>
         </section>
     </main>
