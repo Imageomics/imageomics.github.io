@@ -1696,24 +1696,6 @@ a {
         margin-top: 0.35rem;
     }
 
-    .person-card.is-expanded {
-        grid-column: 1 / -1;
-        grid-template-columns: minmax(7.5rem, 10rem) minmax(0, 1fr);
-        gap: 1rem;
-    }
-
-    .person-card.is-expanded .person-image-wrap {
-        grid-row: 1;
-    }
-
-    .person-card.is-expanded .person-details {
-        align-self: center;
-    }
-
-    .person-card.is-expanded .person-card-toggle {
-        grid-column: 1 / -1;
-    }
-
     .person-card-toggle {
         display: inline-flex;
         width: 100%;
