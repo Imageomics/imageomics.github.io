@@ -451,18 +451,31 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const setMenuOpen = (isOpen) => {
+            if (isOpen && header) {
+                header.style.setProperty('--open-header-height', `${header.getBoundingClientRect().height}px`);
+            }
+            document.body.classList.toggle('menu-open', isOpen);
             if (isOpen) {
-                updateMenuPosition();
                 lockPageScroll();
+                updateMenuPosition();
             } else {
                 unlockPageScroll();
+                header?.style.removeProperty('--open-header-height');
             }
             setPageContentInert(isOpen);
             hamburger.classList.toggle('active', isOpen);
             navMenu.classList.toggle('active', isOpen);
-            document.body.classList.toggle('menu-open', isOpen);
             hamburger.setAttribute('aria-expanded', String(isOpen));
             hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            if (isOpen) {
+                navMenu.scrollTop = 0;
+                hamburger.focus({ preventScroll: true });
+            } else {
+                navMenu.querySelectorAll('.dropdown.active').forEach((dropdown) => {
+                    dropdown.classList.remove('active');
+                    dropdown.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
+                });
+            }
         };
 
         hamburger.addEventListener('click', function() {
@@ -597,6 +610,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab' && isMobileNav() && navMenu.classList.contains('active') && header) {
+                const controls = Array.from(header.querySelectorAll(
+                    'a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]'
+                )).filter((control) => control.getClientRects().length && !control.closest('[inert]'));
+                const first = controls[0];
+                const last = controls[controls.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last?.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first?.focus();
+                }
+            }
             if (e.key === 'Escape') {
                 const focusedDropdown = document.activeElement?.closest('.dropdown.is-open');
                 closeDesktopDropdowns();

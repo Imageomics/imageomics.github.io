@@ -274,6 +274,12 @@ a {
     padding-top: 0.5rem;
 }
 
+.tutorial-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .policy-content h2 {
     margin: 2.1rem 0 0.35rem;
     font-size: clamp(1.35rem, 3vw, 1.75rem);
@@ -1688,24 +1694,6 @@ a {
 
     .person-affiliation {
         margin-top: 0.35rem;
-    }
-
-    .person-card.is-expanded {
-        grid-column: 1 / -1;
-        grid-template-columns: minmax(7.5rem, 10rem) minmax(0, 1fr);
-        gap: 1rem;
-    }
-
-    .person-card.is-expanded .person-image-wrap {
-        grid-row: 1;
-    }
-
-    .person-card.is-expanded .person-details {
-        align-self: center;
-    }
-
-    .person-card.is-expanded .person-card-toggle {
-        grid-column: 1 / -1;
     }
 
     .person-card-toggle {
