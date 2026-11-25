@@ -66,12 +66,6 @@
         target.innerHTML = adjustPaths(html, prefix);
 
         if (targetId === 'header-placeholder') {
-            const notice = document.createElement('div');
-            notice.className = 'site-notice';
-            notice.setAttribute('role', 'status');
-            notice.innerHTML = '<strong>Work in progress</strong><span aria-hidden="true">&mdash;</span><span>this website is still being built.</span>';
-            target.prepend(notice);
-
             if (typeof window.initHamburger === 'function') {
                 window.initHamburger();
             }

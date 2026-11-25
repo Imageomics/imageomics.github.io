@@ -109,7 +109,7 @@ body.research-projects-page {
 
 .research-approach {
     position: sticky;
-    top: calc(var(--site-notice-height, 44px) + 82px + 1.5rem);
+    top: calc(82px + 1.5rem);
     margin-top: 0;
     padding: 0;
 }
@@ -230,7 +230,7 @@ body.research-projects-page {
 
 .research-project-tools {
     position: sticky;
-    top: calc(var(--site-notice-height, 44px) + 82px + 1.5rem);
+    top: calc(82px + 1.5rem);
     z-index: 1;
     margin-top: 2rem;
     padding-left: 0;
@@ -256,7 +256,7 @@ body.research-projects-page {
 }
 
 .research-publications-sidebar {
-    max-height: calc(100vh - var(--site-notice-height, 44px) - 82px - 3rem);
+    max-height: calc(100vh - 82px - 3rem);
     overflow-y: auto;
     padding-right: 0.75rem;
 }

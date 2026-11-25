@@ -10,7 +10,6 @@ html {
 }
 
 body {
-    --site-notice-height: 44px;
     --color-lm-primary: #5d8095;
     --color-lm-url: #007f96;
     --color-lm-url-10: #007f961a;
@@ -119,7 +118,7 @@ a {
 }
 
 #header-placeholder {
-    min-height: calc(82px + var(--site-notice-height));
+    min-height: 82px;
     position: sticky;
     top: 0;
     z-index: 1000;
